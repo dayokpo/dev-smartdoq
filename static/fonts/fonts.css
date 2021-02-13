@@ -1,0 +1,13 @@
+@font-face {
+    font-family: "SuperGrotesk Regular";
+    src: url("SuperGroteskPro.otf");
+  }
+
+  @font-face {
+    font-family: "SuperGrotesk Medium";
+    src: url("SuperGroteskPro-Medium.otf");
+  }
+  @font-face {
+    font-family: "Camela Medium";
+    src: url("Camela-Medium.otf");
+  }
