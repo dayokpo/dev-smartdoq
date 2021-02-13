@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./src/pages/index.js"],"names":["IndexPage","props"],"mappings":"2FAAA,2BAOeA,UAJG,SAAAC","file":"component---src-pages-index-js-a465684908984ac20742.js","sourcesContent":["import React from \"react\"\nimport { graphql} from 'gatsby';\n\nconst IndexPage = props => {\n\n}\n\nexport default IndexPage;"],"sourceRoot":""}

@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[2],{QsPR:function(t,n,i){"use strict";i.r(n);i("q1tI"),n.default=function(t){!function(t){t.prismicBlogpost.data.body.filter((function(t){return"PrismicBlogpostBodyWebsitemeta"===t.__typename})).map((function(t){return t.primary}))[0]}(t.data)}}}]);
+//# sourceMappingURL=component---src-pages-dev-404-page-js-dc057edbf3752da833ca.js.map
