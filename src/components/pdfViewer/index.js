@@ -1,4 +1,5 @@
 import React from 'react';
+import useDeviceDetect from "../../utils/useDeviceDetect";
 
 const isMobile = () => {
     const mobileThreshold = 800;
@@ -11,6 +12,8 @@ const isMobile = () => {
     }
 };
 function PdfViewer({ fileURL, closePreview }) {
+    const { isMobile } = useDeviceDetect();
+    console.log(" is mobile ", isMobile);
     isMobile();
     return (
         <>
