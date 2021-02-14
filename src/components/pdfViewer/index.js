@@ -14,6 +14,9 @@ const isMobilePhone = () => {
 function PdfViewer({ fileURL, closePreview }) {
     const { isMobile } = useDeviceDetect();
     console.log(" is mobile from hook ", isMobile);
+    if(isMobile){
+        return <div> not available</div>
+    }
     return (
         <>
             <button type="button" className="overlay-close pdf-viewer-close" onClick={(e) => closePreview()}>
