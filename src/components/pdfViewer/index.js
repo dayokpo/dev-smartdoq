@@ -1,7 +1,7 @@
 import React from 'react';
 import useDeviceDetect from "../../utils/useDeviceDetect";
 
-const isMobile = () => {
+const isMobilePhone = () => {
     const mobileThreshold = 800;
     if (typeof window !== 'undefined') {
         if (window.innerWidth < mobileThreshold) {
@@ -13,8 +13,7 @@ const isMobile = () => {
 };
 function PdfViewer({ fileURL, closePreview }) {
     const { isMobile } = useDeviceDetect();
-    console.log(" is mobile ", isMobile);
-    isMobile();
+    console.log(" is mobile from hook ", isMobile);
     return (
         <>
             <button type="button" className="overlay-close pdf-viewer-close" onClick={(e) => closePreview()}>
