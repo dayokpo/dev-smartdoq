@@ -4,6 +4,12 @@
   }
 
   @font-face {
+    font-family: "SuperGroteskPro";
+    src: url("SuperGroteskPro.otf");
+  }
+
+
+  @font-face {
     font-family: "SuperGrotesk Medium";
     src: url("SuperGroteskPro-Medium.otf");
   }
