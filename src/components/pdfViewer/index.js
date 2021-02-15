@@ -15,7 +15,7 @@ function PdfViewer({ fileURL, closePreview }) {
     const { isMobile } = useDeviceDetect();
     console.log(" is mobile from hook ", isMobile);
     if(isMobile){
-        return <div> not available</div>
+        window.open(fileURL, '_blank')
     }
     return (
         <>
