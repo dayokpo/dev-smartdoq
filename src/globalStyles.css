@@ -360,6 +360,20 @@ a {
   }
 }
 
+.pdfGallery {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 500px;
+  width: 500px;
+  justify-content: space-evenly;
+  align-items: baseline;
+}
+
+.pdfImageBox {
+  width: 150px;
+  height: 150px;
+}
 
 
 /* @media (orientation: portrait) {

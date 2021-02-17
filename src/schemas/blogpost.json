@@ -219,6 +219,14 @@
                   "label" : "pdf_image"
                 }
               },
+              "document_name_1" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label" : "document_name_1",
+                  "placeholder" : "place the name of the document here"
+                }
+              },
               "document_1" : {
                 "type" : "Link",
                 "config" : {
@@ -233,6 +241,14 @@
                   "constraint" : { },
                   "thumbnails" : [ ],
                   "label" : "document_image_1"
+                }
+              },
+              "document_name_2" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label" : "document_name_2",
+                  "placeholder" : "place the name of the document here"
                 }
               },
               "document_2" : {
@@ -251,6 +267,14 @@
                   "label" : "document_image_2"
                 }
               },
+              "document_name_3" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label" : "document_name_3",
+                  "placeholder" : "place the name of the document 3 here"
+                }
+              },
               "document_3" : {
                 "type" : "Link",
                 "config" : {
@@ -265,6 +289,14 @@
                   "constraint" : { },
                   "thumbnails" : [ ],
                   "label" : "document_image_3"
+                }
+              },
+              "document_name_4" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label" : "document_name_4",
+                  "placeholder" : "place the name of the document 4 here"
                 }
               },
               "document_4" : {
@@ -282,6 +314,14 @@
                   "label" : "document_image_4"
                 }
               },
+              "document_name_5" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label" : "document_name_5",
+                  "placeholder" : "place the name of the document 5 here"
+                }
+              },
               "document_5" : {
                 "type" : "Link",
                 "config" : {
@@ -295,6 +335,121 @@
                   "constraint" : { },
                   "thumbnails" : [ ],
                   "label" : "document_image_5"
+                }
+              },
+              "document_name_6" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label" : "document_name_6",
+                  "placeholder" : "place the name of the document 6 here"
+                }
+              },
+              "document_6" : {
+                "type" : "Link",
+                "config" : {
+                  "label" : "document_6",
+                  "placeholder" : "place the document 5 pdf here"
+                }
+              },
+              "document_image_6" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : { },
+                  "thumbnails" : [ ],
+                  "label" : "document_image_6"
+                }
+              },
+              "document_name_7" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label" : "documen_name_7",
+                  "placeholder" : "enter the name of the document 7 this will appear under the image on pdf gallery"
+                }
+              },
+              "document_7" : {
+                "type" : "Link",
+                "config" : {
+                  "label" : "document_7",
+                  "placeholder" : "place the pdf for document 7"
+                }
+              },
+              "document_image_7" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : { },
+                  "thumbnails" : [ ],
+                  "label" : "document_image_7"
+                }
+              },
+              "document_name_8" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label" : "document_name_8",
+                  "placeholder" : "enter the name of the document 8 this will appear under the image on pdf gallery"
+                }
+              },
+              "document_8" : {
+                "type" : "Link",
+                "config" : {
+                  "label" : "document_8",
+                  "placeholder" : "place the pdf for document 8"
+                }
+              },
+              "document_image_8" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : { },
+                  "thumbnails" : [ ],
+                  "label" : "document_image_8"
+                }
+              },
+              "document_name_9" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading6",
+                  "label" : "document_name_9",
+                  "placeholder" : "enter the name of the document 9 this will appear under the image on pdf gallery"
+                }
+              },
+              "document_9" : {
+                "type" : "Link",
+                "config" : {
+                  "label" : "document_9",
+                  "placeholder" : "place the pdf url for the pdf document 9"
+                }
+              },
+              "document_image_9" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : { },
+                  "thumbnails" : [ ],
+                  "label" : "document_image_9"
+                }
+              },
+              "document_name_10" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading6",
+                  "label" : "document_name_10",
+                  "placeholder" : "enter the name of the document 10 this will appear under the image on pdf gallery"
+                }
+              },
+              "document_10" : {
+                "type" : "Link",
+                "config" : {
+                  "label" : "document_10",
+                  "placeholder" : "document 10 pdf here"
+                }
+              },
+              "document_image_10" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : { },
+                  "thumbnails" : [ ],
+                  "label" : "document_image_10"
                 }
               }
             },

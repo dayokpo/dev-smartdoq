@@ -40,7 +40,7 @@ export const getPDFDocuments = data => {
   var result = []
   documents &&
     Object.keys(documents).map(k => {
-      if (documents[k]  && documents[k].url.indexOf('.pdf') > 0) {
+      if (documents[k]  && documents[k].url && documents[k].url.indexOf('.pdf') > 0) {
         result.push(documents[k])
       }
     })

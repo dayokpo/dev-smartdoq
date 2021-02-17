@@ -18,6 +18,7 @@ import Metadata from '../components/metadata';
 import LeftMenu from '../components/menu/leftMenu';
 import RightMenu from '../components/menu/rightMenu';
 import LogoDesc from '../components/LogoDesc';
+import PDFGallery from '../components/pdfGallery';
 import '../globalStyles.css';
 import '../portret.css';
 import '../socialIcons.css';
@@ -137,7 +138,9 @@ export default function Home(props) {
         <ThreeDOverlay data={videoMapSlice} removeOverlay={() => setThreeDOverlay(!openthreeDOverlay)} />
       )}
       {openVideOverlay && <VideoOverlay data={videoMapSlice} removeOverlay={() => setVideoOverlay(!openVideOverlay)} />}
-      {openPdfOverlay && <PdfCarousel pdfSlice={pdfSlice} documents={pdfDocuments} removeOverlay={() => setPdfOverlay(!openPdfOverlay)} />}
+      {openPdfOverlay && <PDFGallery documents={pdfDocuments} pdfSlice={pdfSlice} removeOverlay={() => setPdfOverlay(!openPdfOverlay)} />} 
+
+      {/* {openPdfOverlay && <PdfCarousel pdfSlice={pdfSlice} documents={pdfDocuments} removeOverlay={() => setPdfOverlay(!openPdfOverlay)} />} */}
     </Layout>
     </>
   )
@@ -179,6 +182,36 @@ export const pageQuery = graphql` query($uid: String){
               pdf_image{
                 url
               }
+              document_name_1{
+                text
+              }
+              document_name_2 {
+                text
+              }
+              document_name_3 {
+                text
+              }
+              document_name_4 {
+                text
+              }
+              document_name_5 {
+                text
+              }
+              document_name_6 {
+                text
+              }
+              document_name_7{
+                text
+              }
+              document_name_8 {
+                text
+              }
+              document_name_9 {
+                text
+              }
+              document_name_10 {
+                text
+              }
               document_1{
                 url
               }
@@ -188,6 +221,27 @@ export const pageQuery = graphql` query($uid: String){
               document_3 {
                 url
               }
+              document_4{
+                url
+              }
+              document_5 {
+                url
+              }
+              document_6 {
+                url
+              }
+              document_7{
+                url
+              }
+              document_8 {
+                url
+              }
+              document_9 {
+                url
+              }
+              document_10 {
+                url
+              }
               document_image_1{
                 url
               }
@@ -195,6 +249,27 @@ export const pageQuery = graphql` query($uid: String){
                 url
               }
               document_image_3{
+                url
+              }
+              document_image_4{
+                url
+              }
+              document_image_5{
+                url
+              }
+              document_image_6{
+                url
+              }
+              document_image_7{
+                url
+              }
+              document_image_8{
+                url
+              }
+              document_image_9{
+                url
+              }
+              document_image_10{
                 url
               }
             }
