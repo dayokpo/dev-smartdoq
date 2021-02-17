@@ -350,6 +350,8 @@ canvas.react-pdf__Page__canvas {
   font-size: 0;
   margin: auto !important;
   height: 20vh;
+  position: relative;
+  width: 50%;
 }
 
 .controls button:before {
@@ -365,6 +367,8 @@ canvas.react-pdf__Page__canvas {
   margin: auto;
   display: table-cell;
   vertical-align: middle;
+  position: absolute;
+  top: 15px;
 }
 
 .controls button:first-child:before {
@@ -373,6 +377,7 @@ canvas.react-pdf__Page__canvas {
   -ms-transform:rotate(90deg);
   -o-transform:rotate(90deg);
   transform:rotate(90deg);
+  right: 25%;
 }
 
 .controls button:last-child:before {
@@ -381,6 +386,7 @@ canvas.react-pdf__Page__canvas {
   -ms-transform:rotate(-90deg);
   -o-transform:rotate(-90deg);
   transform:rotate(-90deg);
+  left: 25%;
 }
 
 @media screen  and (max-width: 800px) and (orientation : portrait){
