@@ -35,17 +35,21 @@ function PDFGallery({ pdfSlice, documents, removeOverlay }) {
                             if (pdfSlice[`${docImage}`] !== undefined) {
                                 return (
                                     <>
-                                    <img
-                                        key={index}
-                                        onClick={(e) => {
-                                            setActivePdfUrl(documents[index].url);
-                                            setOpenPDFViewer(true);
-                                            setOpen(false);
-                                        }}
-                                        className="pdfImageBox"
-                                        src={pdfSlice[`${docImage}`]['url']}
-                                    />
-                                     <p className="pdfName">{nametoDisplay}</p>
+                                    <div className="pdfGalleryLists">
+                                        <div className="pdfGalleryThumb">
+                                            <img
+                                                key={index}
+                                                onClick={(e) => {
+                                                    setActivePdfUrl(documents[index].url);
+                                                    setOpenPDFViewer(true);
+                                                    setOpen(false);
+                                                }}
+                                                className="pdfImageBox"
+                                                src={pdfSlice[`${docImage}`]['url']}
+                                            />
+                                        </div>
+                                        <p className="pdfName">{nametoDisplay}</p>
+                                     </div>
                                     </>
                                 );
                             }
