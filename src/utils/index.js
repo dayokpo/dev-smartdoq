@@ -3,6 +3,7 @@ const pdfBodyName = 'PrismicBlogpostBodyPdfslice'
 const socialSliceName = 'PrismicBlogpostBodySocial'
 const menuSliceName = 'PrismicBlogpostBodyMenu'
 const websiteMeta = 'PrismicBlogpostBodyWebsitemeta'
+const sliderData = 'PrismicBlogpostBodySlider'
 
 export const getWebsiteHeaderData = data => {
   const websiteData = data.prismicBlogpost.data
@@ -19,6 +20,14 @@ export const getWebsiteHeaderData = data => {
     footerLink: websiteData.footer_image_url?websiteData.footer_image_url.url:'none'
   }
 }
+
+
+export const getSliderData = data => {
+  return data.prismicBlogpost.data.body
+    .filter(item => item['__typename'] === sliderData)
+    .map(i => i.items)[0]
+}
+
 
 export const getVideoMapSlice = data => {
   return data.prismicBlogpost.data.body

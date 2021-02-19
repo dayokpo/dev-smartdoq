@@ -94,7 +94,8 @@
           "sociallogos" : [ ],
           "websitemeta" : [ ],
           "sharelogos" : [ ],
-          "se" : [ ]
+          "se" : [ ],
+          "slider" : [ ]
         },
         "choices" : {
           "video-map-slice" : {
@@ -364,7 +365,7 @@
                 "type" : "StructuredText",
                 "config" : {
                   "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
-                  "label" : "documen_name_7",
+                  "label" : "document_name_7",
                   "placeholder" : "enter the name of the document 7 this will appear under the image on pdf gallery"
                 }
               },
@@ -712,6 +713,37 @@
               }
             },
             "repeat" : { }
+          },
+          "slider" : {
+            "type" : "Slice",
+            "fieldset" : "Slider",
+            "description" : "The main slider for the component",
+            "icon" : "image",
+            "display" : "list",
+            "non-repeat" : { },
+            "repeat" : {
+              "slide_image" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : { },
+                  "thumbnails" : [ ],
+                  "label" : "Slide Image"
+                }
+              },
+              "slide_caption" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Slide caption"
+                }
+              },
+              "slide_description" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph",
+                  "label" : "Slide description"
+                }
+              }
+            }
           }
         }
       }
