@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import useDeviceDetect from '../../utils/useDeviceDetect';
 import { Document, Page } from 'react-pdf/dist/entry.webpack';
+import * as Icon from 'react-feather';
 function PdfViewer({ fileURL, closePreview }) {
     const { isMobile } = useDeviceDetect();
     const [numPages, setNumPages] = useState(null);
@@ -39,17 +40,15 @@ function PdfViewer({ fileURL, closePreview }) {
                         <Page pageNumber={pageNumber} />
                     </Document>
                     <div className="controls">
-                        <button
+                        <Icon.ArrowLeftCircle
                             type="button"
                             style={{ marginRight: '15px' }}
                             disabled={pageNumber <= 1}
                             onClick={previousPage}
-                        >
-                            Previous
-                        </button>
-                        <button type="button" disabled={pageNumber >= numPages} onClick={nextPage}>
-                            Next
-                        </button>
+                        />
+                        <Icon.ArrowRightCircle
+                            type="button" disabled={pageNumber >= numPages} onClick={nextPage}
+                        />
                     </div>
                 </div>
             </>
