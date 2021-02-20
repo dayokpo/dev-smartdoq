@@ -7,29 +7,61 @@ export const SliderWrapper = styled.div`
  // padding: 25px 0;
  background: black;
  position: relative;
+ width: 100%;
+ max-width: 90%;
 
  ${(props) =>
     props.separator &&
     `
     .slick-slide.slick-current,
     .slick-slide.slick-current + .slick-slide {
-      border-right: 2px solid #FFF;
+      // border-right: 2px solid #FFF;
     }
   `}
 
   .slick-slider {
-  position: absolute;
-  width: 500px;
+  width: 100%;
   height: 500px;
-  background-color: white;
+  overflow: auto;
 }
+
   .slick-slide {
+    float: left;
+    min-height: 1px;
+    width: 20% !important;
+    overflow: hidden;
+    position: relative;
+    border: 5px solid transparent;
     // padding: 5px;
     /*For box shadow */
   }
   .slick-list {
     transition: height 0.5s;
   }
+  .slick-slider .slick-list .slick-slide div {
+    width: 100%;
+    padding-top: 56.25%;
+}
+  
+.slick-track {
+  position: relative;
+  top: 0;
+  left: 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100% !important;
+  transform: none !important;
+}
+
+  .slick-slide img {
+    width: 100% !important;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    position: absolute;
+  }
+
  .slick-prev,
   .slick-next {
     position: absolute;
@@ -39,6 +71,7 @@ export const SliderWrapper = styled.div`
     height: 3px;
     width: 30px;
     z-index: 10;
+    display: none !important;
   }
 
   .slick-prev {
@@ -77,6 +110,7 @@ export const SliderWrapper = styled.div`
     transform: skew(0deg, -35deg);
   }
   .slick-dots {
+    display: none !important;
     position: initial;
     display: flex;
     justify-content: center;

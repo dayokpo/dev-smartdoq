@@ -344,6 +344,15 @@ canvas.react-pdf__Page__canvas {
   display: table;
 }
 
+.controls svg {
+  margin: 1rem 2.5rem !important;
+  background-color: rgba(0,0,0,0.5);
+  width: 50px;
+  height: 50px;
+  font-size: 35px;
+  transition: all .3s;
+}
+
 .controls button {
   background-color: transparent;
   border: 0;
@@ -411,12 +420,12 @@ canvas.react-pdf__Page__canvas {
 
 .pdfGalleryThumb {
   padding: 10px;
-  max-width: 90%;
-  height: 100%;
-  max-height: 20vh;
-  width: 100%;
+  max-width: 100%;
+  max-height: 25vh;
   position: relative;
   overflow: hidden;
+  width: 100%;
+  padding-top: 56.25%;
 }
 
 .pdfImageBox {
@@ -484,16 +493,7 @@ p.pdfName {
     height: 20%;
     margin-bottom: 10px;
   }
-
-  .pdfGalleryThumb {
-    padding: 10px;
-    max-width: 100%;
-    height: 84px;
-    max-height: 25vh;
-    width: 150px;
-    position: relative;
-    overflow: hidden;
-  }
+  
   .pdfImageBox {
     width: 100%;
     height: 100%;
@@ -501,10 +501,18 @@ p.pdfName {
     right: 50%;
     transform: translate(50%, -50%);
     position: absolute;
+    max-inline-size: fit-content;
   }
   p.pdfName {
     margin-top: 11px;
     width: 150px;
+  }
+
+  .slick-slider {
+    height: 80vh !important; 
+  }
+  .slick-slider .slick-list .slick-slide {
+    width: 33% !important;
   }
 }
 
@@ -541,6 +549,12 @@ p.pdfName {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+  }
+  .slick-slider {
+    height: 80vh !important; 
+  }
+  .slick-slider .slick-list .slick-slide {
+    width: 25% !important;
   }
 }
 
