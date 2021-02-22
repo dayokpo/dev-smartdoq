@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
 import Layout from '../components/layout/';
@@ -19,6 +19,7 @@ import RightMenu from '../components/menu/rightMenu';
 import LogoDesc from '../components/LogoDesc';
 import PDFGallery from '../components/pdfGallery';
 import Gallery from '../components/Gallery';
+import VideoGallery from '../components/VideoGallery';
 import '../globalStyles.css';
 import '../portret.css';
 import '../socialIcons.css';
@@ -35,7 +36,8 @@ import {
     getWebsiteMeta,
     showRightMenu,
     menuStyle,
-    getSliderData
+    getSliderData,
+    getVideoSliderData
 } from '../utils/index';
 const FooterLine = styled.img`
     left: 5%;
@@ -53,6 +55,7 @@ const FooterLine = styled.img`
 export default function Home(props) {
     const { data } = props;
     const brochureImages = getSliderData(data);
+    const videoSliderData =  getVideoSliderData(data);
     const websiteHeaderData = getWebsiteHeaderData(data);
     const pdfSlice = getPDFSlice(data);
     const pdfDocuments = getPDFDocuments(data);
@@ -61,21 +64,18 @@ export default function Home(props) {
     const menuData = getMenuData(data);
     const websiteMeta = getWebsiteMeta(data);
 
-    const [open, setOpen] = React.useState(false);
-    const [openVideOverlay, setVideoOverlay] = React.useState(false);
-    const [openthreeDOverlay, setThreeDOverlay] = React.useState(false);
-    const [showEmptyOverlay, setShowEmptyOverlay] = React.useState(false);
-    const [openPdfOverlay, setPdfOverlay] = React.useState(false);
-    const [openDegreeOverlay, setOpenDegreeOverlay] = React.useState(false);
-    
-    
+    const [open, setOpen] = useState(false);
+    const [openVideOverlay, setVideoOverlay] = useState(false);
+    const [openthreeDOverlay, setThreeDOverlay] = useState(false);
+    const [showEmptyOverlay, setShowEmptyOverlay] = useState(false);
+    const [openPdfOverlay, setPdfOverlay] = useState(false);
+    const [openDegreeOverlay, setOpenDegreeOverlay] = useState(false);
+
     return (
         <>
             <Layout>
                 <Metadata websiteMeta={websiteMeta} uid={data.prismicBlogpost.uid} />
                 <Wrapper bgurl={websiteHeaderData.backgroundImage}>
-
-             
                     {!open && (
                         <LeftMenu
                             src={menuData.menu_left_icon.url}
@@ -115,7 +115,6 @@ export default function Home(props) {
                             className="img-fluid box"
                             onClick={() => setVideoOverlay(!openVideOverlay)}
                         />
-                        {/* 360 degree which is not embed html*/}
                         <Degree
                             src={videoMapSlice.three_sixty_degree_image.url}
                             type="image"
@@ -144,7 +143,6 @@ export default function Home(props) {
                     />
                 )}
                 {open && <OverlayModel removeOverlay={() => setOpen(!open)} socialURLs={socialURLs} />}
-
                 {showEmptyOverlay && (
                     <EmptyOverlayModel
                         menuData={menuData}
@@ -156,7 +154,7 @@ export default function Home(props) {
                     <ThreeDOverlay data={videoMapSlice} removeOverlay={() => setThreeDOverlay(!openthreeDOverlay)} />
                 )}
                 {openVideOverlay && (
-                    <VideoOverlay data={videoMapSlice} removeOverlay={() => setVideoOverlay(!openVideOverlay)} />
+                    <VideoGallery videoData= {videoSliderData} data={videoMapSlice} removeOverlay={() => setVideoOverlay(!openVideOverlay)} />
                 )}
                 {openPdfOverlay && (
                     <PDFGallery
@@ -165,7 +163,6 @@ export default function Home(props) {
                         removeOverlay={() => setPdfOverlay(!openPdfOverlay)}
                     />
                 )}
-
                 {/* {openPdfOverlay && <PdfCarousel pdfSlice={pdfSlice} documents={pdfDocuments} removeOverlay={() => setPdfOverlay(!openPdfOverlay)} />} */}
             </Layout>
         </>
@@ -456,6 +453,19 @@ export const pageQuery = graphql`
                                 raw
                             }
                             slide_caption
+                            __typename
+                        }
+                    }
+                    ... on PrismicBlogpostBodyVideo {
+                        slice_type
+                        items {
+                            video {
+                                embed_url
+                                html
+                            }
+                            video_title {
+                                text
+                            }
                             __typename
                         }
                     }

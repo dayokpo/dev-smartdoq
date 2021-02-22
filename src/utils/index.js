@@ -4,6 +4,7 @@ const socialSliceName = 'PrismicBlogpostBodySocial'
 const menuSliceName = 'PrismicBlogpostBodyMenu'
 const websiteMeta = 'PrismicBlogpostBodyWebsitemeta'
 const sliderData = 'PrismicBlogpostBodySlider'
+const videoSliderData = 'PrismicBlogpostBodyVideo'
 
 export const getWebsiteHeaderData = data => {
   const websiteData = data.prismicBlogpost.data
@@ -25,6 +26,12 @@ export const getWebsiteHeaderData = data => {
 export const getSliderData = data => {
   return data.prismicBlogpost.data.body
     .filter(item => item['__typename'] === sliderData)
+    .map(i => i.items)[0]
+}
+
+export const getVideoSliderData = data => {
+  return data.prismicBlogpost.data.body
+    .filter(item => item['__typename'] === videoSliderData)
     .map(i => i.items)[0]
 }
 

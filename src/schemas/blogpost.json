@@ -95,7 +95,9 @@
           "websitemeta" : [ ],
           "sharelogos" : [ ],
           "se" : [ ],
-          "slider" : [ ]
+          "slider" : [ ],
+          "videogallery" : [ ],
+          "video" : [ ]
         },
         "choices" : {
           "video-map-slice" : {
@@ -741,6 +743,31 @@
                 "config" : {
                   "multi" : "paragraph",
                   "label" : "Slide description"
+                }
+              }
+            }
+          },
+          "video" : {
+            "type" : "Slice",
+            "fieldset" : "Video",
+            "description" : "video slice for video gallery",
+            "icon" : "video_call",
+            "display" : "list",
+            "non-repeat" : { },
+            "repeat" : {
+              "video_title" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph",
+                  "label" : "video_title",
+                  "placeholder" : "video title to display"
+                }
+              },
+              "video" : {
+                "type" : "Embed",
+                "config" : {
+                  "label" : "video",
+                  "placeholder" : "place the embed video url for any source"
                 }
               }
             }

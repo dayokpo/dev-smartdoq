@@ -558,6 +558,11 @@ p.pdfName {
   }
 }
 
+.videoIframe {
+  background-color: blue;
+  display: flex;
+  width: 50%;
+}
 
 
 
