@@ -29,18 +29,18 @@ function VideoGallery({ videoData, data, removeOverlay }) {
                 />
             )}
             {open && (
-                <div className="pdfGallery">
+                <div className="videoGallery">
                     <>
-                        <div className="pdfGalleryLists">
                             {videoData.map((item, index) => {
                                 console.log(" item ", item , index)
                                 return (
-                                    <div className="pdfGalleryThumb">
-                                    <div className= "videoIframe" dangerouslySetInnerHTML={{ __html: item.video.html }} />
+                                    <div className="videoGalleryLists">
+                                        <div className="videoGalleryThumb">
+                                            <div className= "videoIframe" dangerouslySetInnerHTML={{ __html: item.video.html }} />
+                                        </div>
                                     </div>
                                 );
                             })}
-                        </div>
                     </>
                 </div>
             )}

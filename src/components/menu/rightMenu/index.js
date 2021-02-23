@@ -7,7 +7,7 @@ const RightMenu = styled.input`
     position: absolute;
     outline: none;
 
-    @media screen and (max-width: 800px) and (orientation: portrait) {
+    @media screen and (max-width: 1024px) and (orientation: portrait) {
       width: 10%;
     }
     @media screen and (max-width: 1024px) and (orientation: landscape) {

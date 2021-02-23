@@ -346,7 +346,8 @@ canvas.react-pdf__Page__canvas {
 
 .controls svg {
   margin: 1rem 2.5rem !important;
-  background-color: rgba(0,0,0,0.5);
+  background-color: transparent;
+  background: transparent;
   width: 50px;
   height: 50px;
   font-size: 35px;
@@ -354,6 +355,7 @@ canvas.react-pdf__Page__canvas {
 }
 
 .controls button {
+  background: transparent;
   background-color: transparent;
   border: 0;
   font-size: 0;
@@ -409,7 +411,7 @@ canvas.react-pdf__Page__canvas {
 }
 
 .pdfGalleryLists {
-  width: 20%;
+  width: 19%;
   height: 50%;
   display: flex;
   text-align: center;
@@ -441,7 +443,40 @@ p.pdfName {
   margin-top: 11px;
 }
 
-@media screen  and (max-width: 800px) and (orientation : portrait){
+.videoGallery {
+  display: flex;
+  flex-wrap: wrap;
+  height: 80vh;
+  width: 90%;
+  max-width: 90%;
+  justify-content: space-evenly;
+  align-items: center;
+  overflow: auto;
+}
+
+.videoGalleryLists {
+  width: 50%;
+  height: 50%;
+  justify-content: center;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.videoGalleryThumb {
+  width: 100%;
+}
+
+.videoGalleryThumb .videoIframe {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen  and (max-width: 1024px) and (orientation : portrait){
   .flex-item {
     flex-wrap: wrap;
   }
@@ -514,6 +549,37 @@ p.pdfName {
   .slick-slider .slick-list .slick-slide {
     width: 50% !important;
   }
+
+  .videoGallery {
+    display: flex;
+    flex-wrap: wrap;
+    height: auto;
+    width: 100%;
+    max-width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    overflow: auto;
+    margin-top: 50px;
+    max-height: 90vh;
+  }
+
+  .videoGalleryLists {
+    width: 100%;
+    height: 20%;
+    margin-bottom: 10px;
+  }
+  .videoGalleryThumb .videoIframe {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    max-width: 100%;
+  }
+  .videoGalleryThumb .videoIframe iframe {
+    max-width: 98%;
+  }
 }
 
 @media screen and (max-width: 1024px) and (orientation: landscape) {
@@ -542,7 +608,7 @@ p.pdfName {
     overflow: auto;
   }
   .pdfGalleryLists {
-    width: 30%;
+    width: 32%;
     height: 50%;
     display: flex;
     text-align: center;
@@ -556,13 +622,40 @@ p.pdfName {
   .slick-slider .slick-list .slick-slide {
     width: 25% !important;
   }
+
+  .videoGallery {
+    display: flex;
+    flex-wrap: wrap;
+    height: auto;
+    width: 100%;
+    max-width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    overflow: auto;
+    margin-top: 50px;
+    max-height: 90vh;
+  }
+
+  .videoGalleryLists {
+    width: 100%;
+    height: 20%;
+    margin-bottom: 10px;
+  }
+
+  .videoGalleryThumb .videoIframe {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    max-width: 100%;
+  }
+  .videoGalleryThumb .videoIframe iframe {
+    max-width: 98%;
+  }
 }
 
-.videoIframe {
-  background-color: blue;
-  display: flex;
-  width: 50%;
-}
 
 
 
