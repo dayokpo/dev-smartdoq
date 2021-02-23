@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
 import Layout from '../components/layout/';
@@ -10,7 +10,6 @@ import PrismicLogo from '../components/PrismicLogo';
 import OverlayModel from '../components/overlayModel';
 import VideoOverlay from '../components/videoOverlay';
 import ThreeDOverlay from '../components/threeDOverlay';
-import PdfCarousel from '../components/pdfCarousel';
 import Wrapper from '../components/wrapper';
 import DegreeOverlay from '../components/DegreeOverlay';
 import EmptyOverlayModel from '../components/emptyOverlayModel';
@@ -19,6 +18,7 @@ import LeftMenu from '../components/menu/leftMenu';
 import RightMenu from '../components/menu/rightMenu';
 import LogoDesc from '../components/LogoDesc';
 import PDFGallery from '../components/pdfGallery';
+import Gallery from '../components/Gallery';
 import '../globalStyles.css';
 import '../portret.css';
 import '../socialIcons.css';
@@ -52,8 +52,7 @@ const FooterLine = styled.img`
 
 export default function Home(props) {
     const { data } = props;
-    //const brochure = data.prismic.brochure.edges.slice(0, 1).pop();
-    console.log( " broce ", getSliderData(data));
+    const brochureImages = getSliderData(data);
     const websiteHeaderData = getWebsiteHeaderData(data);
     const pdfSlice = getPDFSlice(data);
     const pdfDocuments = getPDFDocuments(data);
@@ -68,11 +67,15 @@ export default function Home(props) {
     const [showEmptyOverlay, setShowEmptyOverlay] = React.useState(false);
     const [openPdfOverlay, setPdfOverlay] = React.useState(false);
     const [openDegreeOverlay, setOpenDegreeOverlay] = React.useState(false);
+    
+    
     return (
         <>
             <Layout>
                 <Metadata websiteMeta={websiteMeta} uid={data.prismicBlogpost.uid} />
                 <Wrapper bgurl={websiteHeaderData.backgroundImage}>
+
+             
                     {!open && (
                         <LeftMenu
                             src={menuData.menu_left_icon.url}
@@ -132,10 +135,11 @@ export default function Home(props) {
                 </Wrapper>
 
                 {openDegreeOverlay && (
-                    <DegreeOverlay
+                    <Gallery
                         removeOverlay={() => {
                             setOpenDegreeOverlay(!openDegreeOverlay);
                         }}
+                        brochureImages={brochureImages}
                         data={videoMapSlice}
                     />
                 )}

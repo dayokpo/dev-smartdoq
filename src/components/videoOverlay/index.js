@@ -11,26 +11,26 @@ function VideoOverlay({ data, removeOverlay }) {
 
     const handleRightClick = async (isEnd) => {
         imageIndex = isEnd ? 1 : imageIndex + 1;
-        if(imageIndex == 1){
+        if(imageIndex === 1){
           setVideoURL(data.video_url.html);
         }
-        if(imageIndex == 2){
+        if(imageIndex === 2){
           setVideoURL(data.video_url_1.html);
         }
-        if(imageIndex == 3){
+        if(imageIndex === 3){
           setVideoURL(data.video_url_2.html);
         }
         await setImageIndex(imageIndex);
     };
     const handleLeftClick = async (isEnd) => {
         imageIndex = isEnd ? noOfDocuments : imageIndex - 1;
-        if(imageIndex == 1){
+        if(imageIndex === 1){
           setVideoURL(data.video_url.html);
         }
-        if(imageIndex == 2){
+        if(imageIndex === 2){
           setVideoURL(data.video_url_1.html);
         }
-        if(imageIndex == 3){
+        if(imageIndex === 3){
           setVideoURL(data.video_url_2.html);
         }
         await setImageIndex(imageIndex);
