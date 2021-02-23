@@ -140,10 +140,11 @@ export const SliderWrapper = styled.div`
   }
 `;
 const ImageSlider = (props) => {
+  
     var settings = {
         infinite: true,
         speed: 500,
-        slidesToShow: 3,
+        slidesToShow: 10,
         slidesToScroll: 1,
         responsive: [
             {

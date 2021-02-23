@@ -36,7 +36,9 @@ const MainImageWrapper = styled.div`
     }
   }
 `;
-const Gallery = ({ brochureImages }) => {
+const Gallery = ({ brochureImages, removeOverlay }) => {
+    const [ showGallery, setShowGallery] = useState(Boolean(brochureImages.length));
+    console.log(" brochureImages ",showGallery)
 
   const slider = useRef();
     const [lightboxController, setLightboxController] = useState({
@@ -45,22 +47,29 @@ const Gallery = ({ brochureImages }) => {
     });
 
     const images = brochureImages.map((item, index) => {
-        console.log(" item ", item.slide_image.url)
         return (
-            <img src={item.slide_image.url}  onClick={() => openLightboxOnSlide(index)}/>
+            <img key={index} src={item.slide_image.url}  onClick={() => openLightboxOnSlide(index)}/>
         );
     });
     function openLightboxOnSlide(number) {
-        console.log(" hi ")
         number++;
         setLightboxController({
             toggler: !lightboxController.toggler,
             slide: number,
         });
     }
-    const imageSourceUrls = brochureImages.map((slide)=>slide.slide_image.url);
+    let imageSourceUrls = undefined;
+    if(showGallery){
+        imageSourceUrls = brochureImages.map((slide)=>slide.slide_image.url);
+    } else{
+        return(<div className="overlay">
+         <button type="button" className="overlay-close" onClick={e => removeOverlay()} />
+         <div> please upload images from prismic to display</div>
+        </div>)
+    }
     return (
         <div className="overlay">
+         <button type="button" className="overlay-close" onClick={e => removeOverlay()} />
         <ImageSlider>
             {images}
         </ImageSlider>
