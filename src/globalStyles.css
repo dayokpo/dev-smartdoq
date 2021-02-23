@@ -512,7 +512,7 @@ p.pdfName {
     height: 80vh !important; 
   }
   .slick-slider .slick-list .slick-slide {
-    width: 33% !important;
+    width: 50% !important;
   }
 }
 
