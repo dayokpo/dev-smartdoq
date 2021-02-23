@@ -6,6 +6,7 @@ export default function useDeviceDetect() {
   React.useEffect(() => {
     const userAgent =
       typeof window.navigator === "undefined" ? "" : navigator.userAgent;
+      console.log("user agent:",userAgent);
     const mobile = Boolean(
       userAgent.match(
         /Android|BlackBerry|iPhone|iPad|iPad Pro|iPod|Opera Mini|IEMobile|WPDesktop/i
