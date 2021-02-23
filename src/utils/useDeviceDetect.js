@@ -2,6 +2,7 @@ import React from "react";
 
 export default function useDeviceDetect() {
   const [isMobile, setMobile] = React.useState(false);
+ 
 
   React.useEffect(() => {
     const userAgent =
@@ -12,7 +13,13 @@ export default function useDeviceDetect() {
         /Android|BlackBerry|iPhone|iPad|iPad Pro|iPod|Opera Mini|IEMobile|WPDesktop/i
       )
     );
-    setMobile(mobile);
+
+    const ipadOS = navigator.maxTouchPoints &&
+    navigator.maxTouchPoints > 2 &&
+    /MacIntel/.test(navigator.platform)
+
+      console.log('test',ipadOS);
+    setMobile(mobile | ipadOS);
   }, []);
 
   return { isMobile };

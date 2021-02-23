@@ -4,7 +4,7 @@ import { Document, Page } from 'react-pdf/dist/entry.webpack';
 import * as Icon from 'react-feather';
 function PdfViewer({ fileURL, closePreview }) {
     const { isMobile } = useDeviceDetect();
-    console.log("is mobile ", isMobile)
+    console.log(" is mobile ", isMobile)
     const [numPages, setNumPages] = useState(null);
     const [pageNumber, setPageNumber] = useState(1);
 
