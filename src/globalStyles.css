@@ -339,13 +339,16 @@ canvas.react-pdf__Page__canvas {
   height: 20vh;
   bottom: 0;
   position: absolute;
-  width: 100%;
+  width: 90%;
   text-align: center;
-  display: table;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 10px;
 }
 
 .controls svg {
-  margin: 1rem 2.5rem !important;
+  margin: 0px !important;
   background-color: transparent;
   background: transparent;
   width: 50px;
