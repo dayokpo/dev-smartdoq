@@ -140,7 +140,7 @@ function OverlayModel({
                     src={instagram_icon.url}
                     alt="insta"
                     onClick={() => {
-                      window.location = instagram_url.url
+                      window.open(instagram_url.url, '_blank')
                     }}
                   />
                 </li>
@@ -149,7 +149,7 @@ function OverlayModel({
                     src={linked_in_icon.url}
                     alt="linked"
                     onClick={() => {
-                      window.location = linkedin_url.url
+                      window.open(linkedin_url.url, '_blank')
                     }}
                   />
                 </li>
@@ -158,7 +158,7 @@ function OverlayModel({
                     src={facebook_icon.url}
                     alt="facebook"
                     onClick={() => {
-                      window.location = facebook_url.url
+                      window.open(facebook_url.url, '_blank')
                     }}
                   />
                 </li>

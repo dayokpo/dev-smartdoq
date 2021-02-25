@@ -104,9 +104,8 @@ module.exports = {
                 // defaults set by Prismic.
                 // See: https://docs.imgix.com/apis/url
                 imageImgixParams: {
-                    auto: 'compress,format',
-                    fit: 'max',
-                    q: 50,
+                    auto: 'compress',
+                    fit: 'crop',
                 },
 
                 // Provide a default set of Imgix image transformations applied to

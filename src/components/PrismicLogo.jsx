@@ -5,7 +5,6 @@ const PrismicLogo = styled.input`
   bottom: 2%;
   position: absolute;
   width: 10%;
-  cursor: default;
   outline: none;
   @media screen and (max-width: 1024px) and (orientation: portrait) {
     width: 15%;
