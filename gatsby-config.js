@@ -6,7 +6,7 @@
 
 module.exports = {
     siteMetadata: {
-        title: 'Gatsby Default Starter',
+        title: 'Smart Doq',
     },
     /* Your site config here */
     plugins: [
@@ -15,7 +15,7 @@ module.exports = {
             resolve: 'gatsby-plugin-web-font-loader',
             options: {
                 custom: {
-                    families: ['SuperGrotesk Regular, SuperGrotesk Medium, sCamela Medium'],
+                    families: ['SuperGrotesk Regular, SuperGrotesk Medium, sCamela Medium, SuperGroteskPro, SuperGrotesk Medium, Canela Medium'],
                     urls: ['/fonts/fonts.css'],
                 },
             },
@@ -27,9 +27,6 @@ module.exports = {
         {
             resolve: 'gatsby-source-prismic',
             options: {
-                // The name of your prismic.io repository. This is required.
-                // Example: 'gatsby-source-prismic-test-site' if your prismic.io address
-                // is 'gatsby-source-prismic-test-site.prismic.io'.
                 repositoryName: 'curtains',
 
                 // An API access token to your prismic.io repository. This is optional.

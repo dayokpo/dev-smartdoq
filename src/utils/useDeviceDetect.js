@@ -18,7 +18,7 @@ export default function useDeviceDetect() {
     navigator.maxTouchPoints > 2 &&
     /MacIntel/.test(navigator.platform)
 
-      console.log('test',ipadOS);
+      console.log('test>>',navigator.maxTouchPoints);
     setMobile(mobile | ipadOS);
   }, []);
 
