@@ -5,7 +5,7 @@ const LeftMenu = styled.input`
   top: 1%;
   position: absolute;
   outline: none;
-  width: 3%;
+  width: 50px;
 
   @media screen and (max-width: 1024px) and (orientation: portrait) {
     width: 10%;

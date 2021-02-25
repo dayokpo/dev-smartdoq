@@ -3,7 +3,7 @@ import styled from "styled-components";
 const RightMenu = styled.input`
     right: 1%;
     top: 1%;
-    width: 3%;
+    width: 50px;
     position: absolute;
     outline: none;
 

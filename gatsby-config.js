@@ -104,8 +104,7 @@ module.exports = {
                 // defaults set by Prismic.
                 // See: https://docs.imgix.com/apis/url
                 imageImgixParams: {
-                    auto: 'compress',
-                    fit: 'crop',
+                    
                 },
 
                 // Provide a default set of Imgix image transformations applied to
@@ -114,9 +113,7 @@ module.exports = {
                 // `imageImgixParams` option.
                 // See: https://docs.imgix.com/apis/url
                 imagePlaceholderImgixParams: {
-                    w: 100,
-                    blur: 15,
-                    q: 50,
+                   
                 },
 
                 // Set the prefix for the filename where type paths for your schemas are
