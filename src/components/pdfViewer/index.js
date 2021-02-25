@@ -41,13 +41,12 @@ function PdfViewer({ fileURL, closePreview }) {
                     </Document>
                     <div className="controls">
                         <Icon.ArrowLeftCircle
-                            type="button"
                             style={{ marginRight: '15px' }}
                             disabled={pageNumber <= 1}
                             onClick={previousPage}
                         />
                         <Icon.ArrowRightCircle
-                            type="button" disabled={pageNumber >= numPages} onClick={nextPage}
+                            disabled={pageNumber >= numPages} onClick={nextPage}
                         />
                     </div>
                 </div>
