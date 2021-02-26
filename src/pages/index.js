@@ -96,28 +96,28 @@ export default function Home(props) {
                             src={videoMapSlice.three_d_model_image.url}
                             type="image"
                             value=""
-                            className="img-fluid box"
+                            className="box"
                             onClick={() => setThreeDOverlay(!openthreeDOverlay)}
                         />
                         <PDFLogo
                             src={pdfSlice.pdf_image.url}
                             type="image"
                             value=""
-                            className="img-fluid box"
+                            className="box"
                             onClick={() => setPdfOverlay(!openPdfOverlay)}
                         />
                         <Video
                             src={videoMapSlice.video_image.url}
                             type="image"
                             value=""
-                            className="img-fluid box"
+                            className="box"
                             onClick={() => setVideoOverlay(!openVideOverlay)}
                         />
                         <Degree
                             src={videoMapSlice.three_sixty_degree_image.url}
                             type="image"
                             value=""
-                            className="img-fluid box"
+                            className="box"
                             onClick={() => setOpenDegreeOverlay(!openDegreeOverlay)}
                         />
                     </div>
@@ -126,9 +126,8 @@ export default function Home(props) {
                         type="image"
                         value=""
                         onClick={() => window.open(websiteHeaderData.footerLink)}
-                        className="img-fluid"
                     />
-                    <FooterLine src={websiteHeaderData.footerLineImage} className="img-fluid" />
+                    <FooterLine src={websiteHeaderData.footerLineImage} />
                 </Wrapper>
 
                 {openDegreeOverlay && (
