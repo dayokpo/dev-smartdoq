@@ -7,8 +7,13 @@ export const SliderWrapper = styled.div`
  // padding: 25px 0;
  background: black;
  position: relative;
- width: 100%;
+ flex-wrap: wrap;
+ height: 100vh;
+ width: 90%;
  max-width: 90%;
+ align-items: center;
+ border-top: 60px solid #000;
+ overflow: auto;
 
  ${(props) =>
     props.separator &&
@@ -21,8 +26,6 @@ export const SliderWrapper = styled.div`
 
   .slick-slider {
   width: 100%;
-  height: 500px;
-  overflow: auto;
 }
 
   .slick-slide {

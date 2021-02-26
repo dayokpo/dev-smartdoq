@@ -161,6 +161,7 @@ a {
     cursor: pointer;
     padding: 10px;
     background: rgba(35,35,35,.65);
+    border-radius: 0;
 }
 
 .toggle_x {
@@ -210,10 +211,12 @@ a {
 .rightContainerFlex{
   display: flex;
   flex-direction: column;
+  height: 90vh;
 }
 
 .rightContainerFlex .box {
-  width: 300px;
+  width: 15%;
+  margin: auto;
 }
 
 .logoDescContainer{
@@ -307,7 +310,7 @@ a {
 /*Mobile PDF*/
 
 .react-pdf__Document{
-  height: 80vh;
+  height: 100vh;
   top: 0;
   position: absolute;
   width: 100%;
@@ -332,25 +335,17 @@ canvas.react-pdf__Page__canvas {
 }
 
 .controls {
-  height: 20vh;
-  bottom: 0;
   position: absolute;
-  width: 90%;
+  width: 98%;
   text-align: center;
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  padding-top: 10px;
 }
 
 .controls svg {
-  margin: 0px !important;
-  background-color: transparent;
-  background: transparent;
-  width: 50px;
-  height: 50px;
-  font-size: 35px;
   transition: all .3s;
+  padding: 9px;
+  background: rgba(35,35,35,.65);
 }
 
 .controls button {
@@ -401,21 +396,28 @@ canvas.react-pdf__Page__canvas {
 
 .pdfGallery {
   display: flex;
+  justify-content: space-evenly;
+  background: black;
+  position: relative;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  height: 80vh;
+  height: 100vh;
   width: 90%;
   max-width: 90%;
-  justify-content: space-evenly;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  border-top: 60px solid #000;
+  overflow: auto;
 }
 
 .pdfGalleryLists {
   width: 19%;
-  height: 50%;
-  display: flex;
+  height: fit-content;
   text-align: center;
-  justify-content: center;
-  align-items: center;
+  display: flex;
   flex-direction: column;
 }
 
@@ -444,18 +446,25 @@ p.pdfName {
 
 .videoGallery {
   display: flex;
+  justify-content: space-evenly;
+  background: black;
+  position: relative;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  height: 80vh;
+  height: 100vh;
   width: 90%;
   max-width: 90%;
-  justify-content: space-evenly;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  border-top: 60px solid #000;
   overflow: auto;
 }
 
 .videoGalleryLists {
   width: 50%;
-  height: 50%;
   justify-content: center;
   display: flex;
   text-align: center;
@@ -498,7 +507,7 @@ p.pdfName {
     width: 46%;
   }
   .rightContainerFlex .box {
-    width: 150px;
+    width: 50%;
   }
 
   .pdf-flex-item {
@@ -510,21 +519,12 @@ p.pdfName {
   }
 
   .pdfGallery {
-    display: flex;
-    flex-wrap: wrap;
-    height: auto;
     width: 100%;
     max-width: 100%;
-    justify-content: space-evenly;
-    align-items: center;
-    overflow: auto;
-    margin-top: 50px;
-    max-height: 90vh;
   }
 
   .pdfGalleryLists {
     width: 48%;
-    height: 20%;
     margin-bottom: 10px;
   }
   
@@ -542,29 +542,12 @@ p.pdfName {
     width: 150px;
   }
 
-  .slick-slider {
-    height: 80vh !important; 
-  }
   .slick-slider .slick-list .slick-slide {
     width: 50% !important;
   }
 
-  .videoGallery {
-    display: flex;
-    flex-wrap: wrap;
-    height: auto;
-    width: 100%;
-    max-width: 100%;
-    justify-content: space-evenly;
-    align-items: center;
-    overflow: auto;
-    margin-top: 50px;
-    max-height: 90vh;
-  }
-
   .videoGalleryLists {
     width: 100%;
-    height: 20%;
     margin-bottom: 10px;
   }
   .videoGalleryThumb .videoIframe {
@@ -586,7 +569,7 @@ p.pdfName {
     font-size: 100% !important;
   }
   .rightContainerFlex .box {
-    width: 150px;
+    width: 20%;
   }
 
   .pdf-flex-item {
@@ -597,47 +580,18 @@ p.pdfName {
     width: 382px;
   }
   .pdfGallery {
-    display: flex;
-    flex-wrap: wrap;
-    height: 80vh;
-    width: 90%;
-    max-width: 90%;
-    justify-content: space-evenly;
-    align-items: center;
     overflow: auto;
   }
   .pdfGalleryLists {
     width: 32%;
-    height: 50%;
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-  .slick-slider {
-    height: 80vh !important; 
+    margin-bottom: 10px;
   }
   .slick-slider .slick-list .slick-slide {
     width: 25% !important;
   }
 
-  .videoGallery {
-    display: flex;
-    flex-wrap: wrap;
-    height: auto;
-    width: 100%;
-    max-width: 100%;
-    justify-content: space-evenly;
-    align-items: center;
-    overflow: auto;
-    margin-top: 50px;
-    max-height: 90vh;
-  }
-
   .videoGalleryLists {
     width: 100%;
-    height: 20%;
     margin-bottom: 10px;
   }
 
