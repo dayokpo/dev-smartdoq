@@ -28,14 +28,11 @@ function VideoViewer({ fileURL, closePreview }) {
         return (
             <>
                 <div className="overlay">
-                    <button
-                        type="button"
+                    
+                    <Icon.X 
                         className="pdf-viewer-item"
-                        className="overlay-close pdf-viewer-close"
-                        onClick={(e) => closePreview()}
-                    >
-                        Close
-                    </button>
+                        className="overlay-close pdf-viewer-close" 
+                        onClick={(e) => closePreview()}/>
 
                     <Document file={fileURL} onLoadSuccess={onDocumentLoadSuccess}>
                         <Page pageNumber={pageNumber} />
@@ -57,9 +54,10 @@ function VideoViewer({ fileURL, closePreview }) {
     }
     return (
         <>
-            <button type="button" className="overlay-close pdf-viewer-close" onClick={(e) => closePreview()}>
-                Close
-            </button>
+            <Icon.X 
+                className="pdf-viewer-item"
+                className="overlay-close pdf-viewer-close" 
+                onClick={(e) => closePreview()}/>
 
             <div className="scroll-wrapper">
                 <iframe title="image" src={fileURL} frameBorder="0" allowFullScreen />

@@ -1,8 +1,9 @@
 import React from 'react';
+import * as Icon from 'react-feather';
 function EmptyOverlayModel({ menuData, removeOverlay }) {
   return (
     <div className="overlay">
-      <button type="button" className="overlay-close" onClick={e => removeOverlay()} />
+      <Icon.X className="overlay-close" onClick={(e) => removeOverlay()}/>
       <div className="rightContainerFlex">
         <img
           className="box "

@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
 import FsLightbox from 'fslightbox-react';
 import ImageSlider from '../ImageSlider';
+import * as Icon from 'react-feather';
 
 
 const Image = styled.div`
@@ -63,13 +64,15 @@ const Gallery = ({ brochureImages, removeOverlay }) => {
         imageSourceUrls = brochureImages.map((slide)=>slide.slide_image.url);
     } else{
         return(<div className="overlay">
-         <button type="button" className="overlay-close" onClick={e => removeOverlay()} />
+            
+         <Icon.X className="overlay-close" onClick={(e) => removeOverlay()}/>
          <div> please upload images from prismic to display</div>
         </div>)
     }
     return (
         <div className="overlay">
-         <button type="button" className="overlay-close" onClick={e => removeOverlay()} />
+            
+         <Icon.X className="overlay-close" onClick={(e) => removeOverlay()}/>
         <ImageSlider>
             {images}
         </ImageSlider>

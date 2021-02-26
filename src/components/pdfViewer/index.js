@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import useDeviceDetect from '../../utils/useDeviceDetect';
 import { Document, Page } from 'react-pdf/dist/entry.webpack';
-import * as Icon from 'react-feather';
+import ArrowRightCircle from '../svg/ArrowRightCircle';
+import ArrowLeftCircle from '../svg/ArrowLeftCircle';
 function PdfViewer({ fileURL, closePreview }) {
     const { isMobile } = useDeviceDetect();
     console.log(" is mobile ", isMobile)
@@ -41,12 +42,12 @@ function PdfViewer({ fileURL, closePreview }) {
                         <Page pageNumber={pageNumber} />
                     </Document>
                     <div className="controls">
-                        <Icon.ArrowLeftCircle
+                        <ArrowLeftCircle
                             style={{ marginRight: '15px' }}
                             disabled={pageNumber <= 1}
                             onClick={previousPage}
                         />
-                        <Icon.ArrowRightCircle
+                        <ArrowRightCircle
                             disabled={pageNumber >= numPages} onClick={nextPage}
                         />
                     </div>

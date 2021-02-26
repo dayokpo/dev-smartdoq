@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Iframe from "react-iframe";
+import * as Icon from 'react-feather';
 
 function DegreeOverlay({ removeOverlay, data }) {
   let cName = 'overlay-close';
@@ -9,13 +10,8 @@ function DegreeOverlay({ removeOverlay, data }) {
   }
   return (
     <div className="overlay">
-     <button
-        type="button"
-        className={cName}
-        onClick={e => removeOverlay()}
-      >
-        Close
-      </button>
+
+    <Icon.X className="overlay-close" onClick={(e) => removeOverlay()}/>
      <div id="iframe-wrapper" className="iframe-wrapper">
       <Iframe
         url={data.three_sixty_degree_url.url}

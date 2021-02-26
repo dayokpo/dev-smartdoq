@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import VideoViewer from '../../components/videoViewer';
+import * as Icon from 'react-feather';
 
 function VideoGallery({ videoData, data, removeOverlay }) {
     let noOfDocuments = 3;
@@ -15,9 +16,8 @@ function VideoGallery({ videoData, data, removeOverlay }) {
     return (
         <div className="overlay">
             {!openViewer && (
-                <button type="button" className="overlay-close" onClick={(e) => removeOverlay()}>
-                    Close
-                </button>
+
+            <Icon.X className="overlay-close" onClick={(e) => removeOverlay()}/>
             )}
             {openViewer && (
                 <VideoViewer
