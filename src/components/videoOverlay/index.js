@@ -37,9 +37,7 @@ function VideoOverlay({ data, removeOverlay }) {
     };
     return (
         <div className="overlay">
-            <button type="button" className="overlay-close" onClick={(e) => removeOverlay()}>
-                Close
-            </button>
+                     <Icon.X className="overlay-close" onClick={(e) => removeOverlay()}/>
             <div className="pdf-container">
                 <div className="pdf-flex-item">
                     <div dangerouslySetInnerHTML={{ __html: videoURL }} />

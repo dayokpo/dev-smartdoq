@@ -3,6 +3,7 @@ import useDeviceDetect from '../../utils/useDeviceDetect';
 import { Document, Page } from 'react-pdf/dist/entry.webpack';
 import ArrowRightCircle from '../svg/ArrowRightCircle';
 import ArrowLeftCircle from '../svg/ArrowLeftCircle';
+import * as Icon from 'react-feather';
 function PdfViewer({ fileURL, closePreview }) {
     const { isMobile } = useDeviceDetect();
     console.log(" is mobile ", isMobile)
@@ -29,21 +30,17 @@ function PdfViewer({ fileURL, closePreview }) {
         return (
             <>
                 <div className="overlay">
-                    <button
-                        type="button"
-                        className="pdf-viewer-item"
-                        className="overlay-close pdf-viewer-close"
-                        onClick={(e) => closePreview()}
-                    >
-                        Close
-                    </button>
+                    
+                <Icon.X 
+                    className="pdf-viewer-item"
+                    className="overlay-close pdf-viewer-close" 
+                    onClick={(e) => closePreview()}/>
 
                     <Document file={fileURL} onLoadSuccess={onDocumentLoadSuccess}>
                         <Page pageNumber={pageNumber} />
                     </Document>
                     <div className="controls">
                         <ArrowLeftCircle
-                            style={{ marginRight: '15px' }}
                             disabled={pageNumber <= 1}
                             onClick={previousPage}
                         />
@@ -57,10 +54,8 @@ function PdfViewer({ fileURL, closePreview }) {
     }
     return (
         <>
-            <button type="button" className="overlay-close pdf-viewer-close" onClick={(e) => closePreview()}>
-                Close
-            </button>
-
+            
+            <Icon.X className="overlay-close pdf-viewer-close" onClick={(e) => closePreview()}/>
             <div className="scroll-wrapper">
                 <iframe title="image" src={fileURL} frameBorder="0" allowFullScreen />
             </div>
