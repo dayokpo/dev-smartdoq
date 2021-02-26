@@ -1,5 +1,6 @@
 import React from 'react';
 import PdfViewer from '../../components/pdfViewer';
+import * as Icon from 'react-feather';
 
 function PDFGallery({ pdfSlice, documents, removeOverlay }) {
     const [open, setOpen] = React.useState(true);
@@ -9,9 +10,7 @@ function PDFGallery({ pdfSlice, documents, removeOverlay }) {
     return (
         <div className="overlay">
             {!openPDFViewer && (
-                <button type="button" className="overlay-close" onClick={(e) => removeOverlay()}>
-                    Close
-                </button>
+            <Icon.X className="overlay-close" onClick={(e) => removeOverlay()}/>
             )}
             {openPDFViewer && (
                 <PdfViewer

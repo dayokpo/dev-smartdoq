@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import * as Icon from 'react-feather';
 
 function OverlayModel({
   removeOverlay,
@@ -36,11 +37,8 @@ function OverlayModel({
 
   return (
     <div className="overlay">
-      <button
-        type="button"
-        className="overlay-close"
-        onClick={e => removeOverlay()}
-      />
+
+      <Icon.X className="overlay-close" onClick={(e) => removeOverlay()}/>
       <nav>
         <ul>
           <li>

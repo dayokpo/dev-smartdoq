@@ -25,23 +25,7 @@
 }
 }
 @media (orientation: portrait) {
-  .overlay{
-    display: flex;
-  position: absolute; /* Sit on top of the page content */
-  height: 100vh; /* Full height (cover the whole page) */
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  color: #FFF;
-  background-color: rgba(0,0,0,0.9); /* Black background with opacity */
-  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
-  cursor: pointer; /* Add a pointer on hover */
-  overflow-y: hidden;
-  }
+
 
 .overlay nav {
   transform: translateY(-50%);

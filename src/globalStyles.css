@@ -86,7 +86,7 @@ display: none;
   left: 0;
   right: 0;
   color:#FFF;
-  background-color: rgba(0,0,0,0.9); /* Black background with opacity */
+  background-color:#000; /* Black background with opacity */
   cursor: pointer; /* Add a pointer on hover */
   justify-content: center;
   align-items: center;
@@ -147,23 +147,20 @@ a {
 
 /* Overlay closing cross */
 .overlay .overlay-close {
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
+    stroke-width: 1.5px;
     position: absolute;
-    right: 20px;
-    top: 20px;
+    right: 0;
+    top: 0;
     overflow: hidden;
     border: none;
-    background: url(./files/cross.png) no-repeat center center;
     text-indent: 200%;
-    color: transparent;
     outline: none;
     z-index: 100;
     cursor: pointer;
-    border: 10px #686868 solid;
-    border-radius: 23%;
-    background-color: #686868;
-    padding: 0px;
+    padding: 10px;
+    background: rgba(35,35,35,.65);
 }
 
 .toggle_x {

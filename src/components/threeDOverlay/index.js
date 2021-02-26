@@ -1,18 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import * as Icon from 'react-feather';
 
 function ThreeDOverlay({ data, removeOverlay }) {
 
   const embedHtml = data.three_d_model_embed_url.html;
   return (
     <div className="overlay">
-      <button
-        type="button"
-        className="overlay-close"
-        onClick={e => removeOverlay()}
-      >
-        Close
-      </button>
+
+      <Icon.X className="overlay-close" onClick={(e) => removeOverlay()}/>
       <div id="iframe-wrapper" className="iframe-wrapper">
         <div dangerouslySetInnerHTML={{ __html: embedHtml }} />
       </div>
