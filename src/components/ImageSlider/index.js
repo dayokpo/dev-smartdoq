@@ -145,9 +145,9 @@ export const SliderWrapper = styled.div`
 const ImageSlider = (props) => {
   
     var settings = {
-        infinite: true,
+        infinite: false,
         speed: 500,
-        slidesToShow: 10,
+        slidesToShow: 3,
         slidesToScroll: 1,
         responsive: [
             {
