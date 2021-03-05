@@ -2,7 +2,7 @@ import React from 'react';
 import PdfViewer from '../../components/pdfViewer';
 import * as Icon from 'react-feather';
 
-function PDFGallery({ pdfSlice, documents, removeOverlay }) {
+function PDFGallery({ pdfData, pdfSlice, documents, removeOverlay }) {
     const [open, setOpen] = React.useState(true);
     const [activePdfUrl, setActivePdfUrl] = React.useState(undefined);
     const [openPDFViewer, setOpenPDFViewer] = React.useState(false);

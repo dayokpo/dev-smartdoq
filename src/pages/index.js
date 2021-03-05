@@ -18,6 +18,7 @@ import LogoDesc from '../components/LogoDesc';
 import PDFGallery from '../components/pdfGallery';
 import Gallery from '../components/Gallery';
 import VideoGallery from '../components/VideoGallery';
+import PrismicSVG from '../components/svg/PrismicSVG';
 import '../globalStyles.css';
 import '../portret.css';
 import '../socialIcons.css';
@@ -35,7 +36,8 @@ import {
     showRightMenu,
     menuStyle,
     getSliderData,
-    getVideoSliderData
+    getVideoSliderData,
+    getPDFData
 } from '../utils/index';
 const FooterLine = styled.img`
     left: 5%;
@@ -121,12 +123,7 @@ export default function Home(props) {
                             onClick={() => setOpenDegreeOverlay(!openDegreeOverlay)}
                         />
                     </div>
-                    <PrismicLogo
-                        src={websiteHeaderData.footerImage}
-                        type="image"
-                        value=""
-                        onClick={() => window.open(websiteHeaderData.footerLink)}
-                    />
+                    <PrismicSVG />
                     <FooterLine src={websiteHeaderData.footerLineImage} />
                 </Wrapper>
 
@@ -156,6 +153,7 @@ export default function Home(props) {
                 {openPdfOverlay && (
                     <PDFGallery
                         documents={pdfDocuments}
+                        pdfData = {pdfData}
                         pdfSlice={pdfSlice}
                         removeOverlay={() => setPdfOverlay(!openPdfOverlay)}
                     />
@@ -198,6 +196,23 @@ export const pageQuery = graphql`
                     text
                 }
                 body {
+                    ... on PrismicBlogpostBodyPDF {
+                        slice_type
+                        items {
+                            pdf_image {
+                                alt
+                                copyright
+                                url
+                            }
+                            pdf_description {
+                                html
+                                text
+                                raw
+                            }
+                            pdf_caption
+                            __typename
+                        }
+                    }
                     ... on PrismicBlogpostBodyPdfslice {
                         primary {
                             pdf_image {
