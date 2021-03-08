@@ -55,6 +55,7 @@ const FooterLine = styled.img`
 export default function Home(props) {
     const { data } = props;
     const brochureImages = getSliderData(data);
+    const pdfDataFromSlider = getPDFData(data);
     const videoSliderData =  getVideoSliderData(data);
     const websiteHeaderData = getWebsiteHeaderData(data);
     const pdfSlice = getPDFSlice(data);

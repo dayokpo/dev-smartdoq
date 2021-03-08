@@ -107,3 +107,11 @@ export const menuStyle = (menuData, place)=>{
 }
 export const getImageURL = (url) => url.substring(0, url.indexOf('?auto'))
 export const amendMenuBGColor = ccode =>  ccode === '#FFFFFF'? 'none': ccode;
+
+
+export const isNotEmpty = (item) => {
+  if(item === undefined || item === ''){
+    return false;
+  }
+  return true
+}
