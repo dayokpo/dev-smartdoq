@@ -154,7 +154,6 @@ export default function Home(props) {
                 {openPdfOverlay && (
                     <PDFGallery
                         documents={pdfDocuments}
-                        pdfData = {pdfData}
                         pdfSlice={pdfSlice}
                         removeOverlay={() => setPdfOverlay(!openPdfOverlay)}
                     />
@@ -170,6 +169,12 @@ export const pageQuery = graphql`
         prismicBlogpost(uid: { eq: $uid }) {
             uid
             data {
+                functionality_choice_1
+                functionality_choice_2
+                functionality_choice_3
+                functionality_choice_4
+                functionality_choice_5
+                functionality_choice_6
                 website_main_logo {
                     alt
                     url
@@ -205,150 +210,23 @@ export const pageQuery = graphql`
                                 copyright
                                 url
                             }
-                            pdf {
-                               url
-                            }
                             slide_caption
                             __typename
                         }
                     }
-                    ... on PrismicBlogpostBodyPdfslice {
-                        primary {
-                            pdf_image {
-                                url
-                            }
-                            document_name_1 {
-                                text
-                            }
-                            document_name_2 {
-                                text
-                            }
-                            document_name_3 {
-                                text
-                            }
-                            document_name_4 {
-                                text
-                            }
-                            document_name_5 {
-                                text
-                            }
-                            document_name_6 {
-                                text
-                            }
-                            document_name_7 {
-                                text
-                            }
-                            document_name_8 {
-                                text
-                            }
-                            document_name_9 {
-                                text
-                            }
-                            document_name_10 {
-                                text
-                            }
-                            document_1 {
-                                url
-                            }
-                            document_2 {
-                                url
-                            }
-                            document_3 {
-                                url
-                            }
-                            document_4 {
-                                url
-                            }
-                            document_5 {
-                                url
-                            }
-                            document_6 {
-                                url
-                            }
-                            document_7 {
-                                url
-                            }
-                            document_8 {
-                                url
-                            }
-                            document_9 {
-                                url
-                            }
-                            document_10 {
-                                url
-                            }
-                            document_image_1 {
-                                url
-                            }
-                            document_image_2 {
-                                url
-                            }
-                            document_image_3 {
-                                url
-                            }
-                            document_image_4 {
-                                url
-                            }
-                            document_image_5 {
-                                url
-                            }
-                            document_image_6 {
-                                url
-                            }
-                            document_image_7 {
-                                url
-                            }
-                            document_image_8 {
-                                url
-                            }
-                            document_image_9 {
-                                url
-                            }
-                            document_image_10 {
-                                url
-                            }
-                        }
-                    }
-                    ... on PrismicBlogpostBodyVideoMapSlice {
-                        primary {
-                            three_sixty_degree_url {
-                                url
-                            }
-                            three_sixty_degree_image {
-                                url
+                    ... on PrismicBlogpostBodyTopRight {
+                        slice_type
+                        items {
+                            slide_image {
                                 alt
-                            }
-                            video_url {
-                                embed_url
-                                html
-                            }
-                            image_video {
+                                copyright
                                 url
                             }
-                            video_image {
-                                url
-                                alt
-                            }
-                            three_d_model_image {
-                                url
-                                alt
-                            }
-                            three_d_model_embed_url {
-                                html
-                                embed_url
-                            }
-                            image_video_1 {
+                            slide_url {
                                 url
                             }
-                            video_url_1 {
-                                embed_url
-                                html
-                            }
-                            video_url_2 {
-                                embed_url
-                                html
-                            }
-                            toggle_the_moving_of_the_x_button_to_the_left
+                            slide_caption
+                            __typename
                         }
                     }
                     ... on PrismicBlogpostBodySocial {
@@ -415,24 +293,6 @@ export const pageQuery = graphql`
                             }
                             menu_right_icon_bg_color
                             menu_right_icon {
-                                url
-                            }
-                            menu_right_image_url_1 {
-                                url
-                            }
-                            menu_right_image_1 {
-                                url
-                            }
-                            menu_right_image_url_2 {
-                                url
-                            }
-                            menu_right_image_2 {
-                                url
-                            }
-                            menu_right_image_url_3 {
-                                url
-                            }
-                            menu_right_image_3 {
                                 url
                             }
                         }

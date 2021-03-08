@@ -76,6 +76,109 @@
         "label": "footer_image_url"
       }
     },
+    "functionality_choice_1": {
+      "type": "Select",
+      "config": {
+        "options": [
+          "PDF",
+          "Photo Gallery",
+          "Video Gallery",
+          "IFRAME -",
+          "Website -",
+          "3D Model Internal",
+          "3D carousel",
+          "50 / 50"
+        ],
+        "default_value": "PDF",
+        "label": "Functionality choice 1",
+        "placeholder": "Functionality Choice 1"
+      }
+    },
+    "functionality_choice_2": {
+      "type": "Select",
+      "config": {
+        "options": [
+          "PDF",
+          "Photo Gallery",
+          "Video Gallery",
+          "IFRAME -",
+          "Website -",
+          "3D Model Internal",
+          "3D carousel",
+          "50 / 50"
+        ],
+        "label": "Functionality Choice 2",
+        "placeholder": "Functionality Choice 2"
+      }
+    },
+    "functionality_choice_3": {
+      "type": "Select",
+      "config": {
+        "options": [
+          "PDF",
+          "Photo Gallery",
+          "Video Gallery",
+          "IFRAME -",
+          "Website -",
+          "3D Model Internal",
+          "3D carousel",
+          "50 / 50"
+        ],
+        "label": "Functionality Choice 3",
+        "placeholder": "Functionality Choice 3"
+      }
+    },
+    "functionality_choice_4": {
+      "type": "Select",
+      "config": {
+        "options": [
+          "PDF",
+          "Photo Gallery",
+          "Video Gallery",
+          "IFRAME -",
+          "Website -",
+          "3D Model Internal",
+          "3D carousel",
+          "50 / 50"
+        ],
+        "label": "Functionality Choice 4",
+        "placeholder": "Functionality Choice 4"
+      }
+    },
+    "functionality_choice_5": {
+      "type": "Select",
+      "config": {
+        "options": [
+          "PDF",
+          "Photo Gallery",
+          "Video Gallery",
+          "IFRAME -",
+          "Website -",
+          "3D Model Internal",
+          "3D carousel",
+          "50 / 50"
+        ],
+        "label": "Functionality Choice 5",
+        "placeholder": "Functionality Choice 5"
+      }
+    },
+    "functionality_choice_6": {
+      "type": "Select",
+      "config": {
+        "options": [
+          "PDF",
+          "Photo Gallery",
+          "Video Gallery",
+          "IFRAME -",
+          "Website -",
+          "3D Model Internal",
+          "3D carousel",
+          "50 / 50"
+        ],
+        "label": "Functionality Choice 6",
+        "placeholder": "Functionality Choice 6"
+      }
+    },
     "body": {
       "type": "Slices",
       "fieldset": "Slice zone",
@@ -101,368 +204,9 @@
           "se": [],
           "slider": [],
           "videogallery": [],
-          "video": [],
-          "pdf": []
+          "video": []
         },
         "choices": {
-          "video-map-slice": {
-            "type": "Slice",
-            "fieldset": "video-map-slice",
-            "description": "please add video or map urls to this slice",
-            "icon": "switch_video",
-            "display": "list",
-            "non-repeat": {
-              "toggle_the_moving_of_the_x_button_to_the_left": {
-                "type": "Boolean",
-                "config": {
-                  "default_value": false,
-                  "label": "Toggle the moving of the X button to the left"
-                }
-              },
-              "three_sixty_degree_url": {
-                "type": "Link",
-                "config": {
-                  "label": "three_sixty_degree_url",
-                  "placeholder": "place the url for three sixty degree url"
-                }
-              },
-              "three_sixty_degree_image": {
-                "type": "Image",
-                "config": {
-                  "constraint": {},
-                  "thumbnails": [],
-                  "label": "three_sixty_degree_image"
-                }
-              },
-              "image_video": {
-                "type": "Image",
-                "config": {
-                  "constraint": {},
-                  "thumbnails": [],
-                  "label": "image_video"
-                }
-              },
-              "video_url": {
-                "type": "Embed",
-                "config": {
-                  "label": "video_url",
-                  "placeholder": "place video url"
-                }
-              },
-              "image_video_1": {
-                "type": "Image",
-                "config": {
-                  "constraint": {},
-                  "thumbnails": [],
-                  "label": "image_video_1"
-                }
-              },
-              "video_url_1": {
-                "type": "Embed",
-                "config": {
-                  "label": "video_url_1",
-                  "placeholder": "place holder for video 2"
-                }
-              },
-              "image_videos_2": {
-                "type": "Image",
-                "config": {
-                  "constraint": {},
-                  "thumbnails": [],
-                  "label": "image_videos_2"
-                }
-              },
-              "video_url_2": {
-                "type": "Embed",
-                "config": {
-                  "label": "video_url_2",
-                  "placeholder": "place holder for video 3"
-                }
-              },
-              "video_image": {
-                "type": "Image",
-                "config": {
-                  "constraint": {},
-                  "thumbnails": [],
-                  "label": "video_image"
-                }
-              },
-              "three_d_model_embed_url": {
-                "type": "Embed",
-                "config": {
-                  "label": "three_d_model_embed_url",
-                  "placeholder": "place the embed url for the three d model to view"
-                }
-              },
-              "three_d_model_image": {
-                "type": "Image",
-                "config": {
-                  "constraint": {},
-                  "thumbnails": [],
-                  "label": "three_d_model_image"
-                }
-              },
-              "three_d_model_glb": {
-                "type": "Link",
-                "config": {
-                  "label": "three_d_model_glb",
-                  "placeholder": "place the glb file url here pls"
-                }
-              }
-            },
-            "repeat": {}
-          },
-          "pdfslice": {
-            "type": "Slice",
-            "fieldset": "pdfslice",
-            "description": "add content related to pdf",
-            "icon": "picture_as_pdf",
-            "display": "list",
-            "non-repeat": {
-              "pdf_image": {
-                "type": "Image",
-                "config": {
-                  "constraint": {},
-                  "thumbnails": [],
-                  "label": "pdf_image"
-                }
-              },
-              "document_name_1": {
-                "type": "StructuredText",
-                "config": {
-                  "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-                  "label": "document_name_1",
-                  "placeholder": "place the name of the document here"
-                }
-              },
-              "document_1": {
-                "type": "Link",
-                "config": {
-                  "select": "media",
-                  "label": "document_1",
-                  "placeholder": "place the document(pdf) url"
-                }
-              },
-              "document_image_1": {
-                "type": "Image",
-                "config": {
-                  "constraint": {},
-                  "thumbnails": [],
-                  "label": "document_image_1"
-                }
-              },
-              "document_name_2": {
-                "type": "StructuredText",
-                "config": {
-                  "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-                  "label": "document_name_2",
-                  "placeholder": "place the name of the document here"
-                }
-              },
-              "document_2": {
-                "type": "Link",
-                "config": {
-                  "select": "media",
-                  "label": "document_2",
-                  "placeholder": "place the second document url"
-                }
-              },
-              "document_image_2": {
-                "type": "Image",
-                "config": {
-                  "constraint": {},
-                  "thumbnails": [],
-                  "label": "document_image_2"
-                }
-              },
-              "document_name_3": {
-                "type": "StructuredText",
-                "config": {
-                  "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-                  "label": "document_name_3",
-                  "placeholder": "place the name of the document 3 here"
-                }
-              },
-              "document_3": {
-                "type": "Link",
-                "config": {
-                  "select": "media",
-                  "label": "document_3",
-                  "placeholder": "place the url for the document  number 3"
-                }
-              },
-              "document_image_3": {
-                "type": "Image",
-                "config": {
-                  "constraint": {},
-                  "thumbnails": [],
-                  "label": "document_image_3"
-                }
-              },
-              "document_name_4": {
-                "type": "StructuredText",
-                "config": {
-                  "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-                  "label": "document_name_4",
-                  "placeholder": "place the name of the document 4 here"
-                }
-              },
-              "document_4": {
-                "type": "Link",
-                "config": {
-                  "label": "document_4",
-                  "placeholder": "place the url for document 4"
-                }
-              },
-              "document_image_4": {
-                "type": "Image",
-                "config": {
-                  "constraint": {},
-                  "thumbnails": [],
-                  "label": "document_image_4"
-                }
-              },
-              "document_name_5": {
-                "type": "StructuredText",
-                "config": {
-                  "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-                  "label": "document_name_5",
-                  "placeholder": "place the name of the document 5 here"
-                }
-              },
-              "document_5": {
-                "type": "Link",
-                "config": {
-                  "label": "document_5",
-                  "placeholder": "place the document 5 pdf here"
-                }
-              },
-              "document_image_5": {
-                "type": "Image",
-                "config": {
-                  "constraint": {},
-                  "thumbnails": [],
-                  "label": "document_image_5"
-                }
-              },
-              "document_name_6": {
-                "type": "StructuredText",
-                "config": {
-                  "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-                  "label": "document_name_6",
-                  "placeholder": "place the name of the document 6 here"
-                }
-              },
-              "document_6": {
-                "type": "Link",
-                "config": {
-                  "label": "document_6",
-                  "placeholder": "place the document 5 pdf here"
-                }
-              },
-              "document_image_6": {
-                "type": "Image",
-                "config": {
-                  "constraint": {},
-                  "thumbnails": [],
-                  "label": "document_image_6"
-                }
-              },
-              "document_name_7": {
-                "type": "StructuredText",
-                "config": {
-                  "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-                  "label": "document_name_7",
-                  "placeholder": "enter the name of the document 7 this will appear under the image on pdf gallery"
-                }
-              },
-              "document_7": {
-                "type": "Link",
-                "config": {
-                  "label": "document_7",
-                  "placeholder": "place the pdf for document 7"
-                }
-              },
-              "document_image_7": {
-                "type": "Image",
-                "config": {
-                  "constraint": {},
-                  "thumbnails": [],
-                  "label": "document_image_7"
-                }
-              },
-              "document_name_8": {
-                "type": "StructuredText",
-                "config": {
-                  "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-                  "label": "document_name_8",
-                  "placeholder": "enter the name of the document 8 this will appear under the image on pdf gallery"
-                }
-              },
-              "document_8": {
-                "type": "Link",
-                "config": {
-                  "label": "document_8",
-                  "placeholder": "place the pdf for document 8"
-                }
-              },
-              "document_image_8": {
-                "type": "Image",
-                "config": {
-                  "constraint": {},
-                  "thumbnails": [],
-                  "label": "document_image_8"
-                }
-              },
-              "document_name_9": {
-                "type": "StructuredText",
-                "config": {
-                  "single": "heading6",
-                  "label": "document_name_9",
-                  "placeholder": "enter the name of the document 9 this will appear under the image on pdf gallery"
-                }
-              },
-              "document_9": {
-                "type": "Link",
-                "config": {
-                  "label": "document_9",
-                  "placeholder": "place the pdf url for the pdf document 9"
-                }
-              },
-              "document_image_9": {
-                "type": "Image",
-                "config": {
-                  "constraint": {},
-                  "thumbnails": [],
-                  "label": "document_image_9"
-                }
-              },
-              "document_name_10": {
-                "type": "StructuredText",
-                "config": {
-                  "single": "heading6",
-                  "label": "document_name_10",
-                  "placeholder": "enter the name of the document 10 this will appear under the image on pdf gallery"
-                }
-              },
-              "document_10": {
-                "type": "Link",
-                "config": {
-                  "label": "document_10",
-                  "placeholder": "document 10 pdf here"
-                }
-              },
-              "document_image_10": {
-                "type": "Image",
-                "config": {
-                  "constraint": {},
-                  "thumbnails": [],
-                  "label": "document_image_10"
-                }
-              }
-            },
-            "repeat": {}
-          },
           "social": {
             "type": "Slice",
             "fieldset": "social",
@@ -641,48 +385,6 @@
                   "thumbnails": [],
                   "label": "menu_right_icon"
                 }
-              },
-              "menu_right_image_url_1": {
-                "type": "Link",
-                "config": {
-                  "label": "menu_right_image_url_1"
-                }
-              },
-              "menu_right_image_1": {
-                "type": "Image",
-                "config": {
-                  "constraint": {},
-                  "thumbnails": [],
-                  "label": "menu_right_image_1"
-                }
-              },
-              "menu_right_image_url_2": {
-                "type": "Link",
-                "config": {
-                  "label": "menu_right_image_url_2"
-                }
-              },
-              "menu_right_image_2": {
-                "type": "Image",
-                "config": {
-                  "constraint": {},
-                  "thumbnails": [],
-                  "label": "menu_right_image_2"
-                }
-              },
-              "menu_right_image_url_3": {
-                "type": "Link",
-                "config": {
-                  "label": "menu_right_image_url_3"
-                }
-              },
-              "menu_right_image_3": {
-                "type": "Image",
-                "config": {
-                  "constraint": {},
-                  "thumbnails": [],
-                  "label": "menu_right_image_3"
-                }
               }
             },
             "repeat": {}
@@ -773,6 +475,116 @@
                 "config": {
                   "label": "video",
                   "placeholder": "place the embed video url for any source"
+                }
+              }
+            }
+          },
+          "top_right": {
+            "type": "Slice",
+            "fieldset": "TOP RIGHT",
+            "description": "OTHER SMART DOQS",
+            "icon": "smartphone",
+            "display": "list",
+            "non-repeat": {},
+            "repeat": {
+              "slide_image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "slide image"
+                }
+              },
+              "slide_caption": {
+                "type": "Text",
+                "config": {
+                  "label": "slide_caption",
+                  "placeholder": "caption for image"
+                }
+              },
+              "slide_url": {
+                "type": "Link",
+                "config": {
+                  "allowTargetBlank": true,
+                  "label": "slide url",
+                  "placeholder": "add url this url will get open once the user clicks on image"
+                }
+              }
+            }
+          },
+          "3d_model_internal": {
+            "type": "Slice",
+            "fieldset": "3D Model Internal",
+            "description": "Add GLB",
+            "icon": "sync_problem",
+            "display": "list",
+            "non-repeat": {},
+            "repeat": {
+              "model_thumbnail": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Model Thumbnail"
+                }
+              },
+              "title_under_thumbnail": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "label": "Title Under Thumbnail",
+                  "placeholder": "Add Title"
+                }
+              },
+              "add_3d_model": {
+                "type": "Link",
+                "config": {
+                  "select": "media",
+                  "label": "Add 3D Model",
+                  "placeholder": "Add Model"
+                }
+              }
+            }
+          },
+          "50_-_50": {
+            "type": "Slice",
+            "fieldset": "50 - 50",
+            "description": "50 50 IMAGES",
+            "icon": "star_half",
+            "display": "list",
+            "non-repeat": {},
+            "repeat": {
+              "slide_image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "slide image"
+                }
+              },
+              "slide_caption": {
+                "type": "Text",
+                "config": {
+                  "label": "slide caption",
+                  "placeholder": "slide image caption"
+                }
+              }
+            }
+          },
+          "360_carousel": {
+            "type": "Slice",
+            "fieldset": "360 Carousel",
+            "description": "Add Images",
+            "icon": "3d_rotation",
+            "display": "list",
+            "non-repeat": {},
+            "repeat": {
+              "image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Image"
                 }
               }
             }
