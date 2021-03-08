@@ -1,8 +1,3 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.com/docs/gatsby-config/
- */
 
 module.exports = {
     siteMetadata: {
@@ -27,10 +22,10 @@ module.exports = {
         {
             resolve: 'gatsby-source-prismic',
             options: {
-                repositoryName: 'curtains',
+                repositoryName: 'devCurtains',
                 accessToken:
                     'MC5YX2NBc0JFQUFDTUFVY09o.77-977-977-9Mu-_ve-_vRoTUVDvv73vv70c77-977-977-977-9Wnvvv70ieO-_ve-_vToO77-9ZSnvv73vv70U',
-                releaseID: 'example-eiyaingiefahyi7z',
+                releaseID: 'develop',
                 linkResolver: ({ node, key, value }) => (doc) => {
                     // Your link resolver
                 },
