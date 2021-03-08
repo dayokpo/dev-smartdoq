@@ -197,20 +197,18 @@ export const pageQuery = graphql`
                     text
                 }
                 body {
-                    ... on PrismicBlogpostBodyPDF {
+                    ... on PrismicBlogpostBodyPdf {
                         slice_type
                         items {
-                            pdf_image {
+                            slide_image {
                                 alt
                                 copyright
                                 url
                             }
-                            pdf_description {
-                                html
-                                text
-                                raw
+                            pdf {
+                               url
                             }
-                            pdf_caption
+                            slide_caption
                             __typename
                         }
                     }

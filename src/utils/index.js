@@ -5,7 +5,7 @@ const menuSliceName = 'PrismicBlogpostBodyMenu'
 const websiteMeta = 'PrismicBlogpostBodyWebsitemeta'
 const sliderData = 'PrismicBlogpostBodySlider'
 const videoSliderData = 'PrismicBlogpostBodyVideo'
-const pdfData = 'PrismicBlogpostBodyPDF'
+const pdfData = 'PrismicBlogpostBodyPdf'
 
 
 export const getWebsiteHeaderData = data => {
