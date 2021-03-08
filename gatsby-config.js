@@ -28,29 +28,9 @@ module.exports = {
             resolve: 'gatsby-source-prismic',
             options: {
                 repositoryName: 'curtains',
-
-                // An API access token to your prismic.io repository. This is optional.
-                // You can generate an access token in the "API & Security" section of
-                // your repository settings. Setting a "Callback URL" is not necessary.
-                // The token will be listed under "Permanent access tokens".
                 accessToken:
-                    'MC5YLXgzZ2hFQUFDRUFJeTdi.Flfvv71577-9f--_vTIkAe-_vWQoDe-_ve-_ve-_ve-_vSPvv73vv70xFBE877-9Hu-_vWgO77-9LA',
-
-                // If you provide a release ID, the plugin will fetch data from Prismic
-                // for a specific release. A Prismic release is a way to gather a
-                // collection of changes for a future version of your website. Note that
-                // if you add changes to a release, you'll need to rebuild your website
-                // to see them.
-                // See: https://user-guides.prismic.io/en/collections/22653-releases-scheduling#the-basics-of-a-release
+                    'MC5YX2NBc0JFQUFDTUFVY09o.77-977-977-9Mu-_ve-_vRoTUVDvv73vv70c77-977-977-977-9Wnvvv70ieO-_ve-_vToO77-9ZSnvv73vv70U',
                 releaseID: 'example-eiyaingiefahyi7z',
-
-                // Set a link resolver function used to process links in your content.
-                // Fields with rich text formatting or links to internal content use this
-                // function to generate the correct link URL.
-                // The document node, field key (i.e. API ID), and field value are
-                // provided to the function, as seen below. This allows you to use
-                // different link resolver logic for each field if necessary.
-                // See: https://prismic.io/docs/javascript/query-the-api/link-resolving
                 linkResolver: ({ node, key, value }) => (doc) => {
                     // Your link resolver
                 },
