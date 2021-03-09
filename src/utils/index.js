@@ -1,4 +1,3 @@
-const videoMapSlice = 'PrismicBlogpostBodyVideoMapSlice'
 const pdfBodyName = 'PrismicBlogpostBodyPdfslice'
 const socialSliceName = 'PrismicBlogpostBodySocial'
 const menuSliceName = 'PrismicBlogpostBodyMenu'
@@ -6,8 +5,19 @@ const websiteMeta = 'PrismicBlogpostBodyWebsitemeta'
 const sliderData = 'PrismicBlogpostBodySlider'
 const videoSliderData = 'PrismicBlogpostBodyVideo'
 const pdfData = 'PrismicBlogpostBodyPdf'
+const threeDModelInternal = 'PrismicBlogpostBody3dModelInternal'
 
-
+const removeUndefined = (item) => item !== undefined 
+const getSelectedFunctionalities = (websiteData) => {
+  const values = Object.keys(websiteData).map(key=>{
+    if(key.includes('functionality_choice')){
+      if(isNotEmpty(websiteData[key])){
+        return websiteData[key]
+      }
+    }
+  }).filter(removeUndefined)
+  return values;
+}
 export const getWebsiteHeaderData = data => {
   const websiteData = data.prismicBlogpost.data
   let logoUrl = websiteData.website_main_logo.url;
@@ -20,7 +30,8 @@ export const getWebsiteHeaderData = data => {
     logoDescription: websiteData.logo_description.text,
     footerLineImage: websiteData.footer_line_image.url,
     footerImage: websiteData.footer_image.url,
-    footerLink: websiteData.footer_image_url?websiteData.footer_image_url.url:'none'
+    footerLink: websiteData.footer_image_url?websiteData.footer_image_url.url:'none',
+    enabledChoices: getSelectedFunctionalities(websiteData)
   }
 }
 
@@ -36,6 +47,11 @@ export const getPDFData = data => {
     .filter(item => item['__typename'] === pdfData)
     .map(i => i.items)[0]
 }
+export const getThreeDModelInternalData = data => {
+  return data.prismicBlogpost.data.body
+    .filter(item => item['__typename'] === threeDModelInternal)
+    .map(i => i.items)[0]
+}
 
 export const getVideoSliderData = data => {
   return data.prismicBlogpost.data.body
@@ -44,12 +60,12 @@ export const getVideoSliderData = data => {
 }
 
 
-export const getVideoMapSlice = data => {
-  return data.prismicBlogpost.data.body
-    .filter(item => item['__typename'] === videoMapSlice)
-    .map(i => i.primary)[0]
-  //return embedVideo && embedVideo.embed_video_url ? embedVideo.embed_video_url.html: null;
-}
+// export const getVideoMapSlice = data => {
+//   return data.prismicBlogpost.data.body
+//     .filter(item => item['__typename'] === videoMapSlice)
+//     .map(i => i.primary)[0]
+//   //return embedVideo && embedVideo.embed_video_url ? embedVideo.embed_video_url.html: null;
+// }
 
 export const getPDFSlice = data => {
   return data.prismicBlogpost.data.body
@@ -110,7 +126,7 @@ export const amendMenuBGColor = ccode =>  ccode === '#FFFFFF'? 'none': ccode;
 
 
 export const isNotEmpty = (item) => {
-  if(item === undefined || item === ''){
+  if(item === undefined || item === '' || item === null){
     return false;
   }
   return true

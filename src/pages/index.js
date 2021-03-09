@@ -29,7 +29,7 @@ import {
     getWebsiteHeaderData,
     getPDFSlice,
     getPDFDocuments,
-    getVideoMapSlice,
+    //getVideoMapSlice,
     getSocialUrls,
     getMenuData,
     getWebsiteMeta,
@@ -37,7 +37,8 @@ import {
     menuStyle,
     getSliderData,
     getVideoSliderData,
-    getPDFData
+    getPDFData,
+    getThreeDModelInternalData
 } from '../utils/index';
 const FooterLine = styled.img`
     left: 5%;
@@ -60,17 +61,18 @@ export default function Home(props) {
     const websiteHeaderData = getWebsiteHeaderData(data);
     const pdfSlice = getPDFSlice(data);
     const pdfDocuments = getPDFDocuments(data);
-    const videoMapSlice = getVideoMapSlice(data);
+   // const videoMapSlice = getVideoMapSlice(data);
     const socialURLs = getSocialUrls(data);
     const menuData = getMenuData(data);
     const websiteMeta = getWebsiteMeta(data);
-
+    const threeDModelData = getThreeDModelInternalData(data);
     const [open, setOpen] = useState(false);
     const [openVideOverlay, setVideoOverlay] = useState(false);
     const [openthreeDOverlay, setThreeDOverlay] = useState(false);
     const [showEmptyOverlay, setShowEmptyOverlay] = useState(false);
     const [openPdfOverlay, setPdfOverlay] = useState(false);
     const [openDegreeOverlay, setOpenDegreeOverlay] = useState(false);
+    console.log(" pdfData.pdfData ",pdfDataFromSlider)
     
     return (
         <>
@@ -95,13 +97,16 @@ export default function Home(props) {
                     )}
                     <LogoDesc logo={websiteHeaderData.logoImage} desc={websiteHeaderData.logoDescription} />
                     <div className="controlFlex">
+                    { (websiteHeaderData.enabledChoices.indexOf("3D Model Internal") > -1) &&
+                  
                         <ThreeD
-                            src={videoMapSlice.three_d_model_image.url}
+                            src={threeDModelData[0]['add_3d_model']['url']}
                             type="image"
                             value=""
                             className="box"
                             onClick={() => setThreeDOverlay(!openthreeDOverlay)}
                         />
+                    }
                         <PDFLogo
                             src={pdfSlice.pdf_image.url}
                             type="image"
@@ -110,14 +115,14 @@ export default function Home(props) {
                             onClick={() => setPdfOverlay(!openPdfOverlay)}
                         />
                         <Video
-                            src={videoMapSlice.video_image.url}
+                            //src={videoMapSlice.video_image.url}
                             type="image"
                             value=""
                             className="box"
                             onClick={() => setVideoOverlay(!openVideOverlay)}
                         />
                         <Degree
-                            src={videoMapSlice.three_sixty_degree_image.url}
+                            //src={videoMapSlice.three_sixty_degree_image.url}
                             type="image"
                             value=""
                             className="box"
@@ -134,7 +139,7 @@ export default function Home(props) {
                             setOpenDegreeOverlay(!openDegreeOverlay);
                         }}
                         brochureImages={brochureImages}
-                        data={videoMapSlice}
+                       // data={videoMapSlice}
                     />
                 )}
                 {open && <OverlayModel removeOverlay={() => setOpen(!open)} socialURLs={socialURLs} />}
@@ -146,10 +151,10 @@ export default function Home(props) {
                 )}
 
                 {openthreeDOverlay && (
-                    <ThreeDOverlay data={videoMapSlice} removeOverlay={() => setThreeDOverlay(!openthreeDOverlay)} />
+                    <ThreeDOverlay removeOverlay={() => setThreeDOverlay(!openthreeDOverlay)} />
                 )}
                 {openVideOverlay && (
-                    <VideoGallery videoData= {videoSliderData} data={videoMapSlice} removeOverlay={() => setVideoOverlay(!openVideOverlay)} />
+                    <VideoGallery videoData= {videoSliderData}  removeOverlay={() => setVideoOverlay(!openVideOverlay)} />
                 )}
                 {openPdfOverlay && (
                     <PDFGallery
@@ -210,6 +215,9 @@ export const pageQuery = graphql`
                                 copyright
                                 url
                             }
+                            pdf{
+                                url
+                            }
                             slide_caption
                             __typename
                         }
@@ -226,6 +234,21 @@ export const pageQuery = graphql`
                                 url
                             }
                             slide_caption
+                            __typename
+                        }
+                    }
+                    ... on PrismicBlogpostBody3dModelInternal {
+                        slice_type
+                        items {
+                            add_3d_model {
+                                url
+                            }
+                            model_thumbnail {
+                                url
+                            }
+                            title_under_thumbnail{
+                                text
+                            }
                             __typename
                         }
                     }
