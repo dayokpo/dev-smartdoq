@@ -1,12 +1,8 @@
 import styled from "styled-components";
 
-const Degree = styled.input`
- 
+const  IFrameComponent = styled.input`
   outline: none;
-
   @media (orientation: portrait) {
-    
   }
 `;
-
-export default Degree;
+export default  IFrameComponent;

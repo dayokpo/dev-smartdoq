@@ -2,10 +2,6 @@ import React, { useState } from 'react';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
 import Layout from '../components/layout/';
-import ThreeD from '../components/ThreeD';
-import PDFLogo from '../components/PDFLogo';
-import Video from '../components/Video';
-import Degree from '../components/Degree';
 import PrismicLogo from '../components/PrismicLogo';
 import OverlayModel from '../components/overlayModel';
 import ThreeDOverlay from '../components/threeDOverlay';
@@ -19,10 +15,21 @@ import PDFGallery from '../components/pdfGallery';
 import Gallery from '../components/Gallery';
 import VideoGallery from '../components/VideoGallery';
 import PrismicSVG from '../components/svg/PrismicSVG';
-import pdf from '../files/flexControls/pdf.png';
-import videoImg from '../files/flexControls/videoImg.png';
-import _360 from '../files/flexControls/_360.png';
-import threeD_model from '../files/flexControls/3d_model.png';
+//flex controls images
+import threeDModelImage from '../files/flexControls/3d_model_internal.png';
+import iframeImage from '../files/flexControls/IFRAME.png';
+import photoImage from '../files/flexControls/Photo.png';
+import pdfImage from '../files/flexControls/PDF.png';
+import videoImage from '../files/flexControls/Video.png';
+import websiteImage from '../files/flexControls/website.png';
+//flex controls components
+import ThreeDModelComponent from '../components/flexControls/ThreeDModelComponent';
+import IFrameComponent from '../components/flexControls/IFrameComponent';
+import PdfComponent from '../components/flexControls/PdfComponent';
+import PhotoComponent from '../components/flexControls/PhotoComponent';
+import VideoComponent from '../components/flexControls/VideoComponent';
+import WebsiteComponent from '../components/flexControls/WebsiteComponent';
+
 import '../globalStyles.css';
 import '../portret.css';
 import '../socialIcons.css';
@@ -71,11 +78,15 @@ export default function Home(props) {
     const websiteMeta = getWebsiteMeta(data);
     const threeDModelData = getThreeDModelInternalData(data);
     const [open, setOpen] = useState(false);
-    const [openVideOverlay, setVideoOverlay] = useState(false);
-    const [openthreeDOverlay, setThreeDOverlay] = useState(false);
-    const [showEmptyOverlay, setShowEmptyOverlay] = useState(false);
+    
+    const [openIframeOverlay, setIFrameOverlay] = useState(false);
     const [openPdfOverlay, setPdfOverlay] = useState(false);
-    const [openDegreeOverlay, setOpenDegreeOverlay] = useState(false);
+    const [openPhotoOverlay, setPhotoOverlay] = useState(false);
+    const [threeDModelOverlay, setThreeDModelOverlay] = useState(false);
+    const [openVideOverlay, setVideoOverlay] = useState(false);
+    const [websiteOverlay, setWebsiteOverlay] = useState(false);
+
+    const [showEmptyOverlay, setShowEmptyOverlay] = useState(false);
     console.log(" pdfData.pdfData ",websiteHeaderData.enabledChoices)
     
     return (
@@ -101,20 +112,21 @@ export default function Home(props) {
                     )}
                     <LogoDesc logo={websiteHeaderData.logoImage} desc={websiteHeaderData.logoDescription} />
                     <div className="controlFlex">
+                    
                     {/* ThreeD model  internal */}
                     { (websiteHeaderData.enabledChoices.indexOf("3D Model Internal") > -1) &&
-                        <ThreeD
-                            src={threeD_model}
+                        <ThreeDModelComponent
+                            src={threeDModelImage}
                             type="image"
                             className="box"
-                            onClick={() => setThreeDOverlay(!openthreeDOverlay)}
+                            onClick={() => setThreeDModelOverlay(!threeDModelOverlay)}
                         />
                     }
 
                      {/* PDF  */}
                     { (websiteHeaderData.enabledChoices.indexOf("PDF") > -1) &&
-                        <PDFLogo
-                            src={pdf}
+                        <PdfComponent
+                            src={pdfImage}
                             type="image"
                             className="box"
                             onClick={() => setPdfOverlay(!openPdfOverlay)}
@@ -122,8 +134,8 @@ export default function Home(props) {
                     }
                     {/* Video  */}
                     { (websiteHeaderData.enabledChoices.indexOf("Video Gallery") > -1) &&
-                        <Video
-                            src={videoImg}
+                        <VideoComponent
+                            src={videoImage}
                             type="image"
                             value=""
                             className="box"
@@ -132,12 +144,32 @@ export default function Home(props) {
                     }
                     {/* IFRAME -   */}
                     { (websiteHeaderData.enabledChoices.indexOf("IFRAME -") > -1) &&
-                        <Degree
-                            src={_360}
+                        <IFrameComponent
+                            src={iframeImage}
                             type="image"
                             value=""
                             className="box"
-                            onClick={() => setOpenDegreeOverlay(!openDegreeOverlay)}
+                            onClick={() => setIFrameOverlay(!openIframeOverlay)}
+                        />
+                    }
+                    {/* WEbsite -   */}
+                    { (websiteHeaderData.enabledChoices.indexOf("Website -") > -1) &&
+                        <WebsiteComponent
+                            src={websiteImage}
+                            type="image"
+                            value=""
+                            className="box"
+                            onClick={() => setWebsiteOverlay(!websiteOverlay)}
+                        />
+                    }
+                    {/* PHOTO GALLERY -   */}
+                    { (websiteHeaderData.enabledChoices.indexOf("Photo Gallery") > -1) &&
+                        <PhotoComponent
+                            src={photoImage}
+                            type="image"
+                            value=""
+                            className="box"
+                            onClick={() => setPhotoOverlay(!openPhotoOverlay)}
                         />
                     }
                     </div>
@@ -145,29 +177,36 @@ export default function Home(props) {
                     <FooterLine src={websiteHeaderData.footerLineImage} />
                 </Wrapper>
 
-                {openDegreeOverlay && (
+                {/* open Photo Gallery overlay */}
+                {openPhotoOverlay && (
                     <Gallery
                         removeOverlay={() => {
-                            setOpenDegreeOverlay(!openDegreeOverlay);
+                            setPhotoOverlay(!openPhotoOverlay);
                         }}
                         brochureImages={brochureImages}
                        // data={videoMapSlice}
                     />
                 )}
+
+                 {/* open left Overlay */}
                 {open && <OverlayModel removeOverlay={() => setOpen(!open)} socialURLs={socialURLs} />}
+
+                {/* open right Overlay */}
                 {showEmptyOverlay && (
                     <EmptyOverlayModel
                         menuData={menuData}
                         removeOverlay={() => setShowEmptyOverlay(!showEmptyOverlay)}
                     />
                 )}
-
-                {openthreeDOverlay && (
-                    <ThreeDOverlay removeOverlay={() => setThreeDOverlay(!openthreeDOverlay)} />
+                {/* open three D Model */}
+                {threeDModelOverlay && (
+                    <ThreeDOverlay removeOverlay={() => setThreeDModelOverlay(!threeDModelOverlay)} />
                 )}
+                {/* open video overlay */}
                 {openVideOverlay && (
                     <VideoGallery videoData= {videoSliderData}  removeOverlay={() => setVideoOverlay(!openVideOverlay)} />
                 )}
+                {/* open pdf overlay */}
                 {openPdfOverlay && (
                     <PDFGallery
                         documents={pdfDocuments}
