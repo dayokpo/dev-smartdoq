@@ -16,12 +16,12 @@ import Gallery from '../components/Gallery';
 import VideoGallery from '../components/VideoGallery';
 import PrismicSVG from '../components/svg/PrismicSVG';
 //flex controls images
-import threeDModelImage from '../files/flexControls/3d_model_internal.png';
-import iframeImage from '../files/flexControls/IFRAME.png';
-import photoImage from '../files/flexControls/Photo.png';
-import pdfImage from '../files/flexControls/PDF.png';
-import videoImage from '../files/flexControls/Video.png';
-import websiteImage from '../files/flexControls/website.png';
+import threeDModelImage from '../files/flexControls/threeDModelImage.png';
+import iframeImage from '../files/flexControls/iframeImage.png';
+import photoImage from '../files/flexControls/photoImage.png';
+import pdfImage from '../files/flexControls/pdfImage.png';
+import videoImage from '../files/flexControls/videoImage.png';
+import websiteImage from '../files/flexControls/websiteImage.png';
 //flex controls components
 import ThreeDModelComponent from '../components/flexControls/ThreeDModelComponent';
 import IFrameComponent from '../components/flexControls/IFrameComponent';
