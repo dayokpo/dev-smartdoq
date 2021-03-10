@@ -19,6 +19,10 @@ import PDFGallery from '../components/pdfGallery';
 import Gallery from '../components/Gallery';
 import VideoGallery from '../components/VideoGallery';
 import PrismicSVG from '../components/svg/PrismicSVG';
+import pdf from '../files/flexControls/pdf.png';
+import videoImg from '../files/flexControls/videoImg.png';
+import _360 from '../files/flexControls/_360.png';
+import threeD_model from '../files/flexControls/3d_model.png';
 import '../globalStyles.css';
 import '../portret.css';
 import '../socialIcons.css';
@@ -72,7 +76,7 @@ export default function Home(props) {
     const [showEmptyOverlay, setShowEmptyOverlay] = useState(false);
     const [openPdfOverlay, setPdfOverlay] = useState(false);
     const [openDegreeOverlay, setOpenDegreeOverlay] = useState(false);
-    console.log(" pdfData.pdfData ",pdfDataFromSlider)
+    console.log(" pdfData.pdfData ",websiteHeaderData.enabledChoices)
     
     return (
         <>
@@ -97,37 +101,45 @@ export default function Home(props) {
                     )}
                     <LogoDesc logo={websiteHeaderData.logoImage} desc={websiteHeaderData.logoDescription} />
                     <div className="controlFlex">
+                    {/* ThreeD model  internal */}
                     { (websiteHeaderData.enabledChoices.indexOf("3D Model Internal") > -1) &&
-                  
                         <ThreeD
-                            src={threeDModelData[0]['add_3d_model']['url']}
+                            src={threeD_model}
                             type="image"
-                            value=""
                             className="box"
                             onClick={() => setThreeDOverlay(!openthreeDOverlay)}
                         />
                     }
+
+                     {/* PDF  */}
+                    { (websiteHeaderData.enabledChoices.indexOf("PDF") > -1) &&
                         <PDFLogo
-                            src={pdfSlice.pdf_image.url}
+                            src={pdf}
                             type="image"
-                            value=""
                             className="box"
                             onClick={() => setPdfOverlay(!openPdfOverlay)}
                         />
+                    }
+                    {/* Video  */}
+                    { (websiteHeaderData.enabledChoices.indexOf("Video Gallery") > -1) &&
                         <Video
-                            //src={videoMapSlice.video_image.url}
+                            src={videoImg}
                             type="image"
                             value=""
                             className="box"
                             onClick={() => setVideoOverlay(!openVideOverlay)}
                         />
+                    }
+                    {/* IFRAME -   */}
+                    { (websiteHeaderData.enabledChoices.indexOf("IFRAME -") > -1) &&
                         <Degree
-                            //src={videoMapSlice.three_sixty_degree_image.url}
+                            src={_360}
                             type="image"
                             value=""
                             className="box"
                             onClick={() => setOpenDegreeOverlay(!openDegreeOverlay)}
                         />
+                    }
                     </div>
                     <PrismicSVG />
                     <FooterLine src={websiteHeaderData.footerLineImage} />
