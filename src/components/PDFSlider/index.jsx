@@ -33,18 +33,18 @@ function PDFSlider({ pdfDataFromSlider, removeOverlay }) {
                     {pdfDataFromSlider.map((item, index) => {
                         return (
                             <>
-                                <div className="pdfGalleryLists">
+                                <div className="pdfGalleryLists" key={index}>
                                     <div className="pdfGalleryThumb">
                                         <img
                                             key={index}
                                             onClick={(e) => {
-                                                handleDocImageClick(item.slide_doc.url);
+                                                handleDocImageClick(item.pdf.url);
                                             }}
                                             className="pdfImageBox"
                                             src={item.slide_image.url}
                                         />
                                     </div>
-                                    <p className="pdfName">{item.slide_name.text}</p>
+                                    <p className="pdfName">{item.slide_caption.text}</p>
                                 </div>
                             </>
                         );

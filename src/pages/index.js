@@ -30,6 +30,9 @@ import PhotoComponent from '../components/flexControls/PhotoComponent';
 import VideoComponent from '../components/flexControls/VideoComponent';
 import WebsiteComponent from '../components/flexControls/WebsiteComponent';
 
+//Flex Control Overlay Components to kick the journey
+import PDFSlider from '../components/PDFSlider';
+
 import '../globalStyles.css';
 import '../portret.css';
 import '../socialIcons.css';
@@ -87,7 +90,7 @@ export default function Home(props) {
     const [websiteOverlay, setWebsiteOverlay] = useState(false);
 
     const [showEmptyOverlay, setShowEmptyOverlay] = useState(false);
-    console.log(" pdfData.pdfData ",websiteHeaderData.enabledChoices)
+    console.log("pdfDataFromSlider",pdfDataFromSlider)
     
     return (
         <>
@@ -208,9 +211,8 @@ export default function Home(props) {
                 )}
                 {/* open pdf overlay */}
                 {openPdfOverlay && (
-                    <PDFGallery
-                        documents={pdfDocuments}
-                        pdfSlice={pdfSlice}
+                    <PDFSlider
+                        pdfDataFromSlider={pdfDataFromSlider}
                         removeOverlay={() => setPdfOverlay(!openPdfOverlay)}
                     />
                 )}
