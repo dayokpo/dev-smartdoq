@@ -22,6 +22,9 @@ import photoImage from '../files/flexControls/photoImage.png';
 import pdfImage from '../files/flexControls/pdfImage.png';
 import videoImage from '../files/flexControls/videoImage.png';
 import websiteImage from '../files/flexControls/websiteImage.png';
+import fiftyFiftyImage from '../files/flexControls/fiftyFiftyImage.png';
+import threeSixtyCarouselImage from '../files/flexControls/threeSixtyCarouselImage.png';
+
 //flex controls components
 import ThreeDModelComponent from '../components/flexControls/ThreeDModelComponent';
 import IFrameComponent from '../components/flexControls/IFrameComponent';
@@ -29,6 +32,8 @@ import PdfComponent from '../components/flexControls/PdfComponent';
 import PhotoComponent from '../components/flexControls/PhotoComponent';
 import VideoComponent from '../components/flexControls/VideoComponent';
 import WebsiteComponent from '../components/flexControls/WebsiteComponent';
+import ThreeSixtyCarouselComponent from '../components/flexControls/ThreeSixtyCarouselComponent';
+import FiftyFiftyComponent from '../components/flexControls/FiftyFiftyComponent';
 
 //Flex Control Overlay Components to kick the journey
 import PDFSlider from '../components/PDFSlider';
@@ -52,7 +57,8 @@ import {
     getSliderData,
     getVideoSliderData,
     getPDFData,
-    getThreeDModelInternalData
+    getThreeDModelInternalData,
+    getTopRightData
 } from '../utils/index';
 const FooterLine = styled.img`
     left: 5%;
@@ -80,6 +86,7 @@ export default function Home(props) {
     const menuData = getMenuData(data);
     const websiteMeta = getWebsiteMeta(data);
     const threeDModelData = getThreeDModelInternalData(data);
+    const topRightData =  getTopRightData(data);
     const [open, setOpen] = useState(false);
     
     const [openIframeOverlay, setIFrameOverlay] = useState(false);
@@ -88,9 +95,11 @@ export default function Home(props) {
     const [threeDModelOverlay, setThreeDModelOverlay] = useState(false);
     const [openVideOverlay, setVideoOverlay] = useState(false);
     const [websiteOverlay, setWebsiteOverlay] = useState(false);
+    const [threeSixtyCarousel, setThreeSixtyCarousel] = useState(false);
+    const [fiftyFifty, setFiftyFifty] = useState(false);
 
     const [showEmptyOverlay, setShowEmptyOverlay] = useState(false);
-    console.log("pdfDataFromSlider",pdfDataFromSlider)
+    console.log("pdfDataFromSlider",websiteHeaderData.enabledChoices)
     
     return (
         <>
@@ -175,6 +184,26 @@ export default function Home(props) {
                             onClick={() => setPhotoOverlay(!openPhotoOverlay)}
                         />
                     }
+                    {/* 3D carousel -   */}
+                    { (websiteHeaderData.enabledChoices.indexOf("3D carousel") > -1) &&
+                        <ThreeSixtyCarouselComponent
+                            src={threeSixtyCarouselImage}
+                            type="image"
+                            value=""
+                            className="box"
+                            onClick={() => setThreeSixtyCarousel(!threeSixtyCarousel)}
+                        />
+                    }
+                    {/* FIFTY FIFTY-   */}
+                    { (websiteHeaderData.enabledChoices.indexOf("50 / 50") > -1) &&
+                        <FiftyFiftyComponent
+                            src={fiftyFiftyImage}
+                            type="image"
+                            value=""
+                            className="box"
+                            onClick={() => setFiftyFifty(!fiftyFifty)}
+                        />
+                    }
                     </div>
                     <PrismicSVG />
                     <FooterLine src={websiteHeaderData.footerLineImage} />
@@ -197,7 +226,7 @@ export default function Home(props) {
                 {/* open right Overlay */}
                 {showEmptyOverlay && (
                     <EmptyOverlayModel
-                        menuData={menuData}
+                        topRightData={topRightData}
                         removeOverlay={() => setShowEmptyOverlay(!showEmptyOverlay)}
                     />
                 )}

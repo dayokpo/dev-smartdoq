@@ -1,37 +1,23 @@
 import React from 'react';
 import * as Icon from 'react-feather';
-function EmptyOverlayModel({ menuData, removeOverlay }) {
+function EmptyOverlayModel({ topRightData, removeOverlay }) {
   return (
     <div className="overlay">
       <Icon.X className="overlay-close" onClick={(e) => removeOverlay()}/>
       <div className="rightContainerFlex">
-        <img
-          className="box "
-          src={menuData.menu_right_image_1.url}
+      {topRightData.map((item, index)=> {
+        return(<img
+          className="box"
+          src={item.slide_image.url}
+          key={index}
           onClick={() => {
-            window.location = menuData.menu_right_image_url_1.url;
+            window.location = item.slide_url.url;
           }}
-        />
-        <img
-          className="box "
-          src={menuData.menu_right_image_2.url}
-          onClick={() => {
-            window.location = menuData.menu_right_image_url_2.url;
-          }}
-        />
-        <img
-          className="box "
-          src={menuData.menu_right_image_3.url}
-          onClick={() => {
-            window.location = menuData.menu_right_image_url_3.url;
-          }}
-        />
+        />)
+      })}
       </div>
     </div>
   );
 }
 
-EmptyOverlayModel.defaultProps = {};
-
-EmptyOverlayModel.propTypes = {};
 export default EmptyOverlayModel;

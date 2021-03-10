@@ -6,6 +6,7 @@ const sliderData = 'PrismicBlogpostBodySlider'
 const videoSliderData = 'PrismicBlogpostBodyVideo'
 const pdfData = 'PrismicBlogpostBodyPdf'
 const threeDModelInternal = 'PrismicBlogpostBody3dModelInternal'
+const topRight = 'PrismicBlogpostBodyTopRight';
 
 const removeUndefined = (item) => item !== undefined 
 const getSelectedFunctionalities = (websiteData) => {
@@ -40,6 +41,12 @@ export const getSliderData = data => {
   return data.prismicBlogpost.data.body
     .filter(item => item['__typename'] === sliderData)
     .map(i => i.items)[0]
+}
+
+export const getTopRightData = data => {
+  return data.prismicBlogpost.data.body
+  .filter(item => item['__typename'] === topRight)
+  .map(i => i.items)[0]
 }
 
 export const getPDFData = data => {
