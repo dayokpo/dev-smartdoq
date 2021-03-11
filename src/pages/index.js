@@ -15,6 +15,7 @@ import PDFGallery from '../components/pdfGallery';
 import Gallery from '../components/Gallery';
 import VideoGallery from '../components/VideoGallery';
 import PrismicSVG from '../components/svg/PrismicSVG';
+import DegreeOverlay from '../components/DegreeOverlay';
 //flex controls images
 import threeDModelImage from '../files/flexControls/threeDModelImage.png';
 import iframeImage from '../files/flexControls/iframeImage.png';
@@ -59,7 +60,8 @@ import {
     getPDFData,
     getThreeDModelInternalData,
     getTopRightData,
-    getIFrameData
+    getIFrameData,
+    getWebsiteData
 } from '../utils/index';
 const FooterLine = styled.img`
     left: 5%;
@@ -82,6 +84,7 @@ export default function Home(props) {
     const websiteHeaderData = getWebsiteHeaderData(data);
     const pdfSlice = getPDFSlice(data);
     const pdfDocuments = getPDFDocuments(data);
+    const websiteData = getWebsiteData(data);
     // const videoMapSlice = getVideoMapSlice(data);
     const iframeData = getIFrameData(data);
     const socialURLs = getSocialUrls(data);
@@ -101,7 +104,6 @@ export default function Home(props) {
     const [fiftyFifty, setFiftyFifty] = useState(false);
 
     const [showEmptyOverlay, setShowEmptyOverlay] = useState(false);
-   
 
     return (
         <>
@@ -156,7 +158,7 @@ export default function Home(props) {
                             />
                         )}
                         {/* IFRAME -  360 -3d */}
-                        { console.log("  ",websiteHeaderData.enabledChoices)} 
+                        {console.log('  ', websiteHeaderData.enabledChoices)}
                         {websiteHeaderData.enabledChoices.indexOf('IFRAME -') > -1 && (
                             <IFrameComponent
                                 src={iframeImage}
@@ -211,17 +213,6 @@ export default function Home(props) {
                     <FooterLine src={websiteHeaderData.footerLineImage} />
                 </Wrapper>
 
-                {/* open Photo Gallery overlay */}
-                {openPhotoOverlay && (
-                    <Gallery
-                        removeOverlay={() => {
-                            setPhotoOverlay(!openPhotoOverlay);
-                        }}
-                        brochureImages={brochureImages}
-                        // data={videoMapSlice}
-                    />
-                )}
-
                 {/* open left Overlay */}
                 {open && <OverlayModel removeOverlay={() => setOpen(!open)} socialURLs={socialURLs} />}
 
@@ -232,23 +223,36 @@ export default function Home(props) {
                         removeOverlay={() => setShowEmptyOverlay(!showEmptyOverlay)}
                     />
                 )}
-                {/* open 360 - three D Model - IFRAME */}
-               { console.log(" openIframeOverlay ",openIframeOverlay) }
-                {openIframeOverlay && (
-                    <ThreeDOverlay data= {iframeData} removeOverlay={() => setIFrameOverlay(!openIframeOverlay)} />
+                {/* 1 open Photo Gallery overlay */}
+                {openPhotoOverlay && (
+                    <Gallery
+                        removeOverlay={() => {
+                            setPhotoOverlay(!openPhotoOverlay);
+                        }}
+                        brochureImages={brochureImages}
+                        // data={videoMapSlice}
+                    />
                 )}
-                {/* open video overlay */}
-                {openVideOverlay && (
-                    <VideoGallery videoData={videoSliderData} 
-                    removeOverlay={() => setVideoOverlay(!openVideOverlay)} />
 
+                {/* 2 open 360 - three D Model - IFRAME  -- virtual tour*/}
+                {openIframeOverlay && (
+                    <ThreeDOverlay data={iframeData} removeOverlay={() => setIFrameOverlay(!openIframeOverlay)} />
                 )}
-                {/* open pdf overlay */}
+                {/* 3 open video overlay */}
+                {openVideOverlay && (
+                    <VideoGallery videoData={videoSliderData} removeOverlay={() => setVideoOverlay(!openVideOverlay)} />
+                )}
+                {/* 4 open pdf overlay */}
                 {openPdfOverlay && (
                     <PDFSlider
                         pdfDataFromSlider={pdfDataFromSlider}
                         removeOverlay={() => setPdfOverlay(!openPdfOverlay)}
                     />
+                )}
+
+                {/* 5 Website */}
+                {websiteOverlay && (
+                    <DegreeOverlay data={websiteData} removeOverlay={() => setWebsiteOverlay(!websiteOverlay)} />
                 )}
                 {/* {openPdfOverlay && <PdfCarousel pdfSlice={pdfSlice} documents={pdfDocuments} removeOverlay={() => setPdfOverlay(!openPdfOverlay)} />} */}
             </Layout>
@@ -447,6 +451,15 @@ export const pageQuery = graphql`
                             }
                             slide_caption
                             __typename
+                        }
+                    }
+                    ... on PrismicBlogpostBodyWebsiteAdd {
+                        id
+                        primary {
+                            move_the_x_to_the_left
+                            website_address {
+                                url
+                            }
                         }
                     }
                     ... on PrismicBlogpostBodyVideo {

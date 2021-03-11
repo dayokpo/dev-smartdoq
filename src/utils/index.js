@@ -8,6 +8,7 @@ const pdfData = 'PrismicBlogpostBodyPdf'
 const threeDModelInternal = 'PrismicBlogpostBody3dModelInternal'
 const topRight = 'PrismicBlogpostBodyTopRight';
 const iframeData = 'PrismicBlogpostBodyIframe';
+const websiteData = 'PrismicBlogpostBodyWebsiteAdd';
 
 const removeUndefined = (item) => item !== undefined 
 
@@ -48,6 +49,11 @@ export const getSliderData = data => {
 export const getIFrameData = data => {
   return data.prismicBlogpost.data.body
     .filter(item => item['__typename'] === iframeData)
+}
+
+export const getWebsiteData = data => {
+  return data.prismicBlogpost.data.body
+    .filter(item => item['__typename'] === websiteData)
 }
 
 export const getTopRightData = data => {
