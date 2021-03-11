@@ -58,7 +58,7 @@ import {
     getVideoSliderData,
     getPDFData,
     getThreeDModelInternalData,
-    getTopRightData
+    getTopRightData,
 } from '../utils/index';
 const FooterLine = styled.img`
     left: 5%;
@@ -77,18 +77,18 @@ export default function Home(props) {
     const { data } = props;
     const brochureImages = getSliderData(data);
     const pdfDataFromSlider = getPDFData(data);
-    const videoSliderData =  getVideoSliderData(data);
+    const videoSliderData = getVideoSliderData(data);
     const websiteHeaderData = getWebsiteHeaderData(data);
     const pdfSlice = getPDFSlice(data);
     const pdfDocuments = getPDFDocuments(data);
-   // const videoMapSlice = getVideoMapSlice(data);
+    // const videoMapSlice = getVideoMapSlice(data);
     const socialURLs = getSocialUrls(data);
     const menuData = getMenuData(data);
     const websiteMeta = getWebsiteMeta(data);
     const threeDModelData = getThreeDModelInternalData(data);
-    const topRightData =  getTopRightData(data);
+    const topRightData = getTopRightData(data);
     const [open, setOpen] = useState(false);
-    
+
     const [openIframeOverlay, setIFrameOverlay] = useState(false);
     const [openPdfOverlay, setPdfOverlay] = useState(false);
     const [openPhotoOverlay, setPhotoOverlay] = useState(false);
@@ -99,8 +99,8 @@ export default function Home(props) {
     const [fiftyFifty, setFiftyFifty] = useState(false);
 
     const [showEmptyOverlay, setShowEmptyOverlay] = useState(false);
-    console.log("pdfDataFromSlider",websiteHeaderData.enabledChoices)
-    
+    console.log('videoSliderData', videoSliderData);
+
     return (
         <>
             <Layout>
@@ -124,86 +124,85 @@ export default function Home(props) {
                     )}
                     <LogoDesc logo={websiteHeaderData.logoImage} desc={websiteHeaderData.logoDescription} />
                     <div className="controlFlex">
-                    
-                    {/* ThreeD model  internal */}
-                    { (websiteHeaderData.enabledChoices.indexOf("3D Model Internal") > -1) &&
-                        <ThreeDModelComponent
-                            src={threeDModelImage}
-                            type="image"
-                            className="box"
-                            onClick={() => setThreeDModelOverlay(!threeDModelOverlay)}
-                        />
-                    }
+                        {/* ThreeD model  internal */}
+                        {websiteHeaderData.enabledChoices.indexOf('3D Model Internal') > -1 && (
+                            <ThreeDModelComponent
+                                src={threeDModelImage}
+                                type="image"
+                                className="box"
+                                onClick={() => setThreeDModelOverlay(!threeDModelOverlay)}
+                            />
+                        )}
 
-                     {/* PDF  */}
-                    { (websiteHeaderData.enabledChoices.indexOf("PDF") > -1) &&
-                        <PdfComponent
-                            src={pdfImage}
-                            type="image"
-                            className="box"
-                            onClick={() => setPdfOverlay(!openPdfOverlay)}
-                        />
-                    }
-                    {/* Video  */}
-                    { (websiteHeaderData.enabledChoices.indexOf("Video Gallery") > -1) &&
-                        <VideoComponent
-                            src={videoImage}
-                            type="image"
-                            value=""
-                            className="box"
-                            onClick={() => setVideoOverlay(!openVideOverlay)}
-                        />
-                    }
-                    {/* IFRAME -   */}
-                    { (websiteHeaderData.enabledChoices.indexOf("IFRAME -") > -1) &&
-                        <IFrameComponent
-                            src={iframeImage}
-                            type="image"
-                            value=""
-                            className="box"
-                            onClick={() => setIFrameOverlay(!openIframeOverlay)}
-                        />
-                    }
-                    {/* WEbsite -   */}
-                    { (websiteHeaderData.enabledChoices.indexOf("Website -") > -1) &&
-                        <WebsiteComponent
-                            src={websiteImage}
-                            type="image"
-                            value=""
-                            className="box"
-                            onClick={() => setWebsiteOverlay(!websiteOverlay)}
-                        />
-                    }
-                    {/* PHOTO GALLERY -   */}
-                    { (websiteHeaderData.enabledChoices.indexOf("Photo Gallery") > -1) &&
-                        <PhotoComponent
-                            src={photoImage}
-                            type="image"
-                            value=""
-                            className="box"
-                            onClick={() => setPhotoOverlay(!openPhotoOverlay)}
-                        />
-                    }
-                    {/* 3D carousel -   */}
-                    { (websiteHeaderData.enabledChoices.indexOf("3D carousel") > -1) &&
-                        <ThreeSixtyCarouselComponent
-                            src={threeSixtyCarouselImage}
-                            type="image"
-                            value=""
-                            className="box"
-                            onClick={() => setThreeSixtyCarousel(!threeSixtyCarousel)}
-                        />
-                    }
-                    {/* FIFTY FIFTY-   */}
-                    { (websiteHeaderData.enabledChoices.indexOf("50 / 50") > -1) &&
-                        <FiftyFiftyComponent
-                            src={fiftyFiftyImage}
-                            type="image"
-                            value=""
-                            className="box"
-                            onClick={() => setFiftyFifty(!fiftyFifty)}
-                        />
-                    }
+                        {/* PDF  */}
+                        {websiteHeaderData.enabledChoices.indexOf('PDF') > -1 && (
+                            <PdfComponent
+                                src={pdfImage}
+                                type="image"
+                                className="box"
+                                onClick={() => setPdfOverlay(!openPdfOverlay)}
+                            />
+                        )}
+                        {/* Video  */}
+                        {websiteHeaderData.enabledChoices.indexOf('Video Gallery') > -1 && (
+                            <VideoComponent
+                                src={videoImage}
+                                type="image"
+                                value=""
+                                className="box"
+                                onClick={() => setVideoOverlay(!openVideOverlay)}
+                            />
+                        )}
+                        {/* IFRAME -   */}
+                        {websiteHeaderData.enabledChoices.indexOf('IFRAME -') > -1 && (
+                            <IFrameComponent
+                                src={iframeImage}
+                                type="image"
+                                value=""
+                                className="box"
+                                onClick={() => setIFrameOverlay(!openIframeOverlay)}
+                            />
+                        )}
+                        {/* WEbsite -   */}
+                        {websiteHeaderData.enabledChoices.indexOf('Website -') > -1 && (
+                            <WebsiteComponent
+                                src={websiteImage}
+                                type="image"
+                                value=""
+                                className="box"
+                                onClick={() => setWebsiteOverlay(!websiteOverlay)}
+                            />
+                        )}
+                        {/* PHOTO GALLERY -   */}
+                        {websiteHeaderData.enabledChoices.indexOf('Photo Gallery') > -1 && (
+                            <PhotoComponent
+                                src={photoImage}
+                                type="image"
+                                value=""
+                                className="box"
+                                onClick={() => setPhotoOverlay(!openPhotoOverlay)}
+                            />
+                        )}
+                        {/* 3D carousel -   */}
+                        {websiteHeaderData.enabledChoices.indexOf('3D carousel') > -1 && (
+                            <ThreeSixtyCarouselComponent
+                                src={threeSixtyCarouselImage}
+                                type="image"
+                                value=""
+                                className="box"
+                                onClick={() => setThreeSixtyCarousel(!threeSixtyCarousel)}
+                            />
+                        )}
+                        {/* FIFTY FIFTY-   */}
+                        {websiteHeaderData.enabledChoices.indexOf('50 / 50') > -1 && (
+                            <FiftyFiftyComponent
+                                src={fiftyFiftyImage}
+                                type="image"
+                                value=""
+                                className="box"
+                                onClick={() => setFiftyFifty(!fiftyFifty)}
+                            />
+                        )}
                     </div>
                     <PrismicSVG />
                     <FooterLine src={websiteHeaderData.footerLineImage} />
@@ -216,11 +215,11 @@ export default function Home(props) {
                             setPhotoOverlay(!openPhotoOverlay);
                         }}
                         brochureImages={brochureImages}
-                       // data={videoMapSlice}
+                        // data={videoMapSlice}
                     />
                 )}
 
-                 {/* open left Overlay */}
+                {/* open left Overlay */}
                 {open && <OverlayModel removeOverlay={() => setOpen(!open)} socialURLs={socialURLs} />}
 
                 {/* open right Overlay */}
@@ -236,7 +235,9 @@ export default function Home(props) {
                 )}
                 {/* open video overlay */}
                 {openVideOverlay && (
-                    <VideoGallery videoData= {videoSliderData}  removeOverlay={() => setVideoOverlay(!openVideOverlay)} />
+                    <VideoGallery videoData={videoSliderData} 
+                    removeOverlay={() => setVideoOverlay(!openVideOverlay)} />
+
                 )}
                 {/* open pdf overlay */}
                 {openPdfOverlay && (
@@ -297,12 +298,24 @@ export const pageQuery = graphql`
                                 copyright
                                 url
                             }
-                            pdf{
+                            pdf {
                                 url
                             }
                             slide_caption
                             __typename
                         }
+                    }
+                    ... on PrismicBlogpostBodyIframe {
+                        slice_type
+                        primary {
+                            embed_url {
+                                embed_url
+                                html
+                            }
+                            move_the_x_to_the_left
+                        }
+                        slice_label
+                        slice_type
                     }
                     ... on PrismicBlogpostBodyTopRight {
                         slice_type
@@ -328,7 +341,7 @@ export const pageQuery = graphql`
                             model_thumbnail {
                                 url
                             }
-                            title_under_thumbnail{
+                            title_under_thumbnail {
                                 text
                             }
                             __typename

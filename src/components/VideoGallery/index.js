@@ -2,41 +2,45 @@ import React, { useState } from 'react';
 import VideoViewer from '../../components/videoViewer';
 import * as Icon from 'react-feather';
 
-function VideoGallery({ videoData, data, removeOverlay }) {
-    let noOfDocuments = 3;
-    console.log(' video Data ', videoData);
-    const videoHtml = data.video_url.html;
-    let [imageIndex, setImageIndex] = useState(1);
-    let [videoURL, setVideoURL] = useState(videoHtml);
-
-    const [open, setOpen] = useState(true);
-    const [activeUrl, setActiveUrl] = useState(undefined);
-    const [openViewer, setOpenViewer] = useState(false);
+function VideoGallery({ videoData, removeOverlay }) {
+    const [comState, setComState] = useState({ openVideoOverlay: true, videoURL: undefined, openVideo: false });
+    const { openVideoOverlay, videoURL, openVideo } = comState;
+    const handleImageClick = (pdfURL) => {
+        setComState({
+            openVideoOverlay: false,
+            videoURL,
+            openVideo: true,
+        });
+    };
+    const closeOpenVideo = () => {
+        setComState({
+            openVideoOverlay: true,
+            openVideo: false
+        });
+    }
 
     return (
         <div className="overlay">
-            {!openViewer && (
-
-            <Icon.X className="overlay-close" onClick={(e) => removeOverlay()}/>
-            )}
-            {openViewer && (
+            {!openVideo && <Icon.X className="overlay-close" onClick={(e) => removeOverlay()}/>}
+            {openVideo && (
                 <VideoViewer
-                    fileURL={activeUrl}
-                    closePreview={() => {
-                        setOpenViewer(false);
-                        setOpen(true);
-                    }}
+                    fileURL={videoURL}
+                    closePreview={() => {closeOpenVideo()}}
                 />
             )}
-            {open && (
+            {openVideoOverlay && (
                 <div className="videoGallery">
                     <>
                             {videoData.map((item, index) => {
-                                console.log(" item ", item , index)
                                 return (
-                                    <div className="videoGalleryLists">
+                                    <div className="videoGalleryLists" key={index}>
                                         <div className="videoGalleryThumb">
-                                            <div className= "videoIframe" dangerouslySetInnerHTML={{ __html: item.video.html }} />
+                                            <div className= "videoIframe" 
+                                            dangerouslySetInnerHTML={{ __html: item.video.html }} 
+                                            onClick={(e) => {
+                                                handleImageClick(item.video.html);
+                                            }}
+                                            />
                                         </div>
                                     </div>
                                 );
