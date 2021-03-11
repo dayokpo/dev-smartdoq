@@ -209,7 +209,12 @@ export default function Home(props) {
                             />
                         )}
                     </div>
-                    <PrismicSVG />
+                    <PrismicLogo
+                        src={websiteHeaderData.footerImage}
+                        type="image"
+                        value=""
+                        onClick={() => window.open(websiteHeaderData.footerLink)}
+                    />
                     <FooterLine src={websiteHeaderData.footerLineImage} />
                 </Wrapper>
 
