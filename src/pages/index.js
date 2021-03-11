@@ -59,6 +59,7 @@ import {
     getPDFData,
     getThreeDModelInternalData,
     getTopRightData,
+    getIFrameData
 } from '../utils/index';
 const FooterLine = styled.img`
     left: 5%;
@@ -82,6 +83,7 @@ export default function Home(props) {
     const pdfSlice = getPDFSlice(data);
     const pdfDocuments = getPDFDocuments(data);
     // const videoMapSlice = getVideoMapSlice(data);
+    const iframeData = getIFrameData(data);
     const socialURLs = getSocialUrls(data);
     const menuData = getMenuData(data);
     const websiteMeta = getWebsiteMeta(data);
@@ -99,7 +101,7 @@ export default function Home(props) {
     const [fiftyFifty, setFiftyFifty] = useState(false);
 
     const [showEmptyOverlay, setShowEmptyOverlay] = useState(false);
-    console.log('videoSliderData', videoSliderData);
+   
 
     return (
         <>
@@ -153,7 +155,8 @@ export default function Home(props) {
                                 onClick={() => setVideoOverlay(!openVideOverlay)}
                             />
                         )}
-                        {/* IFRAME -   */}
+                        {/* IFRAME -  360 -3d */}
+                        { console.log("  ",websiteHeaderData.enabledChoices)} 
                         {websiteHeaderData.enabledChoices.indexOf('IFRAME -') > -1 && (
                             <IFrameComponent
                                 src={iframeImage}
@@ -229,9 +232,10 @@ export default function Home(props) {
                         removeOverlay={() => setShowEmptyOverlay(!showEmptyOverlay)}
                     />
                 )}
-                {/* open three D Model */}
-                {threeDModelOverlay && (
-                    <ThreeDOverlay removeOverlay={() => setThreeDModelOverlay(!threeDModelOverlay)} />
+                {/* open 360 - three D Model - IFRAME */}
+               { console.log(" openIframeOverlay ",openIframeOverlay) }
+                {openIframeOverlay && (
+                    <ThreeDOverlay data= {iframeData} removeOverlay={() => setIFrameOverlay(!openIframeOverlay)} />
                 )}
                 {/* open video overlay */}
                 {openVideOverlay && (
