@@ -3,7 +3,6 @@ import useDeviceDetect from '../../utils/useDeviceDetect';
 import { Document, Page } from 'react-pdf/dist/entry.webpack';
 import * as Icon from 'react-feather';
 function VideoViewer({ fileURL, closePreview }) {
-    console.log(" hiiii ")
     const { isMobile } = useDeviceDetect();
     const [numPages, setNumPages] = useState(null);
     const [pageNumber, setPageNumber] = useState(1);

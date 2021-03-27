@@ -39,7 +39,6 @@ const MainImageWrapper = styled.div`
 `;
 const Gallery = ({ brochureImages, removeOverlay }) => {
     const [ showGallery, setShowGallery] = useState(Boolean(brochureImages.length));
-    console.log(" brochureImages ",showGallery)
 
   const slider = useRef();
     const [lightboxController, setLightboxController] = useState({

@@ -6,7 +6,6 @@ import ArrowLeftCircle from '../svg/ArrowLeftCircle';
 import * as Icon from 'react-feather';
 function PdfViewer({ fileURL, closePreview }) {
     const { isMobile } = useDeviceDetect();
-    console.log(" is mobile ", isMobile)
     const [numPages, setNumPages] = useState(null);
     const [pageNumber, setPageNumber] = useState(1);
 

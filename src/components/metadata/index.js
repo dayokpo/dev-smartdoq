@@ -17,7 +17,6 @@ const Metadata = ({ websiteMeta, uid }) => {
   )
   
   const locationUrl = "https://smartdoq.netlify.app/"+uid;
-  console.log(locationUrl)
   const titleText = websiteMeta.title.text;
   const websiteDescription = websiteMeta.description.text;
   const linkShareImage = websiteMeta.meta_link_share_image?websiteMeta.meta_link_share_image.url:logo;

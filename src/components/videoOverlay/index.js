@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import * as Icon from 'react-feather';
 
 function VideoOverlay({ data, removeOverlay }) {
-  console.log(data);
     let noOfDocuments = 3;
     const videoHtml = data.video_url.html;
     let [imageIndex, setImageIndex] = React.useState(1);

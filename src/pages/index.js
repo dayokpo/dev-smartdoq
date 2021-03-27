@@ -158,7 +158,6 @@ export default function Home(props) {
                             />
                         )}
                         {/* IFRAME -  360 -3d */}
-                        {console.log('  ', websiteHeaderData.enabledChoices)}
                         {websiteHeaderData.enabledChoices.indexOf('IFRAME -') > -1 && (
                             <IFrameComponent
                                 src={iframeImage}

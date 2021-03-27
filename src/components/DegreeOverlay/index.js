@@ -4,7 +4,6 @@ import Iframe from "react-iframe";
 import * as Icon from 'react-feather';
 
 function DegreeOverlay({ removeOverlay, data }) {
-  console.log(" data ", data);
   let cName = 'overlay-close';
   if(data[0]['primary']['move_the_x_to_the_left']){
     cName += ' toggle_x';

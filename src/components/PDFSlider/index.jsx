@@ -31,7 +31,6 @@ function PDFSlider({ pdfDataFromSlider, removeOverlay }) {
             {openPDFOverlay && (
                 <div className="pdfGallery">
                     {pdfDataFromSlider.map((item, index) => {
-                        console.log(" {item.slide_caption.text} ",item.slide_caption)
                         return (
                             <>
                                 <div className="pdfGalleryLists" key={index}>
