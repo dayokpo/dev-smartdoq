@@ -110,7 +110,7 @@ function OverlayModel({ removeOverlay, socialURLs }) {
                                 setShareOpen(!shareOpen)
                             }}
                         >
-                            Shares
+                            Share
                         </a>
                         {shareOpen && (
                             <ul className="socialUL">
