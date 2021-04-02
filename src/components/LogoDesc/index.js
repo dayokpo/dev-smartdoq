@@ -1,12 +1,15 @@
-import React from "react";
+import React from 'react'
 
 const LogoDesc = ({ logo, desc }) => {
-  return (
-    <div id="LogoDesc" className="logoDescContainer">
-      <img className="box" src={logo}></img>
-      <div className="align-self" dangerouslySetInnerHTML={{ __html: desc }} />
-    </div>
-  );
-};
+    return (
+        <div id="LogoDesc" className="logoDescContainer">
+            <img className="box" src={logo}></img>
+            <div
+                className="align-self"
+                dangerouslySetInnerHTML={{ __html: desc }}
+            />
+        </div>
+    )
+}
 
-export default LogoDesc;
+export default LogoDesc
