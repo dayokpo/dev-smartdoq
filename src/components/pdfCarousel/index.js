@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import * as Icon from 'react-feather';
-import PdfViewer from '../../components/pdfViewer';
+import React, { useState } from "react";
+import * as Icon from "react-feather";
+import PdfViewer from "../../components/pdfViewer";
 function PdfCarousel({ documents, removeOverlay, pdfSlice }) {
   const [open, setOpen] = React.useState(true);
   const [activePdfUrl, setActivePdfUrl] = React.useState(undefined);
@@ -9,24 +9,23 @@ function PdfCarousel({ documents, removeOverlay, pdfSlice }) {
   let [imageIndex, setImageIndex] = React.useState(1);
   const [documentURL, setDocumentURL] = React.useState(documents[0].url);
   let noOfDocuments = documents.length;
- 
 
   const handleRightClick = async (isEnd) => {
-    imageIndex = isEnd?  1:imageIndex + 1;
+    imageIndex = isEnd ? 1 : imageIndex + 1;
     await setImageIndex(imageIndex);
-    await setImageURL(pdfSlice['document_image_' + `${imageIndex}`]['url']);
+    await setImageURL(pdfSlice["document_image_" + `${imageIndex}`]["url"]);
     await setDocumentURL(documents[imageIndex - 1].url);
   };
   const handleLeftClick = async (isEnd) => {
-    imageIndex = isEnd?  noOfDocuments :imageIndex - 1;
+    imageIndex = isEnd ? noOfDocuments : imageIndex - 1;
     await setImageIndex(imageIndex);
-    await setImageURL(pdfSlice['document_image_' + `${imageIndex}`]['url']);
+    await setImageURL(pdfSlice["document_image_" + `${imageIndex}`]["url"]);
     await setDocumentURL(documents[imageIndex - 1].url);
   };
   return (
     <div className="overlay">
       {!openPDFViewer && (
-      <Icon.X className="overlay-close" onClick={(e) => removeOverlay()}/>
+        <Icon.X className="overlay-close" onClick={(e) => removeOverlay()} />
       )}
       {openPDFViewer && (
         <PdfViewer
@@ -43,7 +42,7 @@ function PdfCarousel({ documents, removeOverlay, pdfSlice }) {
             <img
               alt=""
               src={imageURL}
-              onClick={e => {
+              onClick={(e) => {
                 setActivePdfUrl(documentURL);
                 setOpenPDFViewer(true);
                 setOpen(false);

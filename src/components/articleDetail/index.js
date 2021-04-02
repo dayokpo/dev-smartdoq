@@ -1,7 +1,7 @@
-import React from 'react'
-import '../articleDetail/style.scss'
+import React from "react";
+import "../articleDetail/style.scss";
 
-const ArticleDetail = props => (
+const ArticleDetail = (props) => (
   <>
     <section
       className="c-article-header"
@@ -16,6 +16,6 @@ const ArticleDetail = props => (
       />
     </div>
   </>
-)
+);
 
-export default ArticleDetail
+export default ArticleDetail;

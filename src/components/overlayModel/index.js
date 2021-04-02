@@ -1,21 +1,18 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import * as Icon from 'react-feather';
+import React from "react";
+import PropTypes from "prop-types";
+import * as Icon from "react-feather";
 
-function OverlayModel({
-  removeOverlay,
-  socialURLs
-}) {
+function OverlayModel({ removeOverlay, socialURLs }) {
   const {
     facebook_url,
     instagram_url,
     linkedin_url,
     whatsapp_url,
-  } = socialURLs
-  const wu = whatsapp_url.url
+  } = socialURLs;
+  const wu = whatsapp_url.url;
 
-  const whatsappUrl = wu.substring(wu.indexOf('whatsapp'), wu.length)
-  
+  const whatsappUrl = wu.substring(wu.indexOf("whatsapp"), wu.length);
+
   const {
     phone_number,
     phone_icon,
@@ -28,25 +25,24 @@ function OverlayModel({
     linked_in_icon,
     whatsapp_icon,
     facebook_icon,
-    instagram_icon
-  } = socialURLs
-  const [open, setOpen] = React.useState(false)
-  const [shareOpen, setShareOpen] = React.useState(false)
-  const [contactOpen, setContactOpen] = React.useState(false)
-  const phoneNumber = phone_number.text
+    instagram_icon,
+  } = socialURLs;
+  const [open, setOpen] = React.useState(false);
+  const [shareOpen, setShareOpen] = React.useState(false);
+  const [contactOpen, setContactOpen] = React.useState(false);
+  const phoneNumber = phone_number.text;
 
   return (
     <div className="overlay">
-
-      <Icon.X className="overlay-close" onClick={(e) => removeOverlay()}/>
+      <Icon.X className="overlay-close" onClick={(e) => removeOverlay()} />
       <nav>
         <ul>
           <li>
             <a
               onClick={() => {
-                setOpen(false)
-                setShareOpen(false)
-                setContactOpen(!contactOpen)
+                setOpen(false);
+                setShareOpen(false);
+                setContactOpen(!contactOpen);
               }}
             >
               Contact
@@ -59,7 +55,7 @@ function OverlayModel({
                     alt="wp"
                     className="contact-img"
                     onClick={() => {
-                      window.location = 'tel:' + phoneNumber
+                      window.location = "tel:" + phoneNumber;
                     }}
                   />
                 </li>
@@ -69,7 +65,7 @@ function OverlayModel({
                     alt="wp"
                     className="contact-img"
                     onClick={() => {
-                      window.location = mail_url.url
+                      window.location = mail_url.url;
                     }}
                   />
                 </li>
@@ -79,7 +75,7 @@ function OverlayModel({
                     alt="wp"
                     className="contact-img"
                     onClick={() => {
-                      window.open(website_url.url, '_blank')
+                      window.open(website_url.url, "_blank");
                     }}
                   />
                 </li>
@@ -89,7 +85,7 @@ function OverlayModel({
                     alt="wp"
                     className="contact-img"
                     onClick={() => {
-                      window.open(location_url.url, '_blank')
+                      window.open(location_url.url, "_blank");
                     }}
                   />
                 </li>
@@ -99,9 +95,9 @@ function OverlayModel({
           <li>
             <a
               onClick={() => {
-                setOpen(false)
-                setContactOpen(false)
-                setShareOpen(!shareOpen)
+                setOpen(false);
+                setContactOpen(false);
+                setShareOpen(!shareOpen);
               }}
             >
               Shares
@@ -109,14 +105,22 @@ function OverlayModel({
             {shareOpen && (
               <ul className="socialUL">
                 <li className="grid-column">
-                  <img src={whatsapp_icon.url} alt="wp"  onClick={() => {
-                      window.location = whatsappUrl
-                    }}/> 
+                  <img
+                    src={whatsapp_icon.url}
+                    alt="wp"
+                    onClick={() => {
+                      window.location = whatsappUrl;
+                    }}
+                  />
                 </li>
                 <li className="grid-column">
-                  <img  src={mail_icon.url} alt="email" onClick={() => {
-                      window.location = mail_url.url
-                    }}/> 
+                  <img
+                    src={mail_icon.url}
+                    alt="email"
+                    onClick={() => {
+                      window.location = mail_url.url;
+                    }}
+                  />
                 </li>
               </ul>
             )}
@@ -124,9 +128,9 @@ function OverlayModel({
           <li className="social">
             <a
               onClick={() => {
-                setShareOpen(false)
-                setContactOpen(false)
-                setOpen(!open)
+                setShareOpen(false);
+                setContactOpen(false);
+                setOpen(!open);
               }}
             >
               Social
@@ -138,7 +142,7 @@ function OverlayModel({
                     src={instagram_icon.url}
                     alt="insta"
                     onClick={() => {
-                      window.open(instagram_url.url, '_blank')
+                      window.open(instagram_url.url, "_blank");
                     }}
                   />
                 </li>
@@ -147,7 +151,7 @@ function OverlayModel({
                     src={linked_in_icon.url}
                     alt="linked"
                     onClick={() => {
-                      window.open(linkedin_url.url, '_blank')
+                      window.open(linkedin_url.url, "_blank");
                     }}
                   />
                 </li>
@@ -156,7 +160,7 @@ function OverlayModel({
                     src={facebook_icon.url}
                     alt="facebook"
                     onClick={() => {
-                      window.open(facebook_url.url, '_blank')
+                      window.open(facebook_url.url, "_blank");
                     }}
                   />
                 </li>
@@ -166,17 +170,17 @@ function OverlayModel({
         </ul>
       </nav>
     </div>
-  )
+  );
 }
 
 OverlayModel.defaultProps = {
   removeOverlay: false,
-  insta: '',
-  linked: '',
-  fb: '',
-  wp: '',
-  email: '',
-}
+  insta: "",
+  linked: "",
+  fb: "",
+  wp: "",
+  email: "",
+};
 
 OverlayModel.propTypes = {
   removeOverlay: PropTypes.func,
@@ -185,5 +189,5 @@ OverlayModel.propTypes = {
   fb: PropTypes.string,
   wp: PropTypes.string,
   email: PropTypes.string,
-}
-export default OverlayModel
+};
+export default OverlayModel;

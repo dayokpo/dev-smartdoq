@@ -1,6 +1,6 @@
-import { css, Global } from '@emotion/react'
-import { Helmet } from 'react-helmet'
-import React from 'react'
+import { css, Global } from "@emotion/react";
+import { Helmet } from "react-helmet";
+import React from "react";
 
 const globalStyle = css`
   html,
@@ -129,7 +129,7 @@ const globalStyle = css`
   blockquote:after,
   q:before,
   q:after {
-    content: '';
+    content: "";
     content: none;
   }
   table {
@@ -142,22 +142,20 @@ const globalStyle = css`
   textarea {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Ubuntu,
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Ubuntu,
       Cantarell, Roboto, Helvetica, Arial, Noto Sans, sans-serif,
-      'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
-      'Noto Color Emoji';
+      "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+      "Noto Color Emoji";
   }
-`
+`;
 
 const Layout = ({ websiteMeta, children }) => (
   <>
-    <Helmet>
-      
-    </Helmet>
+    <Helmet></Helmet>
     <Global styles={globalStyle} />
 
     {children}
   </>
-)
+);
 
-export default Layout
+export default Layout;

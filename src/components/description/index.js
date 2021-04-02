@@ -1,14 +1,10 @@
-import React from 'react'
+import React from "react";
 function Description({ desc }) {
-  return (
-    <div className="flex-item description">
-      {desc}
-    </div>
-  )
+  return <div className="flex-item description">{desc}</div>;
 }
 
-Description.defaultProps = {}
+Description.defaultProps = {};
 
-Description.propTypes = {}
+Description.propTypes = {};
 
-export default Description
+export default Description;

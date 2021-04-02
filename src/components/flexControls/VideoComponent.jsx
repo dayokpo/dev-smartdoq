@@ -1,10 +1,8 @@
-
 import styled from "styled-components";
-
 
 const VideoComponent = styled.input`
   outline: none;
-  @media (orientation: portrait) { }
+  @media (orientation: portrait) {
+  }
 `;
 export default VideoComponent;
-

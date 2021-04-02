@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-const LogoDesc = ({logo, desc }) => {
+const LogoDesc = ({ logo, desc }) => {
   return (
     <div id="LogoDesc" className="logoDescContainer">
       <img className="box" src={logo}></img>

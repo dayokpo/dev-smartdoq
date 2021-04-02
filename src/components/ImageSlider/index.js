@@ -1,21 +1,21 @@
-import * as React from 'react';
-import styled from 'styled-components/macro';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import * as React from "react";
+import styled from "styled-components/macro";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 export const SliderWrapper = styled.div`
- // padding: 25px 0;
- background: black;
- position: relative;
- flex-wrap: wrap;
- height: 100vh;
- width: 90%;
- max-width: 90%;
- align-items: center;
- border-top: 60px solid #000;
- overflow: auto;
+  // padding: 25px 0;
+  background: black;
+  position: relative;
+  flex-wrap: wrap;
+  height: 100vh;
+  width: 90%;
+  max-width: 90%;
+  align-items: center;
+  border-top: 60px solid #000;
+  overflow: auto;
 
- ${(props) =>
+  ${(props) =>
     props.separator &&
     `
     .slick-slide.slick-current,
@@ -25,8 +25,8 @@ export const SliderWrapper = styled.div`
   `}
 
   .slick-slider {
-  width: 100%;
-}
+    width: 100%;
+  }
 
   .slick-slide {
     float: left;
@@ -44,18 +44,18 @@ export const SliderWrapper = styled.div`
   .slick-slider .slick-list .slick-slide div {
     width: 100%;
     padding-top: 56.25%;
-}
-  
-.slick-track {
-  position: relative;
-  top: 0;
-  left: 0;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100% !important;
-  transform: none !important;
-}
+  }
+
+  .slick-track {
+    position: relative;
+    top: 0;
+    left: 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100% !important;
+    transform: none !important;
+  }
 
   .slick-slide img {
     width: 100% !important;
@@ -65,7 +65,7 @@ export const SliderWrapper = styled.div`
     position: absolute;
   }
 
- .slick-prev,
+  .slick-prev,
   .slick-next {
     position: absolute;
     text-align: center;
@@ -96,13 +96,13 @@ export const SliderWrapper = styled.div`
   .slick-next:before,
   .slick-prev:after,
   .slick-next:after {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     height: 80%;
     width: 50%;
-    border-bottom: 3px solid #FFF;
+    border-bottom: 3px solid #fff;
     transform: skew(0deg, 35deg);
   }
   .slick-prev:after,
@@ -133,7 +133,7 @@ export const SliderWrapper = styled.div`
       line-height: 100%;
       border: none;
       border-radius: 100%;
-      background-color: #FFF;
+      background-color: #fff;
       text-indent: -9999px;
     }
     .slick-active button {
@@ -143,29 +143,27 @@ export const SliderWrapper = styled.div`
   }
 `;
 const ImageSlider = (props) => {
-  
-    var settings = {
-        infinite: false,
-        speed: 500,
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        responsive: [
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 1,
-                    dots: true,
-                    arrows: false,
-                },
-            },
-        ],
-    };
-    return (
-        <SliderWrapper  separator={true}  separator={true}
-        padding={true}>
-            <Slider {...settings}>{props.children}</Slider>
-        </SliderWrapper>
-    );
+  var settings = {
+    infinite: false,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 1,
+          dots: true,
+          arrows: false,
+        },
+      },
+    ],
+  };
+  return (
+    <SliderWrapper separator={true} separator={true} padding={true}>
+      <Slider {...settings}>{props.children}</Slider>
+    </SliderWrapper>
+  );
 };
 
 export default ImageSlider;

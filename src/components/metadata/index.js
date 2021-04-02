@@ -1,7 +1,7 @@
-import React from "react"
-import { Helmet } from "react-helmet"
-import { useStaticQuery, graphql } from "gatsby"
-import logo from '../../files/logo-87.png'
+import React from "react";
+import { Helmet } from "react-helmet";
+import { useStaticQuery, graphql } from "gatsby";
+import logo from "../../files/logo-87.png";
 const Metadata = ({ websiteMeta, uid }) => {
   const data = useStaticQuery(
     graphql`
@@ -14,18 +14,21 @@ const Metadata = ({ websiteMeta, uid }) => {
         }
       }
     `
-  )
-  
-  const locationUrl = "https://smartdoq.netlify.app/"+uid;
+  );
+
+  const locationUrl = "https://smartdoq.netlify.app/" + uid;
   const titleText = websiteMeta.title.text;
   const websiteDescription = websiteMeta.description.text;
-  const linkShareImage = websiteMeta.meta_link_share_image?websiteMeta.meta_link_share_image.url:logo;
- 
-  const metaDescription = websiteDescription || data.site.siteMetadata.description
+  const linkShareImage = websiteMeta.meta_link_share_image
+    ? websiteMeta.meta_link_share_image.url
+    : logo;
+
+  const metaDescription =
+    websiteDescription || data.site.siteMetadata.description;
   return (
     <Helmet>
-    <meta charSet="utf-8" />
-    <link href='https://css.gg/all.css' rel='stylesheet'/>
+      <meta charSet="utf-8" />
+      <link href="https://css.gg/all.css" rel="stylesheet" />
       <meta
         name="viewport"
         content="width=device-width, initial-scale=1.0, viewport-fit=cover"
@@ -37,12 +40,12 @@ const Metadata = ({ websiteMeta, uid }) => {
       <meta property="og:image" content={linkShareImage} />
       <meta property="og:description" content={metaDescription} />
       <meta property="og:locale" content="en_GB" />
-      <meta property="og:url" content={locationUrl}/>
+      <meta property="og:url" content={locationUrl} />
       <meta name="description" content={metaDescription} />
       <script src="https://unpkg.com/feather-icons"></script>
-<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     </Helmet>
-  )
-}
+  );
+};
 
-export default Metadata
+export default Metadata;
