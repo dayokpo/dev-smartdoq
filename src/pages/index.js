@@ -44,7 +44,7 @@ import '../portret.css';
 import '../socialIcons.css';
 import '../hamburgers.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import * as constants from '../utils/constants';
 import {
     getWebsiteHeaderData,
     getPDFSlice,
@@ -126,87 +126,76 @@ export default function Home(props) {
                             onClick={() => setShowEmptyOverlay(!showEmptyOverlay)}
                         />
                     )}
-                    <LogoDesc logo={websiteHeaderData.logoImage} desc={websiteHeaderData.logoDescription} />
+                    <LogoDesc logo={websiteHeaderData.logoImage} 
+                    desc={websiteHeaderData.logoDescription} />
                     <div className="controlFlex">
-                        {/* ThreeD model  internal */}
-                        {websiteHeaderData.enabledChoices.indexOf('3D Model Internal') > -1 && (
-                            <ThreeDModelComponent
-                                src={threeDModelImage}
-                                type="image"
-                                className="box"
-                                onClick={() => setThreeDModelOverlay(!threeDModelOverlay)}
-                            />
-                        )}
-
-                        {/* PDF  */}
-                        {websiteHeaderData.enabledChoices.indexOf('PDF') > -1 && (
-                            <PdfComponent
+                    {websiteHeaderData.enabledChoices.map(choice=>{
+                        const {PDF, PHOTO_GALLERY, VIDEO_GALLERY, WEBSITE}=constants;
+                        switch(choice){
+                            case PDF:return (<PdfComponent
                                 src={pdfImage}
                                 type="image"
                                 className="box"
                                 onClick={() => setPdfOverlay(!openPdfOverlay)}
-                            />
-                        )}
-                        {/* Video  */}
-                        {websiteHeaderData.enabledChoices.indexOf('Video Gallery') > -1 && (
-                            <VideoComponent
+                            />)
+                            case PHOTO_GALLERY:return (
+                                <PhotoComponent
+                                src={photoImage}
+                                type="image"
+                                value=""
+                                className="box"
+                                onClick={() => setPhotoOverlay(!openPhotoOverlay)}
+                            />)
+                             case VIDEO_GALLERY:return (
+                                <VideoComponent
                                 src={videoImage}
                                 type="image"
                                 value=""
                                 className="box"
                                 onClick={() => setVideoOverlay(!openVideOverlay)}
                             />
-                        )}
-                        {/* IFRAME -  360 -3d */}
-                        {websiteHeaderData.enabledChoices.indexOf('IFRAME -') > -1 && (
-                            <IFrameComponent
-                                src={iframeImage}
-                                type="image"
-                                value=""
-                                className="box"
-                                onClick={() => setIFrameOverlay(!openIframeOverlay)}
-                            />
-                        )}
-                        {/* WEbsite -   */}
-                        {websiteHeaderData.enabledChoices.indexOf('Website -') > -1 && (
-                            <WebsiteComponent
+                            )
+                            case WEBSITE:return (
+                                <WebsiteComponent
                                 src={websiteImage}
                                 type="image"
                                 value=""
                                 className="box"
                                 onClick={() => setWebsiteOverlay(!websiteOverlay)}
-                            />
-                        )}
-                        {/* PHOTO GALLERY -   */}
-                        {websiteHeaderData.enabledChoices.indexOf('Photo Gallery') > -1 && (
-                            <PhotoComponent
-                                src={photoImage}
+                            />)
+                            case constants.IFRAME:return (
+                                <IFrameComponent
+                                src={iframeImage}
                                 type="image"
                                 value=""
                                 className="box"
-                                onClick={() => setPhotoOverlay(!openPhotoOverlay)}
-                            />
-                        )}
-                        {/* 3D carousel -   */}
-                        {websiteHeaderData.enabledChoices.indexOf('3D carousel') > -1 && (
-                            <ThreeSixtyCarouselComponent
+                                onClick={() => setIFrameOverlay(!openIframeOverlay)}
+                            />)
+                            case constants.THREE_D_MODEL:return (
+                                <ThreeDModelComponent
+                                src={threeDModelImage}
+                                type="image"
+                                className="box"
+                                onClick={() => setThreeDModelOverlay(!threeDModelOverlay)}
+                            />)
+                            case constants.THREE_D_CAROUSEL:return (
+                                <ThreeSixtyCarouselComponent
                                 src={threeSixtyCarouselImage}
                                 type="image"
                                 value=""
                                 className="box"
                                 onClick={() => setThreeSixtyCarousel(!threeSixtyCarousel)}
-                            />
-                        )}
-                        {/* FIFTY FIFTY-   */}
-                        {websiteHeaderData.enabledChoices.indexOf('50 / 50') > -1 && (
-                            <FiftyFiftyComponent
+                            />)
+                            case constants.FIFTY_FIFTY:return (
+                                <FiftyFiftyComponent
                                 src={fiftyFiftyImage}
                                 type="image"
                                 value=""
                                 className="box"
                                 onClick={() => setFiftyFifty(!fiftyFifty)}
-                            />
-                        )}
+                            />)
+                        }
+                    })}
                     </div>
                     <PrismicLogo
                         src={websiteHeaderData.footerImage}
