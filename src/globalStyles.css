@@ -484,6 +484,11 @@ p.pdfName {
   justify-content: center;
 }
 
+.videoIframe iframe {
+  width: 420px;
+  height: 240px;
+}
+
 @media screen  and (max-width: 1024px) and (orientation : portrait){
   .flex-item {
     flex-wrap: wrap;
