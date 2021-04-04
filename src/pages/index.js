@@ -14,15 +14,7 @@ import LogoDesc from '../components/LogoDesc'
 import Gallery from '../components/Gallery'
 import VideoGallery from '../components/VideoGallery'
 import DegreeOverlay from '../components/DegreeOverlay'
-//flex controls images
-import threeDModelImage from '../files/flexControls/threeDModelImage.png'
-import iframeImage from '../files/flexControls/iframeImage.png'
-import photoImage from '../files/flexControls/photoImage.png'
-import pdfImage from '../files/flexControls/pdfImage.png'
-import videoImage from '../files/flexControls/videoImage.png'
-import websiteImage from '../files/flexControls/websiteImage.png'
-import fiftyFiftyImage from '../files/flexControls/fiftyFiftyImage.png'
-import threeSixtyCarouselImage from '../files/flexControls/threeSixtyCarouselImage.png'
+
 
 //flex controls components
 import ThreeDModelComponent from '../components/flexControls/ThreeDModelComponent'
@@ -43,6 +35,8 @@ import '../socialIcons.css'
 import '../hamburgers.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import * as constants from '../utils/constants'
+import getFuncIcon from '../utils/funcIconUtils'
+
 import {
     getWebsiteHeaderData,
     //getVideoMapSlice,
@@ -57,6 +51,7 @@ import {
     getTopRightData,
     getIFrameData,
     getWebsiteData,
+    getFuncIcons,
 } from '../utils/index'
 const FooterLine = styled.img`
     left: 5%;
@@ -73,12 +68,13 @@ const FooterLine = styled.img`
 
 export default function Home(props) {
     const { data } = props
+    const funcIcons = getFuncIcons(data)
+    console.log(' funcIcons', funcIcons)
     const brochureImages = getSliderData(data)
     const pdfDataFromSlider = getPDFData(data)
     const videoSliderData = getVideoSliderData(data)
     const websiteHeaderData = getWebsiteHeaderData(data)
     const websiteData = getWebsiteData(data)
-    // const videoMapSlice = getVideoMapSlice(data);
     const iframeData = getIFrameData(data)
     const socialURLs = getSocialUrls(data)
     const menuData = getMenuData(data)
@@ -128,122 +124,150 @@ export default function Home(props) {
                         desc={websiteHeaderData.logoDescription}
                     />
                     <div className="controlFlex">
-                        {websiteHeaderData.enabledChoices.map((choice) => {
-                            const {
-                                PDF,
-                                PHOTO_GALLERY,
-                                VIDEO_GALLERY,
-                                WEBSITE,
-                            } = constants
-                            switch (choice) {
-                                case PDF:
-                                    return (
-                                        <PdfComponent
-                                            src={pdfImage}
-                                            type="image"
-                                            className="box"
-                                            onClick={() =>
-                                                setPdfOverlay(!openPdfOverlay)
-                                            }
-                                        />
-                                    )
-                                case PHOTO_GALLERY:
-                                    return (
-                                        <PhotoComponent
-                                            src={photoImage}
-                                            type="image"
-                                            value=""
-                                            className="box"
-                                            onClick={() =>
-                                                setPhotoOverlay(
-                                                    !openPhotoOverlay
-                                                )
-                                            }
-                                        />
-                                    )
-                                case VIDEO_GALLERY:
-                                    return (
-                                        <VideoComponent
-                                            src={videoImage}
-                                            type="image"
-                                            value=""
-                                            className="box"
-                                            onClick={() =>
-                                                setVideoOverlay(
-                                                    !openVideOverlay
-                                                )
-                                            }
-                                        />
-                                    )
-                                case WEBSITE:
-                                    return (
-                                        <WebsiteComponent
-                                            src={websiteImage}
-                                            type="image"
-                                            value=""
-                                            className="box"
-                                            onClick={() =>
-                                                setWebsiteOverlay(
-                                                    !websiteOverlay
-                                                )
-                                            }
-                                        />
-                                    )
-                                case constants.IFRAME:
-                                    return (
-                                        <IFrameComponent
-                                            src={iframeImage}
-                                            type="image"
-                                            value=""
-                                            className="box"
-                                            onClick={() =>
-                                                setIFrameOverlay(
-                                                    !openIframeOverlay
-                                                )
-                                            }
-                                        />
-                                    )
-                                case constants.THREE_D_MODEL:
-                                    return (
-                                        <ThreeDModelComponent
-                                            src={threeDModelImage}
-                                            type="image"
-                                            className="box"
-                                            onClick={() =>
-                                                setThreeDModelOverlay(
-                                                    !threeDModelOverlay
-                                                )
-                                            }
-                                        />
-                                    )
-                                case constants.THREE_D_CAROUSEL:
-                                    return (
-                                        <ThreeSixtyCarouselComponent
-                                            src={threeSixtyCarouselImage}
-                                            type="image"
-                                            value=""
-                                            className="box"
-                                            onClick={() =>
-                                                setThreeSixtyCarousel(
-                                                    !threeSixtyCarousel
-                                                )
-                                            }
-                                        />
-                                    )
-                                case constants.FIFTY_FIFTY:
-                                    return (
-                                        <FiftyFiftyComponent
-                                            src={fiftyFiftyImage}
-                                            type="image"
-                                            value=""
-                                            className="box"
-                                            onClick={() =>
-                                                setFiftyFifty(!fiftyFifty)
-                                            }
-                                        />
-                                    )
+                        {websiteHeaderData.enabledChoices.map(
+                            (choice, index) => {
+                                const {
+                                    PDF,
+                                    PHOTO_GALLERY,
+                                    VIDEO_GALLERY,
+                                    WEBSITE,
+                                } = constants
+                                switch (choice) {
+                                    case PDF:
+                                        return (
+                                            <PdfComponent
+                                                src={getFuncIcon(
+                                                    funcIcons,
+                                                    index
+                                                )}
+                                                type="image"
+                                                className="box"
+                                                onClick={() =>
+                                                    setPdfOverlay(
+                                                        !openPdfOverlay
+                                                    )
+                                                }
+                                            />
+                                        )
+                                    case PHOTO_GALLERY:
+                                        return (
+                                            <PhotoComponent
+                                                src={getFuncIcon(
+                                                    funcIcons,
+                                                    index
+                                                )}
+                                                type="image"
+                                                value=""
+                                                className="box"
+                                                onClick={() =>
+                                                    setPhotoOverlay(
+                                                        !openPhotoOverlay
+                                                    )
+                                                }
+                                            />
+                                        )
+                                    case VIDEO_GALLERY:
+                                        return (
+                                            <VideoComponent
+                                                src={getFuncIcon(
+                                                    funcIcons,
+                                                    index
+                                                )}
+                                                type="image"
+                                                value=""
+                                                className="box"
+                                                onClick={() =>
+                                                    setVideoOverlay(
+                                                        !openVideOverlay
+                                                    )
+                                                }
+                                            />
+                                        )
+                                    case WEBSITE:
+                                        return (
+                                            <WebsiteComponent
+                                                src={getFuncIcon(
+                                                    funcIcons,
+                                                    index
+                                                )}
+                                                type="image"
+                                                value=""
+                                                className="box"
+                                                onClick={() =>
+                                                    setWebsiteOverlay(
+                                                        !websiteOverlay
+                                                    )
+                                                }
+                                            />
+                                        )
+                                    case constants.IFRAME:
+                                        return (
+                                            <IFrameComponent
+                                                src={getFuncIcon(
+                                                    funcIcons,
+                                                    index
+                                                )}
+                                                type="image"
+                                                value=""
+                                                className="box"
+                                                onClick={() =>
+                                                    setIFrameOverlay(
+                                                        !openIframeOverlay
+                                                    )
+                                                }
+                                            />
+                                        )
+                                    case constants.THREE_D_MODEL:
+                                        return (
+                                            <ThreeDModelComponent
+                                                src={getFuncIcon(
+                                                    funcIcons,
+                                                    index
+                                                )}
+                                                type="image"
+                                                className="box"
+                                                onClick={() =>
+                                                    setThreeDModelOverlay(
+                                                        !threeDModelOverlay
+                                                    )
+                                                }
+                                            />
+                                        )
+                                    case constants.THREE_D_CAROUSEL:
+                                        return (
+                                            <ThreeSixtyCarouselComponent
+                                                src={getFuncIcon(
+                                                    funcIcons,
+                                                    index
+                                                )}
+                                                type="image"
+                                                value=""
+                                                className="box"
+                                                onClick={() =>
+                                                    setThreeSixtyCarousel(
+                                                        !threeSixtyCarousel
+                                                    )
+                                                }
+                                            />
+                                        )
+                                    case constants.FIFTY_FIFTY:
+                                        return (
+                                            <FiftyFiftyComponent
+                                                src={getFuncIcon(
+                                                    funcIcons,
+                                                    index
+                                                )}
+                                                type="image"
+                                                value=""
+                                                className="box"
+                                                onClick={() =>
+                                                    setFiftyFifty(!fiftyFifty)
+                                                }
+                                            />
+                                        )
+                                }
                             }
-                        })}
+                        )}
                     </div>
                     <PrismicLogo
                         src={websiteHeaderData.footerImage}
@@ -534,6 +558,29 @@ export const pageQuery = graphql`
                                 text
                             }
                             __typename
+                        }
+                    }
+                    ... on PrismicBlogpostBodyFunctionalityicons {
+                        slice_type
+                        items {
+                            functionality_1_icon {
+                                url
+                            }
+                            functionality_2_icon {
+                                url
+                            }
+                            functionality_3_icon {
+                                url
+                            }
+                            functionality_4_icon {
+                                url
+                            }
+                            functionality_5_icon {
+                                url
+                            }
+                            functionality_6_icon {
+                                url
+                            }
                         }
                     }
                 }

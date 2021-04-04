@@ -9,6 +9,13 @@ const threeDModelInternal = 'PrismicBlogpostBody3dModelInternal'
 const topRight = 'PrismicBlogpostBodyTopRight'
 const iframeData = 'PrismicBlogpostBodyIframe'
 const websiteData = 'PrismicBlogpostBodyWebsiteAdd'
+const funcIcons = 'PrismicBlogpostBodyFunctionalityicons'
+
+export const getFuncIcons = (data) => {
+    return data.prismicBlogpost.data.body
+        .filter((item) => item['__typename'] === funcIcons)
+        .map((i) => i.items)[0]
+}
 
 const removeUndefined = (item) => item !== undefined
 
