@@ -1,45 +1,42 @@
-import React, { useState } from 'react'
-import { graphql } from 'gatsby'
-import styled from 'styled-components'
-import Layout from '../components/layout/'
-import PrismicLogo from '../components/PrismicLogo'
-import OverlayModel from '../components/overlayModel'
-import ThreeDOverlay from '../components/threeDOverlay'
-import Wrapper from '../components/wrapper'
-import EmptyOverlayModel from '../components/emptyOverlayModel'
-import Metadata from '../components/metadata'
-import LeftMenu from '../components/menu/leftMenu'
-import RightMenu from '../components/menu/rightMenu'
-import LogoDesc from '../components/LogoDesc'
-import Gallery from '../components/Gallery'
-import VideoGallery from '../components/VideoGallery'
-import DegreeOverlay from '../components/DegreeOverlay'
-
-
+import React, { useState } from 'react';
+import { graphql } from 'gatsby';
+import styled from 'styled-components';
+import Layout from '../components/layout/';
+import PrismicLogo from '../components/PrismicLogo';
+import OverlayModel from '../components/overlayModel';
+import ThreeDOverlay from '../components/threeDOverlay';
+import Wrapper from '../components/wrapper';
+import EmptyOverlayModel from '../components/emptyOverlayModel';
+import Metadata from '../components/metadata';
+import LeftMenu from '../components/menu/leftMenu';
+import RightMenu from '../components/menu/rightMenu';
+import LogoDesc from '../components/LogoDesc';
+import Gallery from '../components/Gallery';
+import VideoGallery from '../components/VideoGallery';
+import DegreeOverlay from '../components/DegreeOverlay';
 //flex controls components
-import ThreeDModelComponent from '../components/flexControls/ThreeDModelComponent'
-import IFrameComponent from '../components/flexControls/IFrameComponent'
-import PdfComponent from '../components/flexControls/PdfComponent'
-import PhotoComponent from '../components/flexControls/PhotoComponent'
-import VideoComponent from '../components/flexControls/VideoComponent'
-import WebsiteComponent from '../components/flexControls/WebsiteComponent'
-import ThreeSixtyCarouselComponent from '../components/flexControls/ThreeSixtyCarouselComponent'
-import FiftyFiftyComponent from '../components/flexControls/FiftyFiftyComponent'
+import ThreeDModelComponent from '../components/flexControls/ThreeDModelComponent';
+import IFrameComponent from '../components/flexControls/IFrameComponent';
+import PdfComponent from '../components/flexControls/PdfComponent';
+import PhotoComponent from '../components/flexControls/PhotoComponent';
+import VideoComponent from '../components/flexControls/VideoComponent';
+import WebsiteComponent from '../components/flexControls/WebsiteComponent';
+import ThreeSixtyCarouselComponent from '../components/flexControls/ThreeSixtyCarouselComponent';
+import FiftyFiftyComponent from '../components/flexControls/FiftyFiftyComponent';
 
 //Flex Control Overlay Components to kick the journey
-import PDFSlider from '../components/PDFSlider'
+import PDFSlider from '../components/PDFSlider';
 
-import '../globalStyles.css'
-import '../portret.css'
-import '../socialIcons.css'
-import '../hamburgers.css'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import * as constants from '../utils/constants'
-import getFuncIcon from '../utils/funcIconUtils'
+import '../globalStyles.css';
+import '../portret.css';
+import '../socialIcons.css';
+import '../hamburgers.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import * as constants from '../utils/constants';
+import getFuncIcon from '../utils/funcIconUtils';
 
 import {
     getWebsiteHeaderData,
-    //getVideoMapSlice,
     getSocialUrls,
     getMenuData,
     getWebsiteMeta,
@@ -52,7 +49,7 @@ import {
     getIFrameData,
     getWebsiteData,
     getFuncIcons,
-} from '../utils/index'
+} from '../utils/index';
 const FooterLine = styled.img`
     left: 5%;
     bottom: 7%;
@@ -64,42 +61,35 @@ const FooterLine = styled.img`
         bottom: 8%;
         width: 70%;
     }
-`
+`;
 
 export default function Home(props) {
-    const { data } = props
-    const funcIcons = getFuncIcons(data)
-    console.log(' funcIcons', funcIcons)
-    const brochureImages = getSliderData(data)
-    const pdfDataFromSlider = getPDFData(data)
-    const videoSliderData = getVideoSliderData(data)
-    const websiteHeaderData = getWebsiteHeaderData(data)
-    const websiteData = getWebsiteData(data)
-    const iframeData = getIFrameData(data)
-    const socialURLs = getSocialUrls(data)
-    const menuData = getMenuData(data)
-    const websiteMeta = getWebsiteMeta(data)
-    const topRightData = getTopRightData(data)
-    const [open, setOpen] = useState(false)
+    const { data } = props;
+    const funcIcons = getFuncIcons(data);
+    const websiteHeaderData = getWebsiteHeaderData(data);
+    const websiteData = getWebsiteData(data);
+    const iframeData = getIFrameData(data);
+    const socialURLs = getSocialUrls(data);
+    const menuData = getMenuData(data);
+    const websiteMeta = getWebsiteMeta(data);
+    const topRightData = getTopRightData(data);
+    const [open, setOpen] = useState(false);
 
-    const [openIframeOverlay, setIFrameOverlay] = useState(false)
-    const [openPdfOverlay, setPdfOverlay] = useState(false)
-    const [openPhotoOverlay, setPhotoOverlay] = useState(false)
-    const [threeDModelOverlay, setThreeDModelOverlay] = useState(false)
-    const [openVideOverlay, setVideoOverlay] = useState(false)
-    const [websiteOverlay, setWebsiteOverlay] = useState(false)
-    const [threeSixtyCarousel, setThreeSixtyCarousel] = useState(false)
-    const [fiftyFifty, setFiftyFifty] = useState(false)
-
-    const [showEmptyOverlay, setShowEmptyOverlay] = useState(false)
+    const [openIframeOverlay, setIFrameOverlay] = useState(false);
+    const [openPdfOverlay, setPdfOverlay] = useState(false);
+    const [openPhotoOverlay, setPhotoOverlay] = useState(false);
+    const [threeDModelOverlay, setThreeDModelOverlay] = useState(false);
+    const [openVideOverlay, setVideoOverlay] = useState(false);
+    const [websiteOverlay, setWebsiteOverlay] = useState(false);
+    const [threeSixtyCarousel, setThreeSixtyCarousel] = useState(false);
+    const [fiftyFifty, setFiftyFifty] = useState(false);
+    const [clickIndex, setClickIndex] = useState();
+    const [showEmptyOverlay, setShowEmptyOverlay] = useState(false);
 
     return (
         <>
             <Layout>
-                <Metadata
-                    websiteMeta={websiteMeta}
-                    uid={data.prismicBlogpost.uid}
-                />
+                <Metadata websiteMeta={websiteMeta} uid={data.prismicBlogpost.uid} />
                 <Wrapper bgurl={websiteHeaderData.backgroundImage}>
                     {!open && (
                         <LeftMenu
@@ -107,6 +97,7 @@ export default function Home(props) {
                             type="image"
                             style={menuStyle(menuData, 'left')}
                             onClick={() => setOpen(!open)}
+                            bgColor={menuData.menu_left_icon_bgcolor}
                         />
                     )}
                     {showRightMenu(menuData) && !showEmptyOverlay && !open && (
@@ -114,235 +105,182 @@ export default function Home(props) {
                             src={menuData.menu_right_icon.url}
                             type="image"
                             style={menuStyle(menuData, 'right')}
-                            onClick={() =>
-                                setShowEmptyOverlay(!showEmptyOverlay)
-                            }
+                            onClick={() => setShowEmptyOverlay(!showEmptyOverlay)}
+                            bgColor={menuData.menu_right_icon_bg_color}
                         />
                     )}
-                    <LogoDesc
-                        logo={websiteHeaderData.logoImage}
-                        desc={websiteHeaderData.logoDescription}
-                    />
+                    <LogoDesc logo={websiteHeaderData.logoImage} desc={websiteHeaderData.logoDescription} />
                     <div className="controlFlex">
-                        {websiteHeaderData.enabledChoices.map(
-                            (choice, index) => {
-                                const {
-                                    PDF,
-                                    PHOTO_GALLERY,
-                                    VIDEO_GALLERY,
-                                    WEBSITE,
-                                } = constants
-                                switch (choice) {
-                                    case PDF:
-                                        return (
-                                            <PdfComponent
-                                                src={getFuncIcon(
-                                                    funcIcons,
-                                                    index
-                                                )}
-                                                type="image"
-                                                className="box"
-                                                onClick={() =>
-                                                    setPdfOverlay(
-                                                        !openPdfOverlay
-                                                    )
-                                                }
-                                            />
-                                        )
-                                    case PHOTO_GALLERY:
-                                        return (
-                                            <PhotoComponent
-                                                src={getFuncIcon(
-                                                    funcIcons,
-                                                    index
-                                                )}
-                                                type="image"
-                                                value=""
-                                                className="box"
-                                                onClick={() =>
-                                                    setPhotoOverlay(
-                                                        !openPhotoOverlay
-                                                    )
-                                                }
-                                            />
-                                        )
-                                    case VIDEO_GALLERY:
-                                        return (
-                                            <VideoComponent
-                                                src={getFuncIcon(
-                                                    funcIcons,
-                                                    index
-                                                )}
-                                                type="image"
-                                                value=""
-                                                className="box"
-                                                onClick={() =>
-                                                    setVideoOverlay(
-                                                        !openVideOverlay
-                                                    )
-                                                }
-                                            />
-                                        )
-                                    case WEBSITE:
-                                        return (
-                                            <WebsiteComponent
-                                                src={getFuncIcon(
-                                                    funcIcons,
-                                                    index
-                                                )}
-                                                type="image"
-                                                value=""
-                                                className="box"
-                                                onClick={() =>
-                                                    setWebsiteOverlay(
-                                                        !websiteOverlay
-                                                    )
-                                                }
-                                            />
-                                        )
-                                    case constants.IFRAME:
-                                        return (
-                                            <IFrameComponent
-                                                src={getFuncIcon(
-                                                    funcIcons,
-                                                    index
-                                                )}
-                                                type="image"
-                                                value=""
-                                                className="box"
-                                                onClick={() =>
-                                                    setIFrameOverlay(
-                                                        !openIframeOverlay
-                                                    )
-                                                }
-                                            />
-                                        )
-                                    case constants.THREE_D_MODEL:
-                                        return (
-                                            <ThreeDModelComponent
-                                                src={getFuncIcon(
-                                                    funcIcons,
-                                                    index
-                                                )}
-                                                type="image"
-                                                className="box"
-                                                onClick={() =>
-                                                    setThreeDModelOverlay(
-                                                        !threeDModelOverlay
-                                                    )
-                                                }
-                                            />
-                                        )
-                                    case constants.THREE_D_CAROUSEL:
-                                        return (
-                                            <ThreeSixtyCarouselComponent
-                                                src={getFuncIcon(
-                                                    funcIcons,
-                                                    index
-                                                )}
-                                                type="image"
-                                                value=""
-                                                className="box"
-                                                onClick={() =>
-                                                    setThreeSixtyCarousel(
-                                                        !threeSixtyCarousel
-                                                    )
-                                                }
-                                            />
-                                        )
-                                    case constants.FIFTY_FIFTY:
-                                        return (
-                                            <FiftyFiftyComponent
-                                                src={getFuncIcon(
-                                                    funcIcons,
-                                                    index
-                                                )}
-                                                type="image"
-                                                value=""
-                                                className="box"
-                                                onClick={() =>
-                                                    setFiftyFifty(!fiftyFifty)
-                                                }
-                                            />
-                                        )
-                                }
+                        {websiteHeaderData.enabledChoices.map((choice, index) => {
+                            const { PDF, PHOTO_GALLERY, VIDEO_GALLERY, WEBSITE } = constants;
+                            switch (choice) {
+                                case PDF:
+                                    return (
+                                        <PdfComponent
+                                            src={getFuncIcon(funcIcons, index)}
+                                            key={index}
+                                            type="image"
+                                            className="box"
+                                            onClick={() => {
+                                                setClickIndex(index);
+                                                setPdfOverlay(!openPdfOverlay);
+                                            }}
+                                        />
+                                    );
+                                case PHOTO_GALLERY:
+                                    return (
+                                        <PhotoComponent
+                                            src={getFuncIcon(funcIcons, index)}
+                                            key={index}
+                                            type="image"
+                                            value=""
+                                            className="box"
+                                            onClick={() => {
+                                                setClickIndex(index);
+                                                setPhotoOverlay(!openPhotoOverlay);
+                                            }}
+                                        />
+                                    );
+                                case VIDEO_GALLERY:
+                                    return (
+                                        <VideoComponent
+                                            src={getFuncIcon(funcIcons, index)}
+                                            type="image"
+                                            key={index}
+                                            value=""
+                                            className="box"
+                                            onClick={() => {
+                                                setClickIndex(index);
+                                                setVideoOverlay(!openVideOverlay);
+                                            }}
+                                        />
+                                    );
+                                case WEBSITE:
+                                    return (
+                                        <WebsiteComponent
+                                            src={getFuncIcon(funcIcons, index)}
+                                            key={index}
+                                            type="image"
+                                            value=""
+                                            className="box"
+                                            onClick={() => {
+                                                setClickIndex(index);
+                                                setWebsiteOverlay(!websiteOverlay);
+                                            }}
+                                        />
+                                    );
+                                case constants.IFRAME:
+                                    return (
+                                        <IFrameComponent
+                                            src={getFuncIcon(funcIcons, index)}
+                                            type="image"
+                                            value=""
+                                            key={index}
+                                            className="box"
+                                            onClick={() => {
+                                                setClickIndex(index);
+                                                setIFrameOverlay(!openIframeOverlay);
+                                            }}
+                                        />
+                                    );
+                                case constants.THREE_D_MODEL:
+                                    return (
+                                        <ThreeDModelComponent
+                                            src={getFuncIcon(funcIcons, index)}
+                                            key={index}
+                                            type="image"
+                                            className="box"
+                                            onClick={() => {
+                                                setClickIndex(index);
+                                                setThreeDModelOverlay(!threeDModelOverlay);
+                                            }}
+                                        />
+                                    );
+                                case constants.THREE_D_CAROUSEL:
+                                    return (
+                                        <ThreeSixtyCarouselComponent
+                                            src={getFuncIcon(funcIcons, index)}
+                                            key={index}
+                                            type="image"
+                                            value=""
+                                            className="box"
+                                            onClick={() => {
+                                                setClickIndex(index);
+                                                setThreeSixtyCarousel(!threeSixtyCarousel);
+                                            }}
+                                        />
+                                    );
+                                case constants.FIFTY_FIFTY:
+                                    return (
+                                        <FiftyFiftyComponent
+                                            src={getFuncIcon(funcIcons, index)}
+                                            key={index}
+                                            type="image"
+                                            value=""
+                                            className="box"
+                                            onClick={() => {
+                                                setClickIndex(index);
+                                                setFiftyFifty(!fiftyFifty);
+                                            }}
+                                        />
+                                    );
                             }
-                        )}
+                        })}
                     </div>
                     <PrismicLogo
                         src={websiteHeaderData.footerImage}
                         type="image"
                         value=""
-                        onClick={() =>
-                            window.open(websiteHeaderData.footerLink)
-                        }
+                        onClick={() => window.open(websiteHeaderData.footerLink)}
                     />
                     <FooterLine src={websiteHeaderData.footerLineImage} />
                 </Wrapper>
 
                 {/* open left Overlay */}
-                {open && (
-                    <OverlayModel
-                        removeOverlay={() => setOpen(!open)}
-                        socialURLs={socialURLs}
-                    />
-                )}
+                {open && <OverlayModel removeOverlay={() => setOpen(!open)} socialURLs={socialURLs} />}
 
                 {/* open right Overlay */}
                 {showEmptyOverlay && (
                     <EmptyOverlayModel
                         topRightData={topRightData}
-                        removeOverlay={() =>
-                            setShowEmptyOverlay(!showEmptyOverlay)
-                        }
+                        removeOverlay={() => setShowEmptyOverlay(!showEmptyOverlay)}
                     />
                 )}
                 {/* 1 open Photo Gallery overlay */}
                 {openPhotoOverlay && (
                     <Gallery
                         removeOverlay={() => {
-                            setPhotoOverlay(!openPhotoOverlay)
+                            setPhotoOverlay(!openPhotoOverlay);
                         }}
-                        brochureImages={brochureImages}
+                        brochureImages={getSliderData(data, clickIndex)}
                         // data={videoMapSlice}
                     />
                 )}
 
                 {/* 2 open 360 - three D Model - IFRAME  -- virtual tour*/}
                 {openIframeOverlay && (
-                    <ThreeDOverlay
-                        data={iframeData}
-                        removeOverlay={() =>
-                            setIFrameOverlay(!openIframeOverlay)
-                        }
-                    />
+                    <ThreeDOverlay data={iframeData} removeOverlay={() => setIFrameOverlay(!openIframeOverlay)} />
                 )}
                 {/* 3 open video overlay */}
                 {openVideOverlay && (
-                    <VideoGallery
-                        videoData={videoSliderData}
-                        removeOverlay={() => setVideoOverlay(!openVideOverlay)}
-                    />
+                    <VideoGallery videoData={getVideoSliderData(data)} removeOverlay={() => setVideoOverlay(!openVideOverlay)} />
                 )}
                 {/* 4 open pdf overlay */}
                 {openPdfOverlay && (
                     <PDFSlider
-                        pdfDataFromSlider={pdfDataFromSlider}
+                        pdfDataFromSlider={getPDFData(data, clickIndex)}
                         removeOverlay={() => setPdfOverlay(!openPdfOverlay)}
                     />
                 )}
 
                 {/* 5 Website */}
                 {websiteOverlay && (
-                    <DegreeOverlay
-                        data={websiteData}
-                        removeOverlay={() => setWebsiteOverlay(!websiteOverlay)}
-                    />
+                    <DegreeOverlay data={websiteData} removeOverlay={() => setWebsiteOverlay(!websiteOverlay)} />
                 )}
                 {/* {openPdfOverlay && <PdfCarousel pdfSlice={pdfSlice} documents={pdfDocuments} removeOverlay={() => setPdfOverlay(!openPdfOverlay)} />} */}
             </Layout>
         </>
-    )
+    );
 }
 
 export const pageQuery = graphql`
@@ -502,6 +440,7 @@ export const pageQuery = graphql`
                             menu_left_icon {
                                 url
                             }
+                            menu_left_icon_bgcolor
                             menu_right_icon_bg_color
                             menu_right_icon {
                                 url
@@ -587,4 +526,4 @@ export const pageQuery = graphql`
             }
         }
     }
-`
+`;
