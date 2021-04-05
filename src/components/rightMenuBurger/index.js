@@ -6,7 +6,6 @@ const RightMenuBurger = styled.input`
     position: absolute;
     width: 3%;
     outline: none;
-    background-color: white;
     border-radius: 40px;
 
     @media (orientation: portrait) {

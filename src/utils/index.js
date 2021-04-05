@@ -140,7 +140,7 @@ export const showRightMenu = (menuData) => {
 };
 
 export const menuStyle = (menuData, place) => {
-    const bgColor = place === 'left' ? menuData.menu_left_icon_bgcolor : menuData.menu_right_icon_bgcolor;
+    const bgColor = place === 'left' ? menuData.menu_left_icon_bgcolor : menuData.menu_right_icon_bg_color;
     const bgImageURL = place === 'left' ? menuData.menu_left_icon.url : menuData.menu_right_icon.url;
     return {
         backgroundColor: amendMenuBGColor(bgColor),
