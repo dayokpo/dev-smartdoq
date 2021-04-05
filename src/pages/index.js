@@ -263,7 +263,10 @@ export default function Home(props) {
                 )}
                 {/* 3 open video overlay */}
                 {openVideOverlay && (
-                    <VideoGallery videoData={getVideoSliderData(data)} removeOverlay={() => setVideoOverlay(!openVideOverlay)} />
+                    <VideoGallery
+                        videoData={getVideoSliderData(data)}
+                        removeOverlay={() => setVideoOverlay(!openVideOverlay)}
+                    />
                 )}
                 {/* 4 open pdf overlay */}
                 {openPdfOverlay && (
@@ -334,6 +337,13 @@ export const pageQuery = graphql`
                             }
                             slide_caption
                             __typename
+                        }
+                        primary {
+                            functionality_position_index {
+                                text
+                                html
+                                raw
+                            }
                         }
                     }
                     ... on PrismicBlogpostBodyIframe {

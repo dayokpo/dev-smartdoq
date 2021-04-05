@@ -49,10 +49,8 @@ export const getWebsiteHeaderData = (data) => {
 };
 
 export const getSliderData = (data) => {
-    return data.prismicBlogpost.data.body
-        .filter((item) => item['__typename'] === sliderData)
-        .map((i) => i.items)[0]
-}
+    return data.prismicBlogpost.data.body.filter((item) => item['__typename'] === sliderData).map((i) => i.items)[0];
+};
 
 export const getIFrameData = (data) => {
     return data.prismicBlogpost.data.body.filter((item) => item['__typename'] === iframeData);
@@ -67,17 +65,15 @@ export const getTopRightData = (data) => {
 };
 
 export const getPDFData = (data, index = 0) => {
-    const lookUpIndex = NO_OF_FUNCTIONALITIES - index;
-    console.log( index )
-    
-    const pdfDataArray = data.prismicBlogpost.data.body.filter((item) => item['__typename'] === pdfData);
-    console.log( pdfDataArray ,pdfDataArray.reverse())
-
-   // return pdfDataArray[NO_OF_FUNCTIONALITIES - lookUpIndex]['items'];
-
-    return data.prismicBlogpost.data.body
+    const pdfDataArray = data.prismicBlogpost.data.body
         .filter((item) => item['__typename'] === pdfData)
-        .map((i) => i.items)[0]
+        .filter((e) => Number(e.primary.functionality_position_index.text) - 1 === index);
+
+    if (pdfDataArray && pdfDataArray.length > 0) {
+        return pdfDataArray.map((i) => i.items)[0];
+    } else {
+        return data.prismicBlogpost.data.body.filter((item) => item['__typename'] === pdfData).map((i) => i.items)[0];
+    }
 };
 export const getThreeDModelInternalData = (data) => {
     return data.prismicBlogpost.data.body
@@ -85,9 +81,11 @@ export const getThreeDModelInternalData = (data) => {
         .map((i) => i.items)[0];
 };
 
-export const getVideoSliderData = (data, index=0) => {
-     return data.prismicBlogpost.data.body.filter((item) => item['__typename'] === videoSliderData).map((i) => i.items)[0];
-   // return videoDataArray[NO_OF_FUNCTIONALITIES - lookUpIndex]['items'];
+export const getVideoSliderData = (data, index = 0) => {
+    return data.prismicBlogpost.data.body
+        .filter((item) => item['__typename'] === videoSliderData)
+        .map((i) => i.items)[0];
+    // return videoDataArray[NO_OF_FUNCTIONALITIES - lookUpIndex]['items'];
 };
 
 // export const getVideoMapSlice = data => {
