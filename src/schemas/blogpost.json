@@ -385,7 +385,16 @@
             "description" : "The main slider for the component",
             "icon" : "image",
             "display" : "list",
-            "non-repeat" : { },
+            "non-repeat" : {
+              "functionality_position_index" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading1",
+                  "label" : "functionality_position_index",
+                  "placeholder" : "place the functionality position index here"
+                }
+              }
+            },
             "repeat" : {
               "slide_image" : {
                 "type" : "Image",
@@ -620,11 +629,12 @@
             "icon" : "web",
             "display" : "list",
             "non-repeat" : {
-              "website_address" : {
-                "type" : "Link",
+              "functionality_position_index" : {
+                "type" : "StructuredText",
                 "config" : {
-                  "label" : "Website Address",
-                  "placeholder" : "Add Url"
+                  "single" : "heading1",
+                  "label" : "functionality_position_index",
+                  "placeholder" : "place the functionality position index here"
                 }
               },
               "move_the_x_to_the_left" : {
@@ -637,7 +647,15 @@
                 }
               }
             },
-            "repeat" : { }
+            "repeat" : {
+              "website_address" : {
+                "type" : "Link",
+                "config" : {
+                  "label" : "website_address",
+                  "placeholder" : "place the website Address"
+                }
+              }
+            }
           },
           "functionalityicons" : {
             "type" : "Slice",

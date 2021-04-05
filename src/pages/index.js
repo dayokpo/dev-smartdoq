@@ -253,7 +253,6 @@ export default function Home(props) {
                             setPhotoOverlay(!openPhotoOverlay);
                         }}
                         brochureImages={getSliderData(data, clickIndex)}
-                        // data={videoMapSlice}
                     />
                 )}
 
@@ -486,11 +485,25 @@ export const pageQuery = graphql`
                             slide_caption
                             __typename
                         }
+                        primary {
+                            functionality_position_index {
+                                text
+                                html
+                                raw
+                            }
+                        }
                     }
                     ... on PrismicBlogpostBodyWebsiteAdd {
                         id
                         primary {
                             move_the_x_to_the_left
+                            functionality_position_index {
+                                text
+                                html
+                                raw
+                            }
+                        }
+                        items {
                             website_address {
                                 url
                             }

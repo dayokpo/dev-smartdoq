@@ -11,8 +11,6 @@ const iframeData = 'PrismicBlogpostBodyIframe';
 const websiteData = 'PrismicBlogpostBodyWebsiteAdd';
 const funcIcons = 'PrismicBlogpostBodyFunctionalityicons';
 
-const NO_OF_FUNCTIONALITIES = 5;
-
 export const getFuncIcons = (data) => {
     return data.prismicBlogpost.data.body.filter((item) => item['__typename'] === funcIcons).map((i) => i.items)[0];
 };
@@ -48,8 +46,18 @@ export const getWebsiteHeaderData = (data) => {
     };
 };
 
-export const getSliderData = (data) => {
-    return data.prismicBlogpost.data.body.filter((item) => item['__typename'] === sliderData).map((i) => i.items)[0];
+export const getSliderData = (data, index = 0) => {
+    const arr = data.prismicBlogpost.data.body
+        .filter((item) => item['__typename'] === sliderData)
+        .filter((e) => Number(e.primary.functionality_position_index.text) - 1 === index);
+
+    if (arr && arr.length > 0) {
+        return arr.map((i) => i.items)[0];
+    } else {
+        return data.prismicBlogpost.data.body
+            .filter((item) => item['__typename'] === sliderData)
+            .map((i) => i.items)[0];
+    }
 };
 
 export const getIFrameData = (data) => {
@@ -85,15 +93,7 @@ export const getVideoSliderData = (data, index = 0) => {
     return data.prismicBlogpost.data.body
         .filter((item) => item['__typename'] === videoSliderData)
         .map((i) => i.items)[0];
-    // return videoDataArray[NO_OF_FUNCTIONALITIES - lookUpIndex]['items'];
 };
-
-// export const getVideoMapSlice = data => {
-//   return data.prismicBlogpost.data.body
-//     .filter(item => item['__typename'] === videoMapSlice)
-//     .map(i => i.primary)[0]
-//   //return embedVideo && embedVideo.embed_video_url ? embedVideo.embed_video_url.html: null;
-// }
 
 export const getPDFSlice = (data) => {
     return data.prismicBlogpost.data.body.filter((item) => item['__typename'] === pdfBodyName).map((i) => i.primary)[0];
