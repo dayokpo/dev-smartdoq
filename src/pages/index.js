@@ -67,7 +67,6 @@ export default function Home(props) {
     const { data } = props
     const funcIcons = getFuncIcons(data)
     const websiteHeaderData = getWebsiteHeaderData(data)
-    const websiteData = getWebsiteData(data)
     const iframeData = getIFrameData(data)
     const socialURLs = getSocialUrls(data)
     const menuData = getMenuData(data)
@@ -346,7 +345,7 @@ export default function Home(props) {
                 {/* 5 Website */}
                 {websiteOverlay && (
                     <DegreeOverlay
-                        data={websiteData}
+                        data={getWebsiteData(data, clickIndex)}
                         removeOverlay={() => setWebsiteOverlay(!websiteOverlay)}
                     />
                 )}

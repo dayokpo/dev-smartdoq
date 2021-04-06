@@ -75,10 +75,21 @@ export const getIFrameData = (data) => {
     )
 }
 
-export const getWebsiteData = (data) => {
-    return data.prismicBlogpost.data.body.filter(
-        (item) => item['__typename'] === websiteData
-    )
+export const getWebsiteData = (data, index = 0) => {
+    const arr = data.prismicBlogpost.data.body
+        .filter((item) => item['__typename'] === websiteData)
+        .filter(
+            (e) =>
+                Number(e.primary.functionality_position_index.text) - 1 ===
+                index
+        )
+    if (arr && arr.length > 0) {
+        return arr.map((i) => i.items)[0]
+    } else {
+        return data.prismicBlogpost.data.body
+            .filter((item) => item['__typename'] === websiteData)
+            .map((i) => i.items)[0]
+    }
 }
 
 export const getTopRightData = (data) => {
