@@ -48,8 +48,16 @@ import {
     getTopRightData,
     getIFrameData,
     getWebsiteData,
+<<<<<<< HEAD
     getFuncIcons,
+<<<<<<< HEAD
 } from '../utils/index'
+=======
+} from '../utils/index';
+=======
+} from '../utils/index'
+>>>>>>> adding lint and prettier
+>>>>>>> adding lint and prettier
 const FooterLine = styled.img`
     left: 5%;
     bottom: 7%;
@@ -116,7 +124,10 @@ export default function Home(props) {
                     <LogoDesc
                         logo={websiteHeaderData.logoImage}
                         desc={websiteHeaderData.logoDescription}
+<<<<<<< HEAD
                         fontName={websiteHeaderData.fontName}
+=======
+>>>>>>> adding lint and prettier
                     />
                     <div className="controlFlex">
                         {websiteHeaderData.enabledChoices.map(
@@ -345,7 +356,11 @@ export default function Home(props) {
                 {/* 5 Website */}
                 {websiteOverlay && (
                     <DegreeOverlay
+<<<<<<< HEAD
                         data={getWebsiteData(data, clickIndex)}
+=======
+                        data={websiteData}
+>>>>>>> adding lint and prettier
                         removeOverlay={() => setWebsiteOverlay(!websiteOverlay)}
                     />
                 )}

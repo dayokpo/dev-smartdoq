@@ -1,7 +1,7 @@
 {
-  "name": "gatsby-starter-hello-world",
+  "name": "control-hub",
   "private": true,
-  "description": "A simplified bare-bones starter for Gatsby",
+  "description": "Control hub",
   "version": "0.1.0",
   "license": "0BSD",
   "scripts": {
@@ -37,7 +37,10 @@
     "eslint-plugin-react": "^7.23.1",
     "gatsby-disable-404": "^0.2.1",
     "gatsby-plugin-web-font-loader": "^1.0.4",
-    "prettier": "2.2.1"
+    "prettier": "2.2.1",
+    "eslint": "^7.23.0",
+    "eslint-plugin-jest": "^24.3.2",
+    "eslint-plugin-react": "^7.23.1"
   },
   "repository": {
     "type": "git",
