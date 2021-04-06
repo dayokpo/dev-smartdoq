@@ -36,3 +36,19 @@
     font-family: "SuperGrotesk Bold";
     src: url("./superGrotesk/SuperGroteskPro-Bold.otf");
   }
+  @font-face {
+    font-family: "SweetSans Bold";
+    src: url("./sweet/SweetSans-Bold.otf");
+  }
+  @font-face {
+    font-family: "SweetSans Regular";
+    src: url("./sweet/SweetSans-Regular.otf");
+  }
+  @font-face {
+    font-family: "SweetSans Medium";
+    src: url("./sweet/SweetSans-Medium.otf");
+  }
+  @font-face {
+    font-family: "Apercu Medium";
+    src: url("./apercu/Apercu-Medium.otf");
+  }
