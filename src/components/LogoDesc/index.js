@@ -3,6 +3,7 @@ import React from 'react';
 const LogoDesc = ({ logo, desc, fontName }) => (
     <div id="LogoDesc" className="logoDescContainer">
         <img className="box" src={logo}></img>
+        {console.log(" desc >>>",desc)}
         <div className="align-self" dangerouslySetInnerHTML={{ __html: desc }} />
     </div>
 );
