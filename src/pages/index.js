@@ -49,7 +49,6 @@ import {
     getIFrameData,
     getWebsiteData,
     getFuncIcons,
-
 } from '../utils/index'
 
 const FooterLine = styled.img`
