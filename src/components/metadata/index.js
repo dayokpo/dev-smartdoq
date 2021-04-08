@@ -16,7 +16,7 @@ const Metadata = ({ websiteMeta, uid }) => {
         `
     )
 
-    const locationUrl = 'https://smartdoq.netlify.app/' + uid
+    const locationUrl = 'https://cntrl-hub.com/' + uid
     const titleText = websiteMeta.title.text
     const websiteDescription = websiteMeta.description.text
     const linkShareImage = websiteMeta.meta_link_share_image

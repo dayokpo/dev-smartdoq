@@ -667,8 +667,6 @@ p.pdfName {
   margin-bottom:8.0pt;
   margin-left:0cm;
   font-size:15px;
-  font-family:"Calibri",
-  sans-serif;
   text-align:center;
 }
 .loader {
@@ -680,7 +678,6 @@ p.pdfName {
   background-color: white;
 }
 .spanLogoClassName{
-  
   color: #FFFFFF;
 }
 

@@ -7,7 +7,7 @@ const LogoDesc = ({ logo, desc, fontName }) => (
         className="align-self"
         dangerouslySetInnerHTML={{ __html: desc }}
     />
-</div>
+   </div>
 )
 
 export default LogoDesc

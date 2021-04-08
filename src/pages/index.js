@@ -50,7 +50,8 @@ import {
     getIFrameData,
     getWebsiteData,
     getFuncIcons,
-} from '../utils/index';
+} from '../utils/index'
+
 const FooterLine = styled.img`
     left: 5%;
     bottom: 7%;
