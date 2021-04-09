@@ -17,9 +17,9 @@ module.exports = {
       {
           resolve: 'gatsby-source-prismic',
           options: {
-              repositoryName: 'controlhub',
+              repositoryName: 'recipedia',
               accessToken:
-                  'MC5ZRi14Q2hJQUFDQUFNaDVU.F--_vW_vv73vv73vv70PMO-_ve-_ve-_vQMuEe-_vTXvv73vv73vv73vv71r77-977-9FF3vv71A77-9NEIBaA',
+              "MC5ZRVpWUWhFQUFDQUEyaEsx.au-_vR03WgVhQCbvv73vv73vv70lIXQqTO-_ve-_ve-_vX8lfu-_vXvvv71y77-977-9YO-_vQ8",
               releaseID: 'develop',
               linkResolver: ({ node, key, value }) => (doc) => {},
               fetchLinks: [],
