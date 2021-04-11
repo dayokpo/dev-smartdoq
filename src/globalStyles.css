@@ -503,9 +503,6 @@ p.pdfName {
   #LogoDesc .box {
     width: 50%;
  }
-  #LogoDesc p span {
-    font-size: 100% !important;
-  }
 
   .controlFlex, .imageControlFlex {
     width: 100%;
@@ -575,9 +572,7 @@ p.pdfName {
 }
 
 @media screen and (max-width: 1024px) and (orientation: landscape) {
-  #LogoDesc p span {
-    font-size: 100% !important;
-  }
+
   .rightContainerFlex .box {
     width: 20%;
   }
@@ -619,6 +614,16 @@ p.pdfName {
   }
 }
 
+@media screen and (max-width: 479px) and (orientation: landscape) {
+  #LogoDesc p span {
+    font-size: 100% !important;
+  }
+}
+@media screen and (max-width: 479px) and (orientation: landscape) {
+  #LogoDesc p span {
+    font-size: 100% !important;
+  }
+}
 
 /*iPad*/
 
