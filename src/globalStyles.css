@@ -211,14 +211,15 @@ a {
     width: 60%;
 }
 .rightContainerFlex{
-  display: flex;
+  display: block;
   flex-direction: column;
   height: 90vh;
 }
 
 .rightContainerFlex .box {
   width: 15%;
-  margin: auto;
+  margin: 5% auto;
+  display: block;
 }
 
 .logoDescContainer{
@@ -621,15 +622,27 @@ p.pdfName {
   #LogoDesc p span {
     font-size: 250%!important;
   }
+  
+  .controlFlex, .imageControlFlex {
+    padding: 5% 0;
+  }
 }
 @media only screen and (min-device-width: 834px) and (max-device-width: 1112px) and (-webkit-min-device-pixel-ratio: 2) {
   #LogoDesc p span {
     font-size: 250%!important;
   }
+  
+  .controlFlex, .imageControlFlex {
+    padding: 5% 0;
+  }
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
   #LogoDesc p span {
     font-size: 200%!important;
+  }
+  
+  .controlFlex, .imageControlFlex {
+    padding: 5% 0;
   }
 }
 /*iPad*/
