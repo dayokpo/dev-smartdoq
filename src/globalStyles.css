@@ -614,22 +614,12 @@ p.pdfName {
   }
 }
 
-@media screen and (max-width: 479px) and (orientation: landscape) {
-  #LogoDesc p span {
-    font-size: 100% !important;
-  }
-}
-@media screen and (max-width: 479px) and (orientation: landscape) {
-  #LogoDesc p span {
-    font-size: 100% !important;
-  }
-}
 
 /*iPad*/
 
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) {
   #LogoDesc p span {
-    font-size: 200%!important;
+    font-size: 250%!important;
   }
 }
 @media only screen and (min-device-width: 834px) and (max-device-width: 1112px) and (-webkit-min-device-pixel-ratio: 2) {
@@ -637,14 +627,24 @@ p.pdfName {
     font-size: 250%!important;
   }
 }
-@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
   #LogoDesc p span {
-    font-size: 250%!important;
+    font-size: 200%!important;
   }
 }
 /*iPad*/
 
 
+@media screen and (max-width: 479px) and (orientation: portrait) {
+  #LogoDesc p span {
+    font-size: 100% !important;
+  }
+}
+@media screen and (max-width: 813px) and (orientation: landscape) {
+  #LogoDesc p span {
+    font-size: 100% !important;
+  }
+}
 
 /* @media (orientation: portrait) {
   .controlFlex{
