@@ -1,10 +1,6 @@
 import React from 'react'
 function Description({ desc }) {
-  return (
-    <div className="flex-item description">
-      {desc}
-    </div>
-  )
+    return <div className="flex-item description">{desc}</div>
 }
 
 Description.defaultProps = {}

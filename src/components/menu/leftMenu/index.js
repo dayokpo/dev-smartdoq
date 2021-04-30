@@ -1,18 +1,18 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 const LeftMenu = styled.input`
-  left: 1%;
-  top: 1%;
-  position: absolute;
-  outline: none;
-  width: 50px;
+    left: 1%;
+    top: 1%;
+    position: absolute;
+    outline: none;
+    width: 50px;
 
-  @media screen and (max-width: 1024px) and (orientation: portrait) {
-    // width: 10%;
-  }
-  @media screen and (max-width: 1024px) and (orientation: landscape) {
-    // width: 8%;
-  }
-`;
+    @media screen and (max-width: 1024px) and (orientation: portrait) {
+        // width: 10%;
+    }
+    @media screen and (max-width: 1024px) and (orientation: landscape) {
+        // width: 8%;
+    }
+`
 
-export default LeftMenu;
+export default LeftMenu

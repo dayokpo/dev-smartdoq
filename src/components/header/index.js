@@ -4,21 +4,21 @@ import React from 'react'
 import '../header/style.scss'
 
 const Header = ({ siteTitle }) => (
-  <header>
-    <div>
-      <h1>
-        <Link to="/">{siteTitle}</Link>
-      </h1>
-    </div>
-  </header>
+    <header>
+        <div>
+            <h1>
+                <Link to="/">{siteTitle}</Link>
+            </h1>
+        </div>
+    </header>
 )
 
 Header.propTypes = {
-  siteTitle: PropTypes.string,
+    siteTitle: PropTypes.string,
 }
 
 Header.defaultProps = {
-  siteTitle: ``,
+    siteTitle: ``,
 }
 
 export default Header

@@ -18,8 +18,8 @@ const LogoDescription = styled.p`
     width: 45%;
     position: absolute;
     font-size: 0.7em;
-    padding:0;
-    margin:0;
+    padding: 0;
+    margin: 0;
     text-align: center;
   }
 
@@ -29,9 +29,9 @@ const LogoDescription = styled.p`
     position: absolute;
     text-align: center;
     font-size: 0.7em;
-    padding:0;
-    margin:0;
-  } 
+    padding: 0;
+    margin: 0;
+  }
 `;
 
 export default LogoDescription;

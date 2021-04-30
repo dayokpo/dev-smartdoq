@@ -1,8 +1,8 @@
 exports.createPages = async ({ graphql, actions, reporter }) => {
-  const { createPage } = actions
+  const { createPage } = actions;
 
   const result = await graphql(`
-    query  {
+    query {
       allPrismicBlogpost {
         edges {
           node {
@@ -11,24 +11,24 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         }
       }
     }
-  `)
-    const data =  JSON.parse(JSON.stringify(result.data));
+  `);
+  const data = JSON.parse(JSON.stringify(result.data));
   if (result.errors) {
-    reporter.panicOnBuild(`🔥 Error while running GraphQL query on Prismic.`)
-    return
+    reporter.panicOnBuild(`🔥 Error while running GraphQL query on Prismic.`);
+    return;
   }
 
-  const pageTemplate = require.resolve(`./src/pages/index.js`)
+  const pageTemplate = require.resolve(`./src/pages/index.js`);
 
-  console.log(`🙏🏼 Begin creating pages from Prismic...`)
-  
+  console.log(`🙏🏼 Begin creating pages from Prismic...`);
+
   data.allPrismicBlogpost.edges.forEach(({ node }) => {
-    const parent = node.parent ? node.parent._meta.uid : ''
-    const slug = node.uid
-    const url = parent ? `${parent}/${slug}` : `${slug}`
-    const parentId = parent ? node.parent._meta.id : ''
+    const parent = node.parent ? node.parent._meta.uid : "";
+    const slug = node.uid;
+    const url = parent ? `${parent}/${slug}` : `${slug}`;
+    const parentId = parent ? node.parent._meta.id : "";
 
-    console.log(`✅ Page: ${url}`)
+    console.log(`✅ Page: ${url}`);
 
     createPage({
       path: url,
@@ -37,8 +37,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         parentId: parentId,
         uid: slug,
       },
-    })
-  })
+    });
+  });
 
-  console.log(`👌🏼 Done creating pages from Prismic!`)
-}
+  console.log(`👌🏼 Done creating pages from Prismic!`);
+};

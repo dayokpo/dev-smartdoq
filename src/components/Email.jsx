@@ -18,5 +18,4 @@ const Email = styled.input`
   }
 `;
 
-
 export default Email;

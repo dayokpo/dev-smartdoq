@@ -7,11 +7,12 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "prettier": "prettier --config .prettierrc 'src/**/*.js' --write",
+    "lint": "eslint src/**/*.js"
   },
   "dependencies": {
     "@emotion/react": "11.1.4",
@@ -25,12 +26,16 @@
     "react-feather": "^2.0.9",
     "react-helmet": "5.2.1",
     "react-iframe": "^1.8.0",
+    "react-loader-spinner": "^4.0.0",
     "react-pdf": "4.1.0",
     "react-slick": "^0.28.0",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.2.1"
   },
   "devDependencies": {
+    "eslint": "^7.23.0",
+    "eslint-plugin-jest": "^24.3.2",
+    "eslint-plugin-react": "^7.23.1",
     "gatsby-disable-404": "^0.2.1",
     "gatsby-plugin-web-font-loader": "^1.0.4",
     "prettier": "2.2.1"
