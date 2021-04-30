@@ -421,6 +421,7 @@ canvas.react-pdf__Page__canvas {
   text-align: center;
   display: flex;
   flex-direction: column;
+  padding: 5px;
 }
 
 .pdfGalleryThumb {
